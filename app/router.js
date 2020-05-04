@@ -10,7 +10,8 @@ const tagController = require('./controllers/tagController');
 const router = express.Router();
 
 // route gestion des actions sur table app_users
-router.post('/incription', userController.signupAction);
+router.get('/users', userController.getAllUsers);
+router.post('/inscription', userController.signupAction);
 router.post('/connexion', userController.loginAction);
 router.put('/user/:id', userController.editProfil);
 router.delete('/user/:id', userController.deleteProfil);

@@ -5,7 +5,75 @@ const randomstring = require('randomstring');
 
 const userController = {
 
+  // route : get /users
+  getAllUsers: async (req, res) => {
+    try {
+      const users = await User.findAll();
+      res.json(users);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
   // route : post /inscription
+  signupAction: async (req, res) => {
+    try {
+      const {email, password, passwordConfirm, firstname, lastname } = req.body;
+      // NTUI
+      const bodyErrors = [];
+      if (!email) {
+          bodyErrors.push('name parameter is missing');
+      }
+      if (!password) {
+          bodyErrors.push('position parameter is missing');
+      }
+      if (!passwordConfirm) {
+        bodyErrors.push('position parameter is missing');
+      }
+      if (!firstname) {
+        bodyErrors.push('position parameter is missing');
+      }
+      if (!lastname) {
+        bodyErrors.push('position parameter is missing');
+      }
+
+      if (!emailValidator.validate(email)) {
+        return res.status(400).json({
+          error: "Cet email n'est pas valide."
+        });
+      }
+
+      if (password != passwordConfirm) {
+        return res.status(400).json({
+          error: "La confirmation du mot de passe ne correspond pas."
+        });
+      }
+
+      const secretToken = randomstring.generate();
+      // en testant la taille du tableau, je distingue facilement les 2 cas qui m'intéressent
+      // taille 0, assimilé à false dans un if : on ne rentre pas dans le if
+      // taille 1+, assimilé à true dans un if : on rentre dans le if
+      if (bodyErrors.length) {
+          // s'il y a des erreurs
+          res.status(400).json(bodyErrors);
+      } else {
+          const newUser = new User();
+          newUser.email = email;
+          const encryptedPwd = bcrypt.hashSync(password, 10);
+          newUser.password = encryptedPwd;
+          newUser.firstname = firstname;
+          newUser.secretToken = secretToken;
+          newUser.lastname = lastname;
+          await newUser.save();
+          res.json(newUser);
+      }
+      } catch (error) {
+          res.status(500).json(error);
+      }
+  },
+
+
+  /*
   signupAction: async (req, res) => {
     try {
       // les vérifs à faire : 
@@ -36,14 +104,15 @@ const userController = {
         });
       }
 
-      /*
+      
       // - 4: generation du secret token...
       const secretToken = randomstring.generate();
       result.value.secretToken = secretToken;
 
       // -5: Flag account is inactive
       result.value.active = false;
-      */
+      
+      
 
       // Si on est tout bon, on crée le User !
       let newUser = new User();
@@ -61,10 +130,14 @@ const userController = {
       });
 
     } catch (err) {
-      res.status(500).send(err);
+      res.status(500).json({
+        msg: "catch signupAction."
+      });
     }  
 
   },
+
+  */
 
   // route : post /connexion
   loginAction: async (req, res) => {
