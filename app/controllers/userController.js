@@ -1,9 +1,11 @@
 const User = require('../models/user');
 const emailValidator = require('email-validator');
 const bcrypt = require('bcrypt');
+const randomstring = require('randomstring');
 
 const userController = {
 
+  // route : post /inscription
   signupAction: async (req, res) => {
     try {
       // les vérifs à faire : 
@@ -34,7 +36,14 @@ const userController = {
         });
       }
 
-      // - 4: Si on avait le courage, vérifier que le mdp répond aux recommendations CNIL...
+      /*
+      // - 4: generation du secret token...
+      const secretToken = randomstring.generate();
+      result.value.secretToken = secretToken;
+
+      // -5: Flag account is inactive
+      result.value.active = false;
+      */
 
       // Si on est tout bon, on crée le User !
       let newUser = new User();
@@ -57,6 +66,7 @@ const userController = {
 
   },
 
+  // route : post /connexion
   loginAction: async (req, res) => {
     try {
       //    console.log(req.body);
@@ -96,6 +106,54 @@ const userController = {
     }
     
   },
+
+  // route : PATCH /user/:id
+  editProfil: async (req, res) => {
+    try {
+      const userId = req.params.id;
+      let user = await User.findByPk(userId);
+      if (!user) {
+          response.status(404).json(`Cant find user with this id : ${userId}`);
+      } else {
+        const { email, firstname, lastname, } = request.body;
+
+        if (email) {
+          user.email = email;
+        }
+
+        if (firstname) {
+          user.firstname = firstname;
+        }
+
+        if (firstname) {
+          user.lastname = lastname;
+        }
+
+        await user.save();
+
+        res.json(user);
+
+      } 
+    } catch (err) {
+      res.status(500).send(err);
+    }  
+
+  },
+
+  // route : DELETE /user/:id
+  deleteProfil: async (req, res) => {
+    try {
+      const userId = req.params.id;
+      let user = await User.findByPk(userId);
+      await user.destroy();
+      // ici, ça ne sert à rien de renvoyer l'objet, ça serait même contrintuitif vu qu'il n'existe pas dans la BDD
+      res.status(200).json('user delete OK');
+
+    } catch (err) {
+      res.status(500).send(err);
+    }  
+
+  }
 
   
 

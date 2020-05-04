@@ -2,6 +2,7 @@ const emailValidator = require('email-validator');
 const sequelize = require('sequelize');
 const dbConnection = require('../dbConnection');
 
+
 class User extends sequelize.Model {
 
   getEmail() {
@@ -53,22 +54,46 @@ class User extends sequelize.Model {
     }
   };
 
+  getSecretToken() {
+    return this.secretToken;
+  };
+
+  setSecretToken(value) {
+    if (typeof value !== "string") {
+      throw Error('User.secretToken must be a string');
+    } else {
+      this.secretToken = value;
+    }
+  };
+
   getStatus() {
     return this.status;
   };
 
   setStatus(value) {
     if (!Number.isInteger(value)) {
-      throw Error('Level.status must be an integer');
+      throw Error('User.status must be an integer');
     } else {
       this.status = value;
     }
   };
 
-
   // petite fonction utilitaire
   getFullName() {
     return this.firstname+' '+this.lastname;
+  };
+
+  getActive() {
+    return this.active;
+  };
+
+  setActive(value) {
+    if (!Boolean(value)) {
+      throw Error('active is not a valid boolean');
+    } else {
+      this.status = value;
+    }
+    
   };
 
 };
@@ -78,8 +103,9 @@ User.init({
   password: sequelize.STRING,
   firstname: sequelize.STRING,
   lastname: sequelize.STRING,
+  secretToken: sequelize.STRING,
+  active: { type: sequelize.BOOLEAN, allowNull: false, defaultValue: false },
   status: sequelize.INTEGER,
-  role: sequelize.STRING
 },{
   sequelize: dbConnection,
   tableName: "app_users",
