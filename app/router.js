@@ -13,8 +13,10 @@ const router = express.Router();
 router.get('/users', userController.getAllUsers);
 router.post('/inscription', userController.signupAction);
 router.post('/connexion', userController.loginAction);
-router.put('/user/:id', userController.editProfil);
-router.delete('/user/:id', userController.deleteProfil);
+router.put('/user/:id/edit-profil', userController.editProfil);
+router.put('/user/:id/password', userController.modifyPassword);
+router.delete('/user/:id', userController.deleteAccount);
+// router.post('/user/:id/picture', userController.addOrEditPictureAccount);
 
 
 // route gestion des actions sur table projects

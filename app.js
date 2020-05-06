@@ -20,9 +20,13 @@ const app = express();
 app.use(cors('*'));
 
 app.use(session({
+  proxy: true,
   saveUninitialized: true,
   resave: true,
-  secret: 'new secret connexion'
+  secret: 'new secret connexion',
+  cookie: {
+    secure: true
+  } 
 }));
 
 const userMiddleware = require('./app/middlewares/user');

@@ -1,3 +1,4 @@
+const User = require('./user');
 const Project = require('./project');
 const Day = require('./day');
 const Tag = require('./tag');
@@ -49,7 +50,18 @@ Day.belongsTo(Project, {
     foreignKey: 'projects_id'
 });
 
+// user <> project
+
+User.hasMany(Project, {
+  as: 'projects',
+  foreignKey: 'app_users_id'
+});
+
+Project.belongsTo(User, {
+  as: 'users',
+  foreignKey: 'app_users_id'
+});
 
 
 // ne pas oublier de réexporter les modèles mis à jour, sinon ils seront inaccessibles
-module.exports = { Project, Day, Tag, Techno };
+module.exports = { Project, Day, Tag, Techno, User, };

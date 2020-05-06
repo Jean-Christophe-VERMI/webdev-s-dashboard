@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS "app_users" (
   "password" VARCHAR(60) NOT NULL,
   "firstname" VARCHAR(64) NULL,
   "lastname" VARCHAR(64) NULL,
+  "URL_picture_AWS" VARCHAR(255) NULL,
   "secretToken" VARCHAR(64) NOT NULL,
   "active" BOOLEAN NOT NULL DEFAULT FALSE,
   "status" INT NOT NULL DEFAULT 0,
@@ -31,10 +32,10 @@ CREATE TABLE IF NOT EXISTS "projects" (
   "id" SERIAL NOT NULL,
   "title" VARCHAR(64) NOT NULL,
   "description" VARCHAR(255) NULL,
+  "URL_picture_AWS" VARCHAR(255) NULL,
   "status" INT NOT NULL DEFAULT 0,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
-  "app_users_id" INT NOT NULL,
   PRIMARY KEY ("id"));
 
 
@@ -105,3 +106,16 @@ CREATE TABLE IF NOT EXISTS "days_has_tags" (
   "tags_id" INT NOT NULL,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY ("days_id", "tags_id"));
+
+-- -----------------------------------------------------
+-- Table "users_has_projects"
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS "users_has_projects" ;
+
+CREATE TABLE IF NOT EXISTS "users_has_projects" (
+  "app_users_id" INT NOT NULL,
+  "projects_id" INT NOT NULL,
+  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("app_users_id", "projects_id"));
+
+

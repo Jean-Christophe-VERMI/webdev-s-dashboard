@@ -54,6 +54,21 @@ class User extends sequelize.Model {
     }
   };
 
+  /*
+  getURL_picture_AWS() {
+    return this.URL_picture_AWS;
+  };
+
+  setURL_picture_AWS(value) {
+    if (typeof value !== "string") {
+      throw Error('User.URL_picture_AWS must be a string');
+    } else {
+      this.URL_picture_AWS = value;
+    }
+  };
+  */
+  
+
   getSecretToken() {
     return this.secretToken;
   };
@@ -103,6 +118,7 @@ User.init({
   password: sequelize.STRING,
   firstname: sequelize.STRING,
   lastname: sequelize.STRING,
+  URL_picture_AWS: sequelize.STRING,
   secretToken: sequelize.STRING,
   active: { type: sequelize.BOOLEAN, allowNull: false, defaultValue: false },
   status: sequelize.INTEGER,
