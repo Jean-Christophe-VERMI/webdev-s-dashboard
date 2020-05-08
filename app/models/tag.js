@@ -7,7 +7,6 @@ class Tag extends sequelize.Model {
 
 Tag.init({
   name: sequelize.STRING,
-  status: sequelize.INTEGER
 },{
   sequelize: dbConnection,
   tableName: "tags",

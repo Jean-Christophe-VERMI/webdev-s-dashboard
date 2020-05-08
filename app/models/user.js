@@ -30,31 +30,55 @@ class User extends sequelize.Model {
     }
   };
 
-  getFirstName() {
-    return this.firstname;
+  getUsername() {
+    return this.username;
   };
 
-  setFirstName(value) {
+  setUsername(value) {
     if(typeof value !== "string") {
-      throw Error('User.firstname must be a string');
+      throw Error('User.username must be a string');
     } else {
-      this.firstname = value;
+      this.username = value;
     }
   };
 
-  getLastName() {
-    return this.lastname;
+  getGithub() {
+    return this.github;
   };
 
-  setLastName(value) {
+  setGithub(value) {
     if (typeof value !== "string") {
-      throw Error('User.firstname must be a string');
+      throw Error('User.github must be a string');
     } else {
-      this.lastname = value;
+      this.github = value;
     }
   };
 
-  /*
+  getTwitter() {
+    return this.twitter;
+  };
+
+  setTwitter(value) {
+    if (typeof value !== "string") {
+      throw Error('User.twitter must be a string');
+    } else {
+      this.twitter = value;
+    }
+  };
+
+  getLinkedin() {
+    return this.linkedin;
+  };
+
+  setLinkedin(value) {
+    if (typeof value !== "string") {
+      throw Error('User.linkedin must be a string');
+    } else {
+      this.linkedin = value;
+    }
+  };
+
+  
   getURL_picture_AWS() {
     return this.URL_picture_AWS;
   };
@@ -66,8 +90,7 @@ class User extends sequelize.Model {
       this.URL_picture_AWS = value;
     }
   };
-  */
-  
+
 
   getSecretToken() {
     return this.secretToken;
@@ -93,10 +116,6 @@ class User extends sequelize.Model {
     }
   };
 
-  // petite fonction utilitaire
-  getFullName() {
-    return this.firstname+' '+this.lastname;
-  };
 
   getActive() {
     return this.active;
@@ -116,15 +135,16 @@ class User extends sequelize.Model {
 User.init({
   email: sequelize.STRING,
   password: sequelize.STRING,
-  firstname: sequelize.STRING,
-  lastname: sequelize.STRING,
+  username: sequelize.STRING,
+  github: sequelize.STRING,
+  twitter: sequelize.STRING,
+  linkedin: sequelize.STRING,
   URL_picture_AWS: sequelize.STRING,
   secretToken: sequelize.STRING,
   active: { type: sequelize.BOOLEAN, allowNull: false, defaultValue: false },
-  status: sequelize.INTEGER,
 },{
   sequelize: dbConnection,
-  tableName: "app_users",
+  tableName: "users",
   createdAt: "created_at",
   updatedAt: "updated_at"
 });

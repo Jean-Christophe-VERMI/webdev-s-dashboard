@@ -6,21 +6,34 @@
 -- -----------------------------------------------------
 -- Table "app_users"
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS "app_users" ;
+DROP TABLE IF EXISTS "users" ;
 
-CREATE TABLE IF NOT EXISTS "app_users" (
+CREATE TABLE IF NOT EXISTS "users" (
   "id" SERIAL NOT NULL,
   "email" VARCHAR(255) NOT NULL,
   "password" VARCHAR(60) NOT NULL,
-  "firstname" VARCHAR(64) NULL,
-  "lastname" VARCHAR(64) NULL,
+  "username" VARCHAR(64) NULL,
+  "github" VARCHAR(64) NULL,
+  "twitter" VARCHAR(64) NULL,
+  "linkedin" VARCHAR(64) NULL,
   "URL_picture_AWS" VARCHAR(255) NULL,
   "secretToken" VARCHAR(64) NOT NULL,
   "active" BOOLEAN NOT NULL DEFAULT FALSE,
-  "status" INT NOT NULL DEFAULT 0,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));
+
+
+-- -----------------------------------------------------
+-- Table "users_has_projects"
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS "users_has_projects" ;
+
+CREATE TABLE IF NOT EXISTS "users_has_projects" (
+  "users_id" INT NOT NULL,
+  "projects_id" INT NOT NULL,
+  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("users_id", "projects_id"));
 
 
 -- -----------------------------------------------------
@@ -33,10 +46,21 @@ CREATE TABLE IF NOT EXISTS "projects" (
   "title" VARCHAR(64) NOT NULL,
   "description" VARCHAR(255) NULL,
   "URL_picture_AWS" VARCHAR(255) NULL,
-  "status" INT NOT NULL DEFAULT 0,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));
+
+
+-- -----------------------------------------------------
+-- Table "projects_has_days"
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS "projects_has_days" ;
+
+CREATE TABLE IF NOT EXISTS "projects_has_days" (
+  "projects_id" INT NOT NULL,
+  "days_id" INT NOT NULL,
+  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("projects_id", "days_id"));
 
 
 -- -----------------------------------------------------
@@ -50,47 +74,6 @@ CREATE TABLE IF NOT EXISTS "days" (
   "text" VARCHAR(255) NOT NULL,
   "code" VARCHAR(255) NOT NULL,
   "ref_source" VARCHAR(255) NOT NULL,
-  "status" INT NOT NULL DEFAULT 0,
-  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  "updated_at" TIMESTAMP NULL,
-  "projects_id" INT NOT NULL,
-  PRIMARY KEY ("id"));
-
-
--- -----------------------------------------------------
--- Table "technos"
--- -----------------------------------------------------
-DROP TABLE IF EXISTS "technos" ;
-
-CREATE TABLE IF NOT EXISTS "technos" (
-  "id" SERIAL NOT NULL,
-  "name" VARCHAR(64) NOT NULL,
-  "status" INT NOT NULL DEFAULT 0,
-  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  "updated_at" TIMESTAMP NULL,
-  PRIMARY KEY ("id"));
-
-
--- -----------------------------------------------------
--- Table "projects_has_technos"
--- -----------------------------------------------------
-DROP TABLE IF EXISTS "projects_has_technos" ;
-
-CREATE TABLE IF NOT EXISTS "projects_has_technos" (
-  "projects_id" INT NOT NULL,
-  "technos_id" INT NOT NULL,
-  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY ("projects_id", "technos_id"));
-
--- -----------------------------------------------------
--- Table "tags"
--- -----------------------------------------------------
-DROP TABLE IF EXISTS "tags" ;
-
-CREATE TABLE IF NOT EXISTS "tags" (
-  "id" SERIAL NOT NULL,
-  "name" VARCHAR(64) NOT NULL,
-  "status" INT NOT NULL DEFAULT 0,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));
@@ -107,15 +90,54 @@ CREATE TABLE IF NOT EXISTS "days_has_tags" (
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY ("days_id", "tags_id"));
 
--- -----------------------------------------------------
--- Table "users_has_projects"
--- -----------------------------------------------------
-DROP TABLE IF EXISTS "users_has_projects" ;
 
-CREATE TABLE IF NOT EXISTS "users_has_projects" (
-  "app_users_id" INT NOT NULL,
-  "projects_id" INT NOT NULL,
+-- -----------------------------------------------------
+-- Table "tags"
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS "tags" ;
+
+CREATE TABLE IF NOT EXISTS "tags" (
+  "id" SERIAL NOT NULL,
+  "name" VARCHAR(64) NOT NULL,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY ("app_users_id", "projects_id"));
+  "updated_at" TIMESTAMP NULL,
+  PRIMARY KEY ("id"));
+
+
+
+-- -----------------------------------------------------
+-- Table "projects_has_technos"
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS "projects_has_technos" ;
+
+CREATE TABLE IF NOT EXISTS "projects_has_technos" (
+  "projects_id" INT NOT NULL,
+  "technos_id" INT NOT NULL,
+  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("projects_id", "technos_id"));
+
+
+-- -----------------------------------------------------
+-- Table "technos"
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS "technos" ;
+
+CREATE TABLE IF NOT EXISTS "technos" (
+  "id" SERIAL NOT NULL,
+  "name" VARCHAR(64) NOT NULL,
+  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMP NULL,
+  PRIMARY KEY ("id"));
+
+
+
+
+
+
+
+
+
+
+
 
 

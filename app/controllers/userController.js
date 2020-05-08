@@ -18,7 +18,7 @@ const userController = {
   // route : post /inscription
   signupAction: async (req, res) => {
     try {
-      const {email, password, passwordConfirm, firstname, lastname } = req.body;
+      const {email, password, passwordConfirm, username } = req.body;
       // NTUI
       const bodyErrors = [];
       if (!email) {
@@ -30,10 +30,7 @@ const userController = {
       if (!passwordConfirm) {
         bodyErrors.push('position parameter is missing');
       }
-      if (!firstname) {
-        bodyErrors.push('position parameter is missing');
-      }
-      if (!lastname) {
+      if (!username) {
         bodyErrors.push('position parameter is missing');
       }
 
@@ -61,9 +58,8 @@ const userController = {
           newUser.email = email;
           const encryptedPwd = bcrypt.hashSync(password, 10);
           newUser.password = encryptedPwd;
-          newUser.firstname = firstname;
+          newUser.username = username;
           newUser.secretToken = secretToken;
-          newUser.lastname = lastname;
           await newUser.save();
           res.json(newUser);
       }
@@ -123,18 +119,26 @@ const userController = {
       if (!user) {
           res.status(404).json(`Cant find user with this id : ${userId}`);
       } else {
-        const { email, firstname, lastname, urlPictureAWS } = req.body;
+        const { email, username, github, twitter, linkedin, urlPictureAWS } = req.body;
 
         if (email) {
           user.email = email;
         }
 
-        if (firstname) {
-          user.firstname = firstname;
+        if (username) {
+          user.username = username;
         }
 
-        if (lastname) {
-          user.lastname = lastname;
+        if (github) {
+          user.github = github;
+        }
+
+        if (twitter) {
+          user.twitter = twitter;
+        }
+
+        if (linkedin) {
+          user.linkedin = linkedin;
         }
 
         if (urlPictureAWS) {

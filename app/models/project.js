@@ -12,7 +12,6 @@ Project.init({
   description: sequelize.STRING,
   app_users_id: sequelize.INTEGER,
   URL_picture_AWS: sequelize.STRING,
-  status: sequelize.INTEGER,
 },{
   sequelize: dbConnection,
   tableName: "projects",

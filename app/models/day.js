@@ -11,7 +11,6 @@ Day.init({
   code: sequelize.TEXT,
   ref_source: sequelize.TEXT,
   project_id: sequelize.INTEGER,
-  status: sequelize.INTEGER,
   
 }, {
   sequelize: dbConnection,

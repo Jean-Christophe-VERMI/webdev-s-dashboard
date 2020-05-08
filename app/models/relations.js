@@ -54,12 +54,12 @@ Day.belongsTo(Project, {
 
 User.hasMany(Project, {
   as: 'projects',
-  foreignKey: 'app_users_id'
+  foreignKey: 'users_id'
 });
 
 Project.belongsTo(User, {
   as: 'users',
-  foreignKey: 'app_users_id'
+  foreignKey: 'users_id'
 });
 
 
