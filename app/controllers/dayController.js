@@ -4,11 +4,6 @@ const Day = require('../models/day');
 const dayController = {
 
 
-  getAllDays: (req, res) => {
-    
-    return res.status(200);
-  },
-
   getOneDay: (req, res) => {
     
     return res.status(200);

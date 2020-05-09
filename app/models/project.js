@@ -10,7 +10,9 @@ class Project extends sequelize.Model {
 Project.init({
   title: sequelize.STRING,
   description: sequelize.STRING,
-  app_users_id: sequelize.INTEGER,
+  catégorie_type: sequelize.STRING,
+  catégorie_état: sequelize.STRING,
+  favori: { type: sequelize.BOOLEAN, allowNull: false, defaultValue: false },
   URL_picture_AWS: sequelize.STRING,
 },{
   sequelize: dbConnection,

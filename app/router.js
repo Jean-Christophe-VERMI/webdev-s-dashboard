@@ -16,23 +16,21 @@ router.post('/connexion', userController.loginAction);
 router.put('/user/:id/edit-profil', userController.editProfil);
 router.put('/user/:id/password', userController.modifyPassword);
 router.delete('/user/:id', userController.deleteAccount);
-// router.post('/user/:id/picture', userController.addOrEditPictureAccount);
 
 
 // route gestion des actions sur table projects
-router.get('/projets', projectController.getAllProjects);
-router.get('/projets/:projectName', projectController.getOneProject);
-router.post('/nouveau-projet', projectController.createProject);
-router.put('/:projectName/:day', projectController.updateProject);
-router.delete('/:projectName/:day', projectController.deleteProject);
+router.get('/user/:id/dashboard/projets', projectController.getAllProjects);
+router.get('/user/:id/dashboard/projets/:projetName', projectController.getOneProject);
+router.post('/user/:id/dashboard/projets/nouveau-projet', projectController.createProject);
+router.put('/:projetName', projectController.updateProject);
+router.delete('/:projetName', projectController.deleteProject);
 
 
 // route gestion des action sur table days
-router.get('/:projectName/:day', dayController.getAllDays);
-router.get('/:projectName/:day', dayController.getOneDay);
-router.post('/:projectName/:day', dayController.createDay);
-router.put('/:projectName/:day', dayController.updateDay);
-router.delete('/:projectName/:day', dayController.deleteDay);
+router.get('/user/:id/dashboard/projets/:projetName/:day', dayController.getOneDay);
+router.post('/user/:id/dashboard/projets/:projetName', dayController.createDay);
+router.put('/:projetName/:day', dayController.updateDay);
+router.delete('/:projetName/:day', dayController.deleteDay);
 
 
 /* Technos */
