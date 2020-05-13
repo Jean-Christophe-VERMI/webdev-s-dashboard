@@ -19,36 +19,36 @@ router.delete('/user/:id', userController.deleteAccount);
 
 
 // route gestion des actions sur table projects
-router.get('/user/:id/dashboard/projets', projectController.getAllProjects);
-router.get('/user/:id/dashboard/projets/:projetName', projectController.getOneProject);
-router.post('/user/:id/dashboard/projets/nouveau-projet', projectController.createProject);
-router.put('/:projetName', projectController.updateProject);
-router.delete('/:projetName', projectController.deleteProject);
+router.get('/user/:id/projets', projectController.getAllProjectsByUser);
+router.get('/user/:id/projets/categorie-type', projectController.getAllProjectsByUserAndCategorieType);
+router.get('/user/:id/projets/categorie-etat', projectController.getAllProjectsByUserAndCategorieEtat);
+router.get('/projets/:projetId/:projetTitle', projectController.getOneProject);
+router.post('/user/:id/projets/nouveau-projet', projectController.createNewProject);
+router.post('/projets/:projetId/:projetTitle/editer-etat', projectController.editProjectEtat);
+router.put('/user/:id/projets/:projetId', projectController.updateProject);
+router.delete('/user/:id/projets/:projetId', projectController.deleteProject);
 
 
 // route gestion des action sur table days
-router.get('/user/:id/dashboard/projets/:projetName/:day', dayController.getOneDay);
-router.post('/user/:id/dashboard/projets/:projetName', dayController.createDay);
-router.put('/:projetName/:day', dayController.updateDay);
-router.delete('/:projetName/:day', dayController.deleteDay);
+router.get('/user/:id/projets/:projetId/jours/:dayId', dayController.getOneDay);
+router.post('/user/:id/projets/:projetId/jours', dayController.createDay);
+router.put('/user/:id/projets/:projetId/jours/:dayId', dayController.updateDay);
+router.delete('/user/:id/projets/:projetId/jours/:dayId', dayController.deleteDay);
+router.get('/user/:id/:tagName', dayController.getDaysByTags);
 
 
 /* Technos */
-router.get('/techno', technoController.getAllTechno);
-router.post('/techno', technoController.createTechno);
-router.patch('/techno/:id', technoController.modifyTechno);
-router.delete('/techno/:id', technoController.deleteTechno);
-router.post('/:projectName/:id/techno', technoController.associateTechnoToProject);
-router.delete('/projets/:projectId/techno/:technoId', technoController.removeTechnoFromProject);
+router.get('/technos', technoController.getAllTechnos);
+router.post('/user/:id/projets/:projetId/techno', technoController.associateTechnoToProject);
+router.put('/user/:id/projets/:projetId/techno/:technoId', technoController.modifyTechno);
+router.delete('/user/:id/projets/:projectId/techno/:technoId', technoController.deleteTechnoFromProject);
 
 
 /* Tags */
 router.get('/tags', tagController.getAllTags);
-router.post('/tags', tagController.createTag);
-router.patch('/tags/:id', tagController.modifyTag);
-router.delete('/tags/:id', tagController.deleteTag);
-router.post('/:day/:id/tags', tagController.associateTagToDay);
-router.delete('/cards/:dayId/tags/:tagId', tagController.removeTagFromDay);
+router.post('/user/:id/projets/:projetId/jours/:dayId/tag', tagController.associateTagToDay);
+router.put('/user/:id/projets/:projetId/jours/:dayId/tagId', tagController.modifyTag);
+router.delete('/user/:id/projets/:projetId/jours/:dayId/tagId', tagController.deleteTagFromDay);
 
 
 module.exports = router;

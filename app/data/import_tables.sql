@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS "projects" (
   "catégorie_état" VARCHAR(64) NOT NULL DEFAULT 'En cours',
   "favori" BOOLEAN NOT NULL DEFAULT FALSE,
   "URL_picture_AWS" VARCHAR(255) NULL,
+  "user_id" INT NOT NULL,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));

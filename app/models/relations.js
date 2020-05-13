@@ -24,7 +24,7 @@ Tag.belongsToMany(Day, {
 
 // project <> techno
 
-Project.belongToMany(Techno, {
+Project.belongsToMany(Techno, {
   as: 'technos',
   through: 'projects_has_technos',
   foreignKey: 'projects_id',
@@ -40,9 +40,11 @@ Techno.belongsToMany(Project, {
 
 // project <> day
 
-Project.hasMany(Day, {
+Project.belongsToMany(Day, {
     as: 'days',
-    foreignKey: 'projects_id'
+    through: 'projects_has_days',
+    foreignKey: 'projects_id',
+    otherKey: 'days_id'
 });
 
 Day.belongsTo(Project, {
@@ -51,16 +53,19 @@ Day.belongsTo(Project, {
 });
 
 // user <> project
-
-User.hasMany(Project, {
+/*
+User.belongsToMany(Project, {
   as: 'projects',
-  foreignKey: 'users_id'
+  through: 'users_has_projects',
+  foreignKey: 'users_id',
+  otherKey: 'projects_id'
 });
 
 Project.belongsTo(User, {
   as: 'users',
   foreignKey: 'users_id'
 });
+*/
 
 
 // ne pas oublier de réexporter les modèles mis à jour, sinon ils seront inaccessibles

@@ -14,6 +14,7 @@ Project.init({
   catégorie_état: sequelize.STRING,
   favori: { type: sequelize.BOOLEAN, allowNull: false, defaultValue: false },
   URL_picture_AWS: sequelize.STRING,
+  user_id: sequelize.INTEGER,
 },{
   sequelize: dbConnection,
   tableName: "projects",

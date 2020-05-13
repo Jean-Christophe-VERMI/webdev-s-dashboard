@@ -24,6 +24,11 @@ const dayController = {
     return res.status(200);
   },
 
+  getDaysByTags: (req, res) => {
+
+    return res.status(200);
+  },
+
   
 
 
