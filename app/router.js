@@ -13,20 +13,18 @@ const router = express.Router();
 router.get('/users', userController.getAllUsers);
 router.post('/inscription', userController.signupAction);
 router.post('/connexion', userController.loginAction);
-router.put('/user/:id/edit-profil', userController.editProfil);
-router.put('/user/:id/password', userController.modifyPassword);
-router.delete('/user/:id', userController.deleteAccount);
+router.put('/user/:userId/edit-profil', userController.editProfil);
+router.put('/user/:userId/password', userController.modifyPassword);
+router.delete('/user/:userId/delete', userController.deleteAccount);
 
 
 // route gestion des actions sur table projects
-router.get('/user/:id/projets', projectController.getAllProjectsByUser);
-router.get('/user/:id/projets/categorie-type', projectController.getAllProjectsByUserAndCategorieType);
-router.get('/user/:id/projets/categorie-etat', projectController.getAllProjectsByUserAndCategorieEtat);
+router.get('/user/:userId/projets', projectController.getAllProjectsByUser);
+router.get('/user/:userId/projets/search', projectController.getAllProjectsByUserAndFilter);
 router.get('/projets/:projetId/:projetTitle', projectController.getOneProject);
-router.post('/user/:id/projets/nouveau-projet', projectController.createNewProject);
-router.post('/projets/:projetId/:projetTitle/editer-etat', projectController.editProjectEtat);
-router.put('/user/:id/projets/:projetId', projectController.updateProject);
-router.delete('/user/:id/projets/:projetId', projectController.deleteProject);
+router.post('/user/:userId/projets/nouveau-projet', projectController.createNewProject);
+router.put('/projets/:projetId/:projetTitle/editer', projectController.updateProject);
+router.delete('/projets/:projetId/:projetTitle', projectController.deleteProject);
 
 
 // route gestion des action sur table days

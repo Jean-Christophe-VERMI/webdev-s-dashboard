@@ -1,14 +1,16 @@
 const { Project, User } = require('../models/relations');
+const sequelize = require('sequelize');
+const Op = sequelize.Op;
 
 
 const projectController = {
 
-  // Route GET /user/:id/projets
+  // Route GET /user/:userId/projets
   getAllProjectsByUser: async (req, res) => {
     
     try {
 
-      const userId = req.params.id;
+      const userId = req.params.userId;
       
       let user = await User.findByPk(userId);
       if(!user) {
@@ -36,25 +38,35 @@ const projectController = {
 
   },
 
-  // Route GET /user/:id/projets/categorie-type=:value
-  getAllProjectsByUserAndCategorieType: async (req, res) => {
+  // Route GET /user/:userId/projets/search
+  getAllProjectsByUserAndFilter: async (req, res) => {
     
     try {
 
-      const userId = req.params.id;
-      const categorieType = req.body;
+      const userId = req.params.userId;
+      const { title, categorieType, categorieEtat } = req.body;
+
+      console.log(title);
+      console.log(categorieEtat);
+      console.log(categorieType);
 
       let projets = await Project.findAll({
         where: {
-            user_id: userId,
-            catégorie_type: categorieType.categorieType
-        },
-        // include: ['technos']
+          user_id: userId,
+          [Op.and]: [
+            {catégorie_type: categorieType},
+            {
+              [Op.and]: [
+                {catégorie_état: categorieEtat},
+              ]
+            }
+          ]
+        }
       });
 
       if (projets.length === 0) {
         res.status(404).json({msg: 'Aucun projet trouvé'});
-      }     
+      }
 
       if (projets) {
         res.status(200).json(projets);
@@ -66,19 +78,20 @@ const projectController = {
 
   },
 
-  // Route GET /user/:id/projets/categorie-etat
+  // Route GET /user/:userId/projets/categorie-etat
   getAllProjectsByUserAndCategorieEtat: async (req, res) => {
     
     try {
 
-      const userId = req.params.id;
+      const userId = req.params.userId;
       const categorieEtat = req.body;
 
+      console.log(categorieEtat);
 
       let projets = await Project.findAll({
         where: {
             user_id: userId,
-            catégorie_état: categorieEtat.categorieEtat
+            catégorie_état: categorieEtat
         },
         // include: ['technos']
       });
@@ -125,7 +138,7 @@ const projectController = {
     }
   },
 
-  // ROUTE POST /user/:id/projets/nouveau-projet
+  // ROUTE POST /user/:userId/projets/nouveau-projet
   createNewProject: async (req, res) => {
 
     try {
@@ -133,7 +146,7 @@ const projectController = {
       // Etape 1 je crée un nouveau projet et je l'enregistre en DBB.
       const {title, description, catégorie_type } = req.body;
       
-      const userId = req.params.id;
+      const userId = req.params.userId;
       
       let user = await User.findByPk(userId);
       if(!user) {
@@ -171,12 +184,13 @@ const projectController = {
     } 
   },
 
-  // ROUTE POST /projets/:projetId/:projetTitle/editer-etat
-  editProjectEtat: async (req, res) => {
+  // ROUTE PUT /projets/:projetId/:projetTitle/editer
+  updateProject: async (req, res) => {
 
     try {
 
       const { projetId, projetTitle } = req.params;
+
 
       let projet = await Project.findByPk(projetId, {
         where: {
@@ -190,10 +204,31 @@ const projectController = {
         res.status(404).json(`Aucun projet ne correspond à ce titre ${projetTitle}`);
       } else {
 
-        const categorieEtat = req.body;
+        const { title, description, categorieType, categorieEtat, favori, urlPictureAWS } = req.body
+
+
+        if (title) {
+          projet.title = title;
+        }
+
+        if (description) {
+          projet.description = description;
+        }
+
+        if (categorieType) {
+          projet.catégorie_type = categorieType;
+        }
 
         if (categorieEtat) {
-          projet.catégorie_état = categorieEtat.categorieEtat;
+          projet.catégorie_état = categorieEtat;
+        }
+
+        if (favori) {
+          projet.favori = favori;
+        }
+
+        if (urlPictureAWS) {
+          projet.URL_picture_AWS = urlPictureAWS;
         }
       }
 
@@ -206,16 +241,34 @@ const projectController = {
     } 
   },
 
-  // ROUTE PUT /user/:id/projets/:projetId
-  updateProject: (req, res) => {
+  // ROUTE DELETE /projets/:projetId/:projetTitle
+  deleteProject: async (req, res) => {
 
-    return res.status(200);
-  },
+    try {
 
-  // ROUTE DELETE /user/:id/projets/:projetId
-  deleteProject: (req, res) => {
+      const { projetId, projetTitle } = req.params;
 
-    return res.status(200);
+      let projet = await Project.findByPk(projetId, {
+        where: {
+            id: projetId,
+            title: projetTitle
+        },
+        // include: ['technos']
+      });
+  
+      if (projetTitle != projet.title) {
+        res.status(404).json(`Aucun projet ne correspond à ce titre ${projetTitle}`);
+      } else {
+
+        await projet.destroy();
+        // ici, ça ne sert à rien de renvoyer l'objet, ça serait même contrintuitif vu qu'il n'existe pas dans la BDD
+        res.status(200).json({msg : 'projet supprimé avec succès'});
+      }
+
+    } catch (error) {
+      res.status(500).json(error);
+    }
+    
   },
 
 

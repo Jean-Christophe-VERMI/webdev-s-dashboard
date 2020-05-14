@@ -111,10 +111,10 @@ const userController = {
     
   },
 
-  // route : PUT /user/:id/edit-profil
+  // route : PUT /user/:userId/edit-profil
   editProfil: async (req, res) => {
     try {
-      const userId = req.params.id;
+      const userId = req.params.userId;
       let user = await User.findByPk(userId);
       if (!user) {
           res.status(404).json(`Cant find user with this id : ${userId}`);
@@ -156,10 +156,10 @@ const userController = {
 
   },
 
-  // route : PUT /user/:id/password
+  // route : PUT /user/:userId/password
   modifyPassword: async (req, res) => {
     try {
-      const userId = req.params.id;
+      const userId = req.params.userId;
       let user = await User.findByPk(userId);
 
       if (!user) {
@@ -197,14 +197,14 @@ const userController = {
 
   },
 
-  // route : DELETE /user/:id
+  // route : DELETE /user/:userId/delete
   deleteAccount: async (req, res) => {
     try {
-      const userId = req.params.id;
+      const userId = req.params.userId;
       let user = await User.findByPk(userId);
       await user.destroy();
       // ici, ça ne sert à rien de renvoyer l'objet, ça serait même contrintuitif vu qu'il n'existe pas dans la BDD
-      res.status(200).json('compte supprimé avec succès');
+      res.status(200).json({msg : 'compte utilisateur supprimé avec succès'});
 
     } catch (err) {
       res.status(500).send(err);
