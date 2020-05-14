@@ -28,11 +28,11 @@ router.delete('/projets/:projetId/:projetTitle', projectController.deleteProject
 
 
 // route gestion des action sur table days
-router.get('/user/:id/projets/:projetId/jours/:dayId', dayController.getOneDay);
-router.post('/user/:id/projets/:projetId/jours', dayController.createDay);
-router.put('/user/:id/projets/:projetId/jours/:dayId', dayController.updateDay);
-router.delete('/user/:id/projets/:projetId/jours/:dayId', dayController.deleteDay);
-router.get('/user/:id/:tagName', dayController.getDaysByTags);
+router.get('/projets/:projetId/jours/:dayId', dayController.getOneDay);
+router.post('/projets/:projetId/:projetTitle/nouveau-jour', dayController.createDay);
+router.put('/projets/:projetId/:projetTitle/jours/:dayId', dayController.updateDay);
+router.delete('/projets/:projetId/jours/:dayId', dayController.deleteDay);
+router.get('liste-jours/:tagName', dayController.getDaysByTags);
 
 
 /* Technos */

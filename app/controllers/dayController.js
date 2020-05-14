@@ -3,34 +3,69 @@ const Day = require('../models/day');
 
 const dayController = {
 
+  // ROUTE GET /projets/:projetId/jours/:dayId
+  getOneDay: async (req, res) => {
 
-  getOneDay: (req, res) => {
+    try {
+
+
+
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
+  // ROUTE POST /projets/:projetId/:projetTitle/nouveau-jour
+  createDay: async (req, res) => {
+
+    try {
+
+
+
+    } catch (error) {
+      res.status(500).json(error);
+    }
     
-    return res.status(200);
   },
 
-  createDay: (req, res) => {
+  // ROUTE PUT /projets/:projetId/:projetTitle/jours/:dayId
+  updateDay: async (req, res) => {
 
-    return res.status(200);
+    try {
+
+
+
+    } catch (error) {
+      res.status(500).json(error);
+    }
+    
   },
 
-  updateDay: (req, res) => {
+  // ROUTE DELETE /projets/:projetId/jours/:dayId
+  deleteDay: async (req, res) => {
 
-    return res.status(200);
+    try {
+
+
+
+    } catch (error) {
+      res.status(500).json(error);
+    }
+    
   },
 
-  deleteDay: (req, res) => {
+  // ROUTE GET liste-jours/:tagName
+  getDaysByTags: async (req, res) => {
 
-    return res.status(200);
+    try {
+
+
+
+    } catch (error) {
+      res.status(500).json(error);
+    }
+    
   },
-
-  getDaysByTags: (req, res) => {
-
-    return res.status(200);
-  },
-
-  
-
 
 };
 
