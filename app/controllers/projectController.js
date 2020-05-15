@@ -161,16 +161,13 @@ const projectController = {
 
     try {
 
-      const { projetId, projetTitle } = req.params;
+      const projetId = req.params.projetId;
 
 
-      let projet = await Project.findByPk(projetId, {
-        where: {
-            id: projetId,
-            title: projetTitle
-        },
+      let projet = await Project.findByPk(projetId, 
+      
         // include: ['technos']
-      });
+      );
 
       if (projetTitle != projet.title) {
         res.status(404).json(`Aucun projet ne correspond à ce titre ${projetTitle}`);
@@ -213,29 +210,24 @@ const projectController = {
     } 
   },
 
-  // ROUTE DELETE /projets/:projetId/:projetTitle
+  // ROUTE DELETE /projets/:projetId/:projetTitle/delete
   deleteProject: async (req, res) => {
 
     try {
 
-      const { projetId, projetTitle } = req.params;
+      const projetId = req.params.projetId;
 
-      let projet = await Project.findByPk(projetId, {
-        where: {
-            id: projetId,
-            title: projetTitle
-        },
+      let projet = await Project.findByPk(projetId
+        
         // include: ['technos']
-      });
+      );
   
-      if (projetTitle != projet.title) {
-        res.status(404).json(`Aucun projet ne correspond à ce titre ${projetTitle}`);
-      } else {
-
-        await projet.destroy();
-        // ici, ça ne sert à rien de renvoyer l'objet, ça serait même contrintuitif vu qu'il n'existe pas dans la BDD
-        res.status(200).json({msg : 'projet supprimé avec succès'});
+      if (!projet) {
+        res.status(404).json({msg : `aucun projet trouvé avec cet id ${projetId}`});
       }
+
+      await projet.destroy();
+      res.status(200).json({msg : 'projet supprimé avec succès'});
 
     } catch (error) {
       res.status(500).json(error);

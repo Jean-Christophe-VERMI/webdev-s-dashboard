@@ -56,12 +56,46 @@ const dayController = {
     
   },
 
-  // ROUTE PUT /projets/:projetId/:projetTitle/jours/:dayId
+  // ROUTE PUT /projets/:projetId/:projetTitle/jours/:dayId/:dayDate/editer
   updateDay: async (req, res) => {
 
     try {
 
+      const dayId = req.params.dayId;
+      
 
+      let day = await Day.findByPk(dayId,
+      
+        // include: ['tags'];
+      );
+
+      if (!day) {
+        res.status(404).json(`Aucun jour ne correspond à cet id ${dayId}`);
+      } else {
+
+        const { text, code, refSource } = req.body;
+
+        console.log(text);
+        console.log(code);
+        console.log(refSource);
+
+        if (text) {
+          day.text = text;
+        }
+
+        if (code) {
+          day.code = code;
+        }
+
+        if (refSource) {
+          day.ref_source = refSource;
+        }
+
+      }
+
+      await day.save();
+
+      res.json(day);
 
     } catch (error) {
       res.status(500).json(error);
@@ -69,12 +103,24 @@ const dayController = {
     
   },
 
-  // ROUTE DELETE /projets/:projetId/jours/:dayId
+  // ROUTE DELETE /projets/:projetId/:projetTitle/jours/:dayId/delete
   deleteDay: async (req, res) => {
 
     try {
 
+      const dayId = req.params.dayId;
 
+      let day = await Day.findByPk(dayId
+        
+        // include: ['tags']
+      );
+  
+      if (!day) {
+        res.status(404).json({msg : `aucun jour trouvé avec cet id ${dayId}`});
+      }
+
+      await day.destroy();
+      res.status(200).json({msg : 'jour supprimé avec succès du projet'});
 
     } catch (error) {
       res.status(500).json(error);

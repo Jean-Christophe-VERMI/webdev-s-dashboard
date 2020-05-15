@@ -7,7 +7,7 @@ class Day extends sequelize.Model {
 
 Day.init({
   date: sequelize.DATE,
-  text: sequelize.STRING,
+  text: sequelize.TEXT,
   code: sequelize.STRING,
   ref_source: sequelize.STRING,
   project_id: sequelize.INTEGER,

@@ -74,7 +74,7 @@ DROP TABLE IF EXISTS "days" ;
 CREATE TABLE IF NOT EXISTS "days" (
   "id" SERIAL NOT NULL,
   "date" DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  "text" VARCHAR(255) NULL,
+  "text" TEXT NULL,
   "code" VARCHAR(255) NULL,
   "ref_source" VARCHAR(255) NULL,
   "project_id" INT NOT NULL,

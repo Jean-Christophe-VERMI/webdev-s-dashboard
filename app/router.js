@@ -24,14 +24,14 @@ router.get('/user/:userId/projets/search', projectController.getAllProjectsByUse
 router.get('/projets/:projetId/:projetTitle', projectController.getOneProject);
 router.post('/user/:userId/projets/nouveau-projet', projectController.createNewProject);
 router.put('/projets/:projetId/:projetTitle/editer', projectController.updateProject);
-router.delete('/projets/:projetId/:projetTitle', projectController.deleteProject);
+router.delete('/projets/:projetId/:projetTitle/delete', projectController.deleteProject);
 
 
 // route gestion des action sur table days
 router.get('/projets/:projetId/:projetTitle/jours/:dayId/:dayDate', dayController.getOneDay);
 router.post('/projets/:projetId/:projetTitle/nouveau-jour', dayController.createDay);
-router.put('/projets/:projetId/:projetTitle/jours/:dayId', dayController.updateDay);
-router.delete('/projets/:projetId/jours/:dayId', dayController.deleteDay);
+router.put('/projets/:projetId/:projetTitle/jours/:dayId/:dayDate/editer', dayController.updateDay);
+router.delete('/projets/:projetId/:projetTitle/jours/:dayId/delete', dayController.deleteDay);
 router.get('liste-jours/:tagName', dayController.getDaysByTags);
 
 
