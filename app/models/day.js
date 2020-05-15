@@ -7,16 +7,17 @@ class Day extends sequelize.Model {
 
 Day.init({
   date: sequelize.DATE,
-  text: sequelize.TEXT,
-  code: sequelize.TEXT,
-  ref_source: sequelize.TEXT,
+  text: sequelize.STRING,
+  code: sequelize.STRING,
+  ref_source: sequelize.STRING,
   project_id: sequelize.INTEGER,
   
 }, {
   sequelize: dbConnection,
-  tableName: "days"
+  tableName: "days",
+  createdAt: "created_at",
+  updatedAt: "updated_at"
 });
-
 
 
 module.exports = Day;

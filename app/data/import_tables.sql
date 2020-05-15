@@ -63,7 +63,6 @@ DROP TABLE IF EXISTS "projects_has_days" ;
 CREATE TABLE IF NOT EXISTS "projects_has_days" (
   "projects_id" INT NOT NULL,
   "days_id" INT NOT NULL,
-  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY ("projects_id", "days_id"));
 
 
@@ -74,10 +73,11 @@ DROP TABLE IF EXISTS "days" ;
 
 CREATE TABLE IF NOT EXISTS "days" (
   "id" SERIAL NOT NULL,
-  "date" DATE NOT NULL,
-  "text" VARCHAR(255) NOT NULL,
-  "code" VARCHAR(255) NOT NULL,
-  "ref_source" VARCHAR(255) NOT NULL,
+  "date" DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "text" VARCHAR(255) NULL,
+  "code" VARCHAR(255) NULL,
+  "ref_source" VARCHAR(255) NULL,
+  "project_id" INT NOT NULL,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));

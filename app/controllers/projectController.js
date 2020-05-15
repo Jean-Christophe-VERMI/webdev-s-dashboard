@@ -1,4 +1,4 @@
-const { Project, User } = require('../models/relations');
+const { Project, User, Day } = require('../models/relations');
 const sequelize = require('sequelize');
 const Op = sequelize.Op;
 
@@ -78,38 +78,6 @@ const projectController = {
 
   },
 
-  // Route GET /user/:userId/projets/categorie-etat
-  getAllProjectsByUserAndCategorieEtat: async (req, res) => {
-    
-    try {
-
-      const userId = req.params.userId;
-      const categorieEtat = req.body;
-
-      console.log(categorieEtat);
-
-      let projets = await Project.findAll({
-        where: {
-            user_id: userId,
-            catégorie_état: categorieEtat
-        },
-        // include: ['technos']
-      });
-
-      if (projets.length === 0) {
-        res.status(404).json({msg: 'Aucun projet trouvé'});
-      }     
-
-      if (projets) {
-        res.status(200).json(projets);
-      }
-
-    } catch (error) {
-      res.status(500).json(error);
-    }
-
-  },
-
   //ROUTE GET /projets/:projetId/:projetTitle
   getOneProject: async (req, res) => {
     try {
@@ -120,8 +88,12 @@ const projectController = {
         where: {
             id: projetId,
             title: projetTitle
+            // include: ['technos']
         },
-        // include: ['technos']
+        include: [{
+          association: 'days',
+          //include: ['tags']
+        }]
       });
 
       if (projetTitle != projet.title) {

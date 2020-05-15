@@ -38,22 +38,23 @@ Techno.belongsToMany(Project, {
   otherKey: 'projects_id'
 });
 
+
 // project <> day
 
-Project.belongsToMany(Day, {
+Project.hasMany(Day, {
     as: 'days',
-    through: 'projects_has_days',
-    foreignKey: 'projects_id',
-    otherKey: 'days_id'
+    foreignKey: 'project_id',
 });
 
 Day.belongsTo(Project, {
     as: 'projects',
-    foreignKey: 'projects_id'
+    foreignKey: 'project_id'
 });
 
-// user <> project
 /*
+// user <> project
+
+
 User.belongsToMany(Project, {
   as: 'projects',
   through: 'users_has_projects',

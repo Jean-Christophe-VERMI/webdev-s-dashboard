@@ -28,7 +28,7 @@ router.delete('/projets/:projetId/:projetTitle', projectController.deleteProject
 
 
 // route gestion des action sur table days
-router.get('/projets/:projetId/jours/:dayId', dayController.getOneDay);
+router.get('/projets/:projetId/:projetTitle/jours/:dayId/:dayDate', dayController.getOneDay);
 router.post('/projets/:projetId/:projetTitle/nouveau-jour', dayController.createDay);
 router.put('/projets/:projetId/:projetTitle/jours/:dayId', dayController.updateDay);
 router.delete('/projets/:projetId/jours/:dayId', dayController.deleteDay);
