@@ -32,7 +32,7 @@ router.get('/projets/:projetId/:projetTitle/jours/:dayId/:dayDate', dayControlle
 router.post('/projets/:projetId/:projetTitle/nouveau-jour', dayController.createDay);
 router.put('/projets/:projetId/:projetTitle/jours/:dayId/:dayDate/editer', dayController.updateDay);
 router.delete('/projets/:projetId/:projetTitle/jours/:dayId/delete', dayController.deleteDay);
-router.get('liste-jours/:tagName', dayController.getDaysByTags);
+router.get('liste-jours', dayController.getDaysByTags);
 
 
 /* Technos */

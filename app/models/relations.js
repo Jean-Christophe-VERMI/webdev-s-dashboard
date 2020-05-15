@@ -8,18 +8,14 @@ const Techno = require('./techno');
 
 // day <> tag
 
-Day.belongsToMany(Tag, {
-    as: 'tags',
-    through: 'days_have_tags',
-    foreignKey: 'days_id',
-    otherKey: 'tags_id'
+Day.hasMany(Tag, {
+  as: 'tags',
+  foreignKey: 'day_id',
 });
 
-Tag.belongsToMany(Day, {
-    as: 'days',
-    through: 'days_have_tags',
-    foreignKey: 'tags_id',
-    otherKey: 'days_id'
+Tag.belongsTo(Day, {
+  as: 'days',
+  foreignKey: 'day_id',
 });
 
 // project <> techno

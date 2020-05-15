@@ -21,7 +21,9 @@ const projectController = {
         where: {
             user_id: userId
         },
-        // include: ['technos']
+        include: [{
+          association: 'technos',
+        }]
       });
 
       if (projets.length === 0) {
@@ -80,6 +82,7 @@ const projectController = {
 
   //ROUTE GET /projets/:projetId/:projetTitle
   getOneProject: async (req, res) => {
+
     try {
       const projetId = req.params.projetId;
       const projetTitle = req.params.projetTitle;
@@ -89,7 +92,9 @@ const projectController = {
           association: 'technos',
         },{
           association: 'days',
-          //include: ['tags']
+          include: [{
+            association: 'tags',
+          }]
         }]
       });
 
@@ -98,13 +103,15 @@ const projectController = {
       }
 
       if (projet) {
-          res.json(projet);
+        res.json(projet);
       } else {
-          res.status(404).json(`Aucun projet ne correspond à cet id ${projetId}`);
+        res.status(404).json(`Aucun projet ne correspond à cet id ${projetId}`);
       }
+
     } catch (error) {
-        res.status(500).json(error);
+      res.status(500).json(error);
     }
+
   },
 
   // ROUTE POST /user/:userId/projets/nouveau-projet
@@ -112,7 +119,6 @@ const projectController = {
 
     try {
 
-      // Etape 1 je crée un nouveau projet et je l'enregistre en DBB.
       const {title, description, catégorie_type } = req.body;
       
       const userId = req.params.userId;
@@ -138,13 +144,14 @@ const projectController = {
       if(bodyErrors.length) {
         res.status(400).json(bodyErrors);
       } else {
+
         let newProjet = new Project();
         newProjet.title = title;
         newProjet.description = description;
         newProjet.catégorie_type = catégorie_type;
         newProjet.user_id = userId;
+
         await newProjet.save();
-        // res.status(200).json(newProjet);
         res.json(newProjet);
       }
 
@@ -160,18 +167,14 @@ const projectController = {
 
       const projetId = req.params.projetId;
 
+      let projet = await Project.findByPk(projetId);
 
-      let projet = await Project.findByPk(projetId, 
-      
-        // include: ['technos']
-      );
+      if (!projet) {
+        return res.status(404).json(`Aucun projet trouvé avec cet id ${projetId}`);
 
-      if (projetTitle != projet.title) {
-        res.status(404).json(`Aucun projet ne correspond à ce titre ${projetTitle}`);
       } else {
 
         const { title, description, categorieType, categorieEtat, favori, urlPictureAWS } = req.body
-
 
         if (title) {
           projet.title = title;
@@ -214,10 +217,7 @@ const projectController = {
 
       const projetId = req.params.projetId;
 
-      let projet = await Project.findByPk(projetId
-        
-        // include: ['technos']
-      );
+      let projet = await Project.findByPk(projetId);
   
       if (!projet) {
         res.status(404).json({msg : `aucun projet trouvé avec cet id ${projetId}`});
@@ -230,8 +230,7 @@ const projectController = {
       res.status(500).json(error);
     }
     
-  },
-
+  }
 
 };
 

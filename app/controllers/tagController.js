@@ -1,4 +1,4 @@
-const { Tag, Project, User, Day } = require('../models/relations');
+const { Tag } = require('../models/relations');
 
 const tagController = {
 
@@ -14,62 +14,54 @@ const tagController = {
 
   // ROUTE POST /projets/:projetId/:projetTitle/jours/:dayId/ajouter-tag
   addNewTagToDay: async (req, res) => {
+
     try {
-      const cardId = req.params.id;
-      const tagId = req.body.tag_id;
 
-      let day = await Day.findByPk(dayId,{
-        include: ['tags']
-      });
-      if(!day) {
-        res.status(404).json('Can not find day with id '+dayId);
-      } else {
-        let tag = await Tag.findByPk(tagId);
-        if (!tag) {
-          res.status(404).json('Can not find tag with id '+tagId);
-        } else {
-
-          // on laisse faire la magie de Sequelize !
-          await day.addTag(tag);
-          // malheureusement, les associations de l'instance ne sont pas mises à jour
-          // on doit donc refaire un select
-          day = await Day.findByPk(dayId,{
-            include: ['tags']
-          });
-          res.json(day);
-        }
+      const name = req.body.name;
+      const dayId = req.params.dayId;
+      
+      if (!name) {
+        res.status(400).json({msg : 'Le nom ne peut pas être vide'});
       }
 
+      if (!dayId) {
+        res.status(400).json({msg : 'Aucune donné trouvé concernant le day id'});
+      }
+
+      let newTag = new Tag();
+      newTag.name = name;
+      newTag.day_id = dayId;
+
+      await newTag.save();
+      res.status(200).json(newTag);
+      
     } catch (error) {
-      console.log(error);
       res.status(500).send(error);
     }
+
   },
 
   // ROUTE DELETE /projets/:projetId/:projetTitle/jours/:dayId/:dayDate/tag/:tagId/delete
   deleteTagFromDay: async (req, res) => {
     try {
-      const {dayId, tagId} = req.params;
-      let day = await Day.findByPk(dayId);
-      if(!day) {
-        res.status(404).json('Can not find card with id '+dayId);
-      } else {
-  
-        let tag = await Tag.findByPk(tagId);
-        if (!tag) {
-          res.status(404).json('Can not find tag with id '+tagId);
-        } else {
-          await day.removeTag(tag);
-          day = await Day.findByPk(dayId,{
-            include: ['tags']
-          });
-          res.json(day);
-        }
+
+      const tagId = req.params.tagId;
+
+      let tag = await Tag.findByPk(tagId);
+
+      if(!tag) {
+        res.status(404).json('Can not find tag with id '+technoId);
       }
+
+      await tag.destroy();
+      res.status(200).json({msg : 'tag supprimé avec succès du projet'});
+
     } catch (error) {
       res.status(500).json(error);
     }
+
   }
+  
 };
 
 module.exports = tagController;

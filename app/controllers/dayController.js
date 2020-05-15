@@ -1,4 +1,4 @@
-const { Day, Project } = require('../models/relations');
+const { Day, Project, Tag } = require('../models/relations');
 const sequelize = require('sequelize');
 // const moment = require('moment');
 const Op = sequelize.Op;
@@ -15,10 +15,9 @@ const dayController = {
       const projetId = req.params.projetId;
 
       let day = await Day.findByPk(dayId, {
-        where: {
-            id: dayId,
-        },
-        // include: ['tags']
+        include: [{
+          association: 'tags',
+        }]
       });
 
       if(projetId != day.project_id) {
@@ -26,15 +25,15 @@ const dayController = {
       }
 
       if (day) {
-          res.json(day);
+        res.json(day);
       } else {
-          res.status(404).json(`Aucun jour ne correspond à ce jour id ${dayId}`);
+        res.status(404).json(`Aucun jour ne correspond à ce jour id ${dayId}`);
       }
-
 
     } catch (error) {
       res.status(500).json(error);
     }
+
   },
 
   // ROUTE POST /projets/:projetId/:projetTitle/nouveau-jour
@@ -63,21 +62,13 @@ const dayController = {
 
       const dayId = req.params.dayId;
       
-
-      let day = await Day.findByPk(dayId,
-      
-        // include: ['tags'];
-      );
+      let day = await Day.findByPk(dayId);
 
       if (!day) {
         res.status(404).json(`Aucun jour ne correspond à cet id ${dayId}`);
       } else {
 
         const { text, code, refSource } = req.body;
-
-        console.log(text);
-        console.log(code);
-        console.log(refSource);
 
         if (text) {
           day.text = text;
@@ -94,7 +85,6 @@ const dayController = {
       }
 
       await day.save();
-
       res.json(day);
 
     } catch (error) {
@@ -110,10 +100,7 @@ const dayController = {
 
       const dayId = req.params.dayId;
 
-      let day = await Day.findByPk(dayId
-        
-        // include: ['tags']
-      );
+      let day = await Day.findByPk(dayId);
   
       if (!day) {
         res.status(404).json({msg : `aucun jour trouvé avec cet id ${dayId}`});
@@ -128,18 +115,42 @@ const dayController = {
     
   },
 
-  // ROUTE GET liste-jours/:tagName
+  // ROUTE GET /liste-jours
   getDaysByTags: async (req, res) => {
 
     try {
 
+      const tagName = req.body.tagName;
 
+      console.log(tagName);
+
+      let days = await Day.findAll({
+        include: [{
+          association: 'tags',
+          where: {
+            name: tagName,
+          }
+        }],
+      });
+
+      if(days) {
+        res.status(200).json(days);
+      }
+
+      /*
+      if (day.length === 0) {
+        res.status(404).json({msg: "Aucun jour trouvé avec ce tag " + tagName});
+      } else {
+        res.status(200).json(day);
+      }
+      */
+      
 
     } catch (error) {
       res.status(500).json(error);
     }
     
-  },
+  }
 
 };
 

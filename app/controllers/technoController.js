@@ -45,27 +45,23 @@ const technoController = {
   // ROUTE DELETE /projets/:projectId/:projetTitle/techno/:technoId/delete
   deleteTechnoFromProject: async (req, res) => {
     try {
-      const {projectId, technoId} = req.params;
-      let project = await Project.findByPk(projectId);
-      if(!project) {
-        res.status(404).json('Can not find project with id '+projectId);
-      } else {
-  
-        let techno = await Techno.findByPk(technoId);
-        if (!techno) {
-          res.status(404).json('Can not find techno with id '+technoId);
-        } else {
-          await project.removeTechno(techno);
-          project = await Project.findByPk(projectId,{
-            include: ['technos']
-          });
-          res.json(project);
-        }
+
+      const technoId = req.params.technoId;
+
+      let techno = await Techno.findByPk(technoId);
+
+      if(!techno) {
+        res.status(404).json('Can not find techno with id '+technoId);
       }
+
+      await techno.destroy();
+      res.status(200).json({msg : 'techno supprimé avec succès du projet'});
+      
     } catch (error) {
       res.status(500).json(error);
     }
   }
+
 };
 
 module.exports = technoController;
