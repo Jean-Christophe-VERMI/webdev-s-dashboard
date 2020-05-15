@@ -1,4 +1,4 @@
-const { Project, User, Day } = require('../models/relations');
+const { Project, User, Day, Techno } = require('../models/relations');
 const sequelize = require('sequelize');
 const Op = sequelize.Op;
 
@@ -85,12 +85,9 @@ const projectController = {
       const projetTitle = req.params.projetTitle;
 
       let projet = await Project.findByPk(projetId, {
-        where: {
-            id: projetId,
-            title: projetTitle
-            // include: ['technos']
-        },
         include: [{
+          association: 'technos',
+        },{
           association: 'days',
           //include: ['tags']
         }]

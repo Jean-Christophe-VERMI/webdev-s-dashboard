@@ -8,6 +8,7 @@ class Techno extends sequelize.Model {
 
 Techno.init({
   name: sequelize.STRING,
+  project_id: sequelize.INTEGER,
 },{
   sequelize: dbConnection,
   tableName: "technos",

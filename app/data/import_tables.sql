@@ -129,6 +129,7 @@ DROP TABLE IF EXISTS "technos" ;
 CREATE TABLE IF NOT EXISTS "technos" (
   "id" SERIAL NOT NULL,
   "name" VARCHAR(64) NOT NULL,
+  "project_id" INT NOT NULL,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));

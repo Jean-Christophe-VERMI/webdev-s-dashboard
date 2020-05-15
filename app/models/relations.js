@@ -24,18 +24,14 @@ Tag.belongsToMany(Day, {
 
 // project <> techno
 
-Project.belongsToMany(Techno, {
+Project.hasMany(Techno, {
   as: 'technos',
-  through: 'projects_has_technos',
-  foreignKey: 'projects_id',
-  otherKey: 'technos_id'
+  foreignKey: 'project_id',
 });
 
-Techno.belongsToMany(Project, {
+Techno.belongsTo(Project, {
   as: 'projects',
-  through: 'projects_has_technos',
-  foreignKey: 'technos_id',
-  otherKey: 'projects_id'
+  foreignKey: 'project_id'
 });
 
 

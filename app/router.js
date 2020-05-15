@@ -37,16 +37,14 @@ router.get('liste-jours/:tagName', dayController.getDaysByTags);
 
 /* Technos */
 router.get('/technos', technoController.getAllTechnos);
-router.post('/user/:id/projets/:projetId/techno', technoController.associateTechnoToProject);
-router.put('/user/:id/projets/:projetId/techno/:technoId', technoController.modifyTechno);
-router.delete('/user/:id/projets/:projectId/techno/:technoId', technoController.deleteTechnoFromProject);
+router.post('/projets/:projetId/:projetTitle/ajouter-techno', technoController.addNewTechnoToProject);
+router.delete('/projets/:projectId/:projetTitle/techno/:technoId/delete', technoController.deleteTechnoFromProject);
 
 
 /* Tags */
 router.get('/tags', tagController.getAllTags);
-router.post('/user/:id/projets/:projetId/jours/:dayId/tag', tagController.associateTagToDay);
-router.put('/user/:id/projets/:projetId/jours/:dayId/tagId', tagController.modifyTag);
-router.delete('/user/:id/projets/:projetId/jours/:dayId/tagId', tagController.deleteTagFromDay);
+router.post('/projets/:projetId/:projetTitle/jours/:dayId/ajouter-tag', tagController.addNewTagToDay);
+router.delete('/projets/:projetId/:projetTitle/jours/:dayId/:dayDate/tag/:tagId/delete', tagController.deleteTagFromDay);
 
 
 module.exports = router;
