@@ -31,8 +31,8 @@ router.delete('/projets/:projetId/:projetTitle/delete', projectController.delete
 router.get('/projets/:projetId/:projetTitle/jours/:dayId/:dayDate', dayController.getOneDay);
 router.post('/projets/:projetId/:projetTitle/nouveau-jour', dayController.createDay);
 router.put('/projets/:projetId/:projetTitle/jours/:dayId/:dayDate/editer', dayController.updateDay);
-router.delete('/projets/:projetId/:projetTitle/jours/:dayId/delete', dayController.deleteDay);
-router.get('liste-jours', dayController.getDaysByTags);
+router.delete('/projets/:projetId/:projetTitle/jours/:dayId/delete', dayController.deleteOneDay);
+router.get('/liste-jours/:tagName', dayController.getDaysByTags);
 
 
 /* Technos */
@@ -43,6 +43,7 @@ router.delete('/projets/:projectId/:projetTitle/techno/:technoId/delete', techno
 
 /* Tags */
 router.get('/tags', tagController.getAllTags);
+router.get('/tags/:dayId', tagController.getAllTagsByDays);
 router.post('/projets/:projetId/:projetTitle/jours/:dayId/ajouter-tag', tagController.addNewTagToDay);
 router.delete('/projets/:projetId/:projetTitle/jours/:dayId/:dayDate/tag/:tagId/delete', tagController.deleteTagFromDay);
 

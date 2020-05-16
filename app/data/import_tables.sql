@@ -1,5 +1,5 @@
 -- -----------------------------------------------------
--- Schema jcvapp
+-- Schema webdev's dashboard
 -- -----------------------------------------------------
 
 
@@ -25,18 +25,6 @@ CREATE TABLE IF NOT EXISTS "users" (
 
 
 -- -----------------------------------------------------
--- Table "users_has_projects"
--- -----------------------------------------------------
-DROP TABLE IF EXISTS "users_has_projects" ;
-
-CREATE TABLE IF NOT EXISTS "users_has_projects" (
-  "users_id" INT NOT NULL,
-  "projects_id" INT NOT NULL,
-  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY ("users_id", "projects_id"));
-
-
--- -----------------------------------------------------
 -- Table "projects"
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS "projects" ;
@@ -53,17 +41,6 @@ CREATE TABLE IF NOT EXISTS "projects" (
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));
-
-
--- -----------------------------------------------------
--- Table "projects_has_days"
--- -----------------------------------------------------
-DROP TABLE IF EXISTS "projects_has_days" ;
-
-CREATE TABLE IF NOT EXISTS "projects_has_days" (
-  "projects_id" INT NOT NULL,
-  "days_id" INT NOT NULL,
-  PRIMARY KEY ("projects_id", "days_id"));
 
 
 -- -----------------------------------------------------
@@ -84,18 +61,6 @@ CREATE TABLE IF NOT EXISTS "days" (
 
 
 -- -----------------------------------------------------
--- Table "days_has_tags"
--- -----------------------------------------------------
-DROP TABLE IF EXISTS "days_has_tags" ;
-
-CREATE TABLE IF NOT EXISTS "days_has_tags" (
-  "days_id" INT NOT NULL,
-  "tags_id" INT NOT NULL,
-  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY ("days_id", "tags_id"));
-
-
--- -----------------------------------------------------
 -- Table "tags"
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS "tags" ;
@@ -107,19 +72,6 @@ CREATE TABLE IF NOT EXISTS "tags" (
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));
-
-
-
--- -----------------------------------------------------
--- Table "projects_has_technos"
--- -----------------------------------------------------
-DROP TABLE IF EXISTS "projects_has_technos" ;
-
-CREATE TABLE IF NOT EXISTS "projects_has_technos" (
-  "projects_id" INT NOT NULL,
-  "technos_id" INT NOT NULL,
-  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY ("projects_id", "technos_id"));
 
 
 -- -----------------------------------------------------

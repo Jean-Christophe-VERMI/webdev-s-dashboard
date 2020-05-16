@@ -1,7 +1,4 @@
-const { Day, Project, Tag } = require('../models/relations');
-const sequelize = require('sequelize');
-// const moment = require('moment');
-const Op = sequelize.Op;
+const { Day, Tag } = require('../models/relations');
 
 
 const dayController = {
@@ -94,11 +91,18 @@ const dayController = {
   },
 
   // ROUTE DELETE /projets/:projetId/:projetTitle/jours/:dayId/delete
-  deleteDay: async (req, res) => {
+  deleteOneDay: async (req, res) => {
 
     try {
 
       const dayId = req.params.dayId;
+
+      // Je supprime d'abord les tags associés au jour.
+      await Tag.destroy({
+        where: {
+          day_id: dayId,
+        }
+      });
 
       let day = await Day.findByPk(dayId);
   
@@ -107,7 +111,8 @@ const dayController = {
       }
 
       await day.destroy();
-      res.status(200).json({msg : 'jour supprimé avec succès du projet'});
+      res.status(200).json({msg : 'jour et tags associés supprimé avec succès du projet'});
+      
 
     } catch (error) {
       res.status(500).json(error);
@@ -115,14 +120,12 @@ const dayController = {
     
   },
 
-  // ROUTE GET /liste-jours
+  // ROUTE GET /liste-jours/:tagName
   getDaysByTags: async (req, res) => {
 
     try {
 
-      const tagName = req.body.tagName;
-
-      console.log(tagName);
+      const tagName = "#"+req.params.tagName;
 
       let days = await Day.findAll({
         include: [{
@@ -133,17 +136,12 @@ const dayController = {
         }],
       });
 
-      if(days) {
+      
+      if (days.length === 0) {
+        res.status(404).json({msg: "Aucun jour trouvé avec ce tag " +tagName});
+      } else {
         res.status(200).json(days);
       }
-
-      /*
-      if (day.length === 0) {
-        res.status(404).json({msg: "Aucun jour trouvé avec ce tag " + tagName});
-      } else {
-        res.status(200).json(day);
-      }
-      */
       
 
     } catch (error) {

@@ -4,12 +4,16 @@ const tagController = {
 
 
   getAllTags: async (req, res) => {
+
     try {
+
       const tags = await Tag.findAll();
       res.json(tags);
+
     } catch (error) {
       res.status(500).json(error);
     }
+    
   },
 
   // ROUTE POST /projets/:projetId/:projetTitle/jours/:dayId/ajouter-tag
@@ -41,8 +45,35 @@ const tagController = {
 
   },
 
+  // ROUTE GET /tags/:dayId
+  getAllTagsByDays: async (req, res) => {
+
+    try{
+
+      const dayId = req.params.dayId;
+
+      let tags = await Tag.findAll({
+        where: {
+          day_id: dayId,
+        }
+      });
+
+      if (tags.length === 0) {
+        return res.status(404).json("aucun tags associé à ce jour");
+
+      } else {
+        res.status(200).json(tags);
+      }
+     
+    } catch (error) {
+      res.status(500).json(error);
+    }
+
+  },
+
   // ROUTE DELETE /projets/:projetId/:projetTitle/jours/:dayId/:dayDate/tag/:tagId/delete
   deleteTagFromDay: async (req, res) => {
+
     try {
 
       const tagId = req.params.tagId;
@@ -50,11 +81,11 @@ const tagController = {
       let tag = await Tag.findByPk(tagId);
 
       if(!tag) {
-        res.status(404).json('Can not find tag with id '+technoId);
+        return res.status(404).json('Can not find tag with id '+tagId);
       }
 
       await tag.destroy();
-      res.status(200).json({msg : 'tag supprimé avec succès du projet'});
+      res.status(200).json({msg : 'tag supprimé avec succès du jour'});
 
     } catch (error) {
       res.status(500).json(error);

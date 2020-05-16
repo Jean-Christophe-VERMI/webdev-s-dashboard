@@ -46,11 +46,7 @@ const projectController = {
     try {
 
       const userId = req.params.userId;
-      const { title, categorieType, categorieEtat } = req.body;
-
-      console.log(title);
-      console.log(categorieEtat);
-      console.log(categorieType);
+      const { categorieType, categorieEtat } = req.body;
 
       let projets = await Project.findAll({
         where: {
