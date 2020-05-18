@@ -1,28 +1,38 @@
 import React from 'react';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
+
+// Components
+import Theme from '../Theme';
+import Main from '../Main';
+import HomePage from '../HomePage';
+
+// Containers
+
+// Styles
+import AppStyled from './AppStyled';
+// import logo from './logo.png';
 
 const App = () => (
 
+  <Theme>
+    <AppStyled>
+      <Router>
+        <Main>
+          <Switch>
+            <Route exact path='/' component={HomePage} />
+          </Switch>
+        </Main>
+      </Router>
+    </AppStyled>
+  </Theme>
+  /*
   <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Page d'accueil qui réunit l'ensemble des projets développés.
-        </p>
-        <a
-          className="App-link"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Voir les projets
-        </a>
       </header>
   </div>
+  */
 
-)
+);
 
 export default App;
