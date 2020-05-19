@@ -16,6 +16,8 @@ const HomePageStyled = styled.div`
 }
 
 .title-home {
+  -webkit-animation: tracking-in-contract 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	animation: tracking-in-contract 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
   color: ${(props) => props.theme.colors.primaryLight};
   border-bottom: 3px solid ${(props) => props.theme.colors.primaryLight};
   margin: 0;
@@ -63,6 +65,10 @@ const HomePageStyled = styled.div`
 	position: relative;
 	background: #eff7f6;
 	border: 2px solid ${(props) => props.theme.colors.primaryLight};
+  -webkit-animation: fade-in-left 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: fade-in-left 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  box-shadow: -10px -10px 0 ${(props) => props.theme.colors.secondaryDark};
+ 
 }
 
 .arrow_box1:after, .arrow_box1:before {
@@ -102,6 +108,9 @@ const HomePageStyled = styled.div`
 	position: relative;
 	background: #eff7f6;
 	border: 2px solid ${(props) => props.theme.colors.primaryLight};
+  -webkit-animation: fade-in-right 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: fade-in-right 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  box-shadow: 10px -10px 0 ${(props) => props.theme.colors.secondaryDark};
 }
 
 .arrow_box2:after, .arrow_box2:before {
@@ -133,11 +142,117 @@ const HomePageStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-animation: fade-in-bottom 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: fade-in-bottom 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .logo-wifi {
   height: 50px;
 }
+
+@-webkit-keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
 `;
 
 export default HomePageStyled;

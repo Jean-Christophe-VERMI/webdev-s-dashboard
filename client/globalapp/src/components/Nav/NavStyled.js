@@ -18,6 +18,11 @@ const NavStyled = styled.nav`
   .logo{
     height: 120px;
     margin: 1.5rem;
+
+    &:hover {
+      
+    }
+
   }
 
   .buttonNav {
