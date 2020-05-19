@@ -5,34 +5,25 @@ import { ThemeProvider } from 'styled-components';
 
 const theme = {
   colors: {
-    primary: '#54a0ff',
-    primaryDark: '#2e86de',
-    secondary: '#5f27cd',
-    secondaryDark: '#341f97',
+    primary: '#90a5b8',
+    primaryLight: '#eff7f6',
+    primaryDark: '#9eadba',
+    secondary: '#4c96d7',
+    secondaryDark: '#3f51b5',
+    ternary: '#1aae9f',
+    quaternary: '#425483',
     danger: '#ff6b6b',
     dangerDark: '#ee5253',
     success: '#1dd1a1',
     successDark: '#10ac84',
+    link: '#64a6bd',
     white: '#fff',
     black: '#000',
-    light: '#f4f4f4',
-    dark: '#222f3e',
-    info: '#48dbfb',
-    infoDark: '#0abde3',
-    link: '#48dbfb',
-    linkDark: '#0abde3',
-    warning: '#feca57',
-    warningDark: '#ff9f43',
-    greyLighter: '#DFE6E9',
-    greyDarker: '#8395a7',
-    peachLight: '#fab1a0',
-    peachDark: '#e17055',
-    lightBlue: '#82ccdd',
-    darkBlue: '#0a3d62',
-    mediumBlue: '#48dbfb',
+    darkgrey: '#7d8597'
+    
   },
   fonts: {
-    default: 'Raleway',
+    default: 'rubik',
     headings: 'Evolve',
   },
   lineHeight: '1.6rem',
@@ -71,8 +62,9 @@ const Theme = ({ children }) => (
 
 /*
 Theme.PropTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.isRequired,
 };
 */
+
 
 export default Theme;

@@ -7,20 +7,8 @@ const Footer = () => {
   return (
     <FooterStyled>
       <div className='footer'>
-        <div className='mentions'>
-
-          <Link to='/termes'>Mentions Légales</Link>
-        </div>
-        <div className='termes'>
-          <Link to='/mentions-legales'>
-            <p>Termes et conditions</p>
-          </Link>
-        </div>
-        <div className='contact'>
-          <Link to='/contact'>
-            <p>Contact</p>
-          </Link>
-        </div>
+        <Link className="footer-link" to='/mentions-legales'><p>Termes et conditions</p></Link>
+        <Link className="footer-link" to='/contact'><p>Contact</p></Link>
       </div>
     </FooterStyled>
   );

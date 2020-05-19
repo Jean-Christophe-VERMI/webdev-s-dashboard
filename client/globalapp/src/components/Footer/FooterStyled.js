@@ -1,34 +1,19 @@
 import styled from 'styled-components';
 
 const FooterStyled = styled.div`
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 20;
-  background-color: transparent;
-  display: block;
-  max-height: 20vh;
-  padding: ${(props) => props.theme.sizings.medium};
-  margin-right: ${(props) => props.theme.sizings.medium};
 
+  background-color: ${(props) => props.theme.colors.quaternary};
+  font-family: ${(props) => props.theme.fonts.default};
+  
   .footer {
-    color: ${(props) => props.theme.colors.white};
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
     align-items: center;
-    padding-top: ${(props) => props.theme.sizings.medium};
-  }
+    justify-content: center;
 
-  .mentions,
-  .termes,
-  .contact {
-    padding: ${(props) => props.theme.sizings.medium};
-    text-align: right;
-    align-items: center;
-    justify-content: space-between;
-
-    &:hover {
-      color: ${(props) => props.theme.colors.linkDark};
+    .footer-link {
+      color: ${(props) => props.theme.colors.primaryLight};
+      padding: .2rem;
     }
   }
 `;

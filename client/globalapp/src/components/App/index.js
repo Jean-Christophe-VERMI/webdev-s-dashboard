@@ -10,7 +10,7 @@ import HomePage from '../HomePage';
 
 // Styles
 import AppStyled from './AppStyled';
-// import logo from './logo.png';
+
 
 const App = () => (
 
@@ -25,13 +25,6 @@ const App = () => (
       </Router>
     </AppStyled>
   </Theme>
-  /*
-  <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-  </div>
-  */
 
 );
 

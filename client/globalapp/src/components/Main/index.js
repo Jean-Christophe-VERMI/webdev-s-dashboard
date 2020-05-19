@@ -10,9 +10,11 @@ import MainStyled from './MainStyled';
 
 const Main = ({ children }) => (
   <MainStyled>
-    <Nav />
+    <div className="content">
+      <Nav />
+      {children}
+    </div>
     <Footer />
-    {children}
   </MainStyled>
 );
 
