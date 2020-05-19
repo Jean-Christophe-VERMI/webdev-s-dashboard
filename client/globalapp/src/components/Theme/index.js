@@ -24,6 +24,7 @@ const theme = {
   },
   fonts: {
     default: 'rubik',
+    secondary: 'Montserrat',
     headings: 'Evolve',
   },
   lineHeight: '1.6rem',

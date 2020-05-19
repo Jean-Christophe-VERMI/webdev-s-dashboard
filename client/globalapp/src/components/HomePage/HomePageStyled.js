@@ -6,13 +6,16 @@ const HomePageStyled = styled.div`
   height: 100vh;
   background: rgb(65,199,209);
   background: linear-gradient(0deg, rgba(65,199,209,1) 0%, rgba(66,82,130,1) 100%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   
 
 .header {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 6rem;
 }
 
 .title-home {
@@ -62,12 +65,13 @@ const HomePageStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${(props) => props.theme.colors.secondaryDark};
 	position: relative;
 	background: #eff7f6;
 	border: 2px solid ${(props) => props.theme.colors.primaryLight};
   -webkit-animation: fade-in-left 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	animation: fade-in-left 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  box-shadow: -10px -10px 0 ${(props) => props.theme.colors.secondaryDark};
+  box-shadow: -8px -8px 0 ${(props) => props.theme.colors.secondaryDark};
  
 }
 
@@ -105,12 +109,13 @@ const HomePageStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${(props) => props.theme.colors.secondaryDark};
 	position: relative;
 	background: #eff7f6;
 	border: 2px solid ${(props) => props.theme.colors.primaryLight};
   -webkit-animation: fade-in-right 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	animation: fade-in-right 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  box-shadow: 10px -10px 0 ${(props) => props.theme.colors.secondaryDark};
+  box-shadow: 8px -8px 0 ${(props) => props.theme.colors.secondaryDark};
 }
 
 .arrow_box2:after, .arrow_box2:before {
