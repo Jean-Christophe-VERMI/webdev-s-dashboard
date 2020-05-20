@@ -7,7 +7,6 @@ const HomePageStyled = styled.div`
   background: rgb(65,199,209);
   background: linear-gradient(0deg, rgba(65,199,209,1) 0%, rgba(66,82,130,1) 100%);
   display: flex;
-  align-items: center;
   flex-direction: column;
   justify-content: center;
   
@@ -153,6 +152,15 @@ const HomePageStyled = styled.div`
 
 .logo-wifi {
   height: 50px;
+}
+
+.rgpd {
+  font-size: .8rem;
+}
+
+.rgpd-link {
+  color: ${(props) => props.theme.colors.ternary};
+
 }
 
 @-webkit-keyframes tracking-in-contract {

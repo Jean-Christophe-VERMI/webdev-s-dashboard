@@ -26,6 +26,7 @@
     "pg": "^8.0.3",
     "pg-hstore": "^2.3.3",
     "randomstring": "^1.1.5",
+    "react-cookie-consent": "^4.1.0",
     "sequelize": "^5.21.7"
   }
 }
