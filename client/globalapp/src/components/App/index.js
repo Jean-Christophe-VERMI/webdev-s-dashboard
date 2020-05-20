@@ -6,10 +6,10 @@ import Theme from '../Theme';
 import Main from '../Main';
 import HomePage from '../HomePage';
 import Login from '../Login';
-import Inscription from '../Inscription';
+// import Inscription from '../Inscription';
 
 // Containers
-
+import Inscription from '../../containers/Inscription';
 // Styles
 import AppStyled from './AppStyled';
 

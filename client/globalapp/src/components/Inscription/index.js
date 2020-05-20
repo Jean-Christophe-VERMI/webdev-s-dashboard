@@ -1,10 +1,34 @@
 import React from 'react';
-import { FormControl, InputLabel, Input } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+
+import PropTypes from 'prop-types';
 
 import InscriptionStyled from './InscriptionStyled';
 
-const Inscription = () => {
+const Inscription = ({
+  username,
+  email,
+  password,
+  passwordConfirm,
+  onChange,
+  sendUser,
+  hasError,
+  errorMessage,
+  validationMessage,
+  validationSignup,
+  isVerified,
+}) => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    sendUser();
+    // routeChange();
+  };
+
+  const handleChange = (event) => {
+    onChange(event.target.value, event.target.name);
+  };
 
   return (
     <InscriptionStyled>
@@ -13,32 +37,89 @@ const Inscription = () => {
       <div className="headerForm">
         <h3 className="formTitle">Formulaire d'inscription</h3>
       </div>
-      <div className="fieldForm">
-        <FormControl>
-          <InputLabel htmlFor="my-input">Nom d'utilisateur</InputLabel>
-          <Input id="username" aria-describedby="my-helper-text" />
-        </FormControl>
-        <FormControl>
-          <InputLabel htmlFor="my-input">Email</InputLabel>
-          <Input id="email" aria-describedby="my-helper-text" />
-        </FormControl>
-        <FormControl>
-          <InputLabel htmlFor="my-input">Mot de passe</InputLabel>
-          <Input id="password" aria-describedby="my-helper-text" />
-        </FormControl>
-        <FormControl>
-          <InputLabel htmlFor="my-input">Confirmation mot de passe</InputLabel>
-          <Input id="confirmPassword" aria-describedby="my-helper-text" />
-        </FormControl>
-      </div>
-      <Button className="button" variant="contained" color="primary">
-        Enregistrer
-      </Button>
+        {validationSignup && (
+          <p>{validationMessage}</p>
+        )}
+        <form className="fieldForm" onSubmit={handleSubmit}>
+          <TextField 
+            name="username"
+            onChange={handleChange}
+            value={username}
+            required
+            id="field-username" 
+            label="Nom d'utilisateur" 
+            variant="filled" 
+          />
+          <TextField 
+          type="email"
+          name="email"
+          onChange={handleChange}
+          value={email}
+          required
+          id="field-email" 
+          label="Email" 
+          variant="filled" 
+          />
+          <TextField 
+            type="password"
+            name="password"
+            onChange={handleChange}
+            value={password}
+            required
+            id="field-password" 
+            label="Mot de passe" 
+            variant="filled" 
+          />
+          <TextField 
+            type="password"
+            name="passwordConfirm"
+            onChange={handleChange}
+            value={passwordConfirm}
+            required
+            id="field-passwordConfirm" 
+            label="Confirmation mot de passe" 
+            variant="filled" 
+          />
+          <div className="submitButton">
+            {hasError && !validationSignup && (
+              <p>{errorMessage}</p>
+            )}
+            <Button 
+              className="button" 
+              variant="contained" 
+              color="primary"
+              className="button-submit"
+              type="submit"
+            >
+              Enregistrer
+            </Button>
+          </div>
+          
+        </form>
     </div>
     </InscriptionStyled>
     
   );
 
+};
+
+Inscription.propTypes = {
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  passwordConfirm: PropTypes.string.isRequired,
+  sendUser: PropTypes.func.isRequired,
+  isVerified: PropTypes.bool.isRequired,
+  validationSignup: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  hasError: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  validationMessage: PropTypes.string.isRequired,
+};
+
+Inscription.defaultProps = {
+  value: '',
+  type: 'text',
 };
 
 export default Inscription;

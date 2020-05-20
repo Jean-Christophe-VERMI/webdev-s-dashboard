@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const InscriptionStyled = styled.form`
+const InscriptionStyled = styled.section`
 
   width: 100%;
   display: flex;
@@ -40,24 +40,46 @@ const InscriptionStyled = styled.form`
       text-align: center;
     }
 
+    p {
+      font-size: .8rem;
+      margin: .5rem;
+      color: ${(props) => props.theme.colors.success};
+    }
+
   }
 
   .fieldForm {
-    width: 80%;
+    width: 70%;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    margin: 2rem 0rem;
+    margin-top: 2rem;
   }
 
-  .button {
-    margin-bottom: 2rem;
+  .submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem 0rem 2rem;
     padding: .8rem 1rem;
 
+    p {
+      font-size: .8rem;
+      margin: .5rem;
+      color: ${(props) => props.theme.colors.dangerDark};
+    }
+
+    button {
     &:hover {
       background-color: ${(props) => props.theme.colors.secondary};
     }
   }
+
+}
+
+  
+  
 `;
 
 export default InscriptionStyled;
