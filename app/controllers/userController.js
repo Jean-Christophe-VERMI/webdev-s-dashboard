@@ -2,6 +2,7 @@ const User = require('../models/user');
 const emailValidator = require('email-validator');
 const bcrypt = require('bcrypt');
 const randomstring = require('randomstring');
+const nodemailer = require('nodemailer');
 
 const userController = {
 
@@ -66,7 +67,54 @@ const userController = {
         newUser.secretToken = secretToken;
 
         await newUser.save();
-        res.json(newUser);
+
+        // envoi email de vérification via nodemailer 
+        const msgVerifEmail = `<h3>Bonjour ${username}</h3>
+        <br/> 
+        <h4>Merci pour votre inscription sur WEBDEV's DASHBOARD !<h4/>
+        <br/>
+        Vous pouvez maintenant vérifier votre e-mail pour valider votre inscription. 
+        <br/>
+        Veuillez copier/coller votre code personnel : <b>${secretToken}</b>
+        <br/>
+        A l'adresse suivante : <a href="http://localhost:3000/verification-email">http://localhost:3000/verification-email</a>
+        <br/><br>
+        A bientôt !
+        `;
+
+        let transporter = nodemailer.createTransport({
+          host: 'smtp.gmail.com',
+          port: 465,
+          secure: true, // true for 465, false for other ports 587
+          auth: {
+              user: 'jcvzenith@gmail.com', // generated ethereal user
+              pass: 'roghqekjbkenkqcr'  // generated ethereal password
+          },
+          tls:{
+          rejectUnauthorized:false
+          }
+        });
+
+        const siteName = 'WEBDEV\'s DASHBOARD';
+
+        let mailOptions = {
+          from: '"Nodemailer Contact" <jcvzenith@gmail.com>', // sender address
+          to: `${email}`, // list of receivers
+          subject: `${siteName} verification email`, // Subject line
+          // text: 'Hello world?', // plain text body
+          html: msgVerifEmail // html body
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+              return console.log(error);
+          }
+          console.log('Message sent: %s', info.messageId);   
+          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+          res.status(200).json(newUser);
+      });
+
       }
 
     } catch (error) {
