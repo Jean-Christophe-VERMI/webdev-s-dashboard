@@ -178,6 +178,12 @@ const userController = {
 
       }
 
+      if(user.active === false) {
+        return res.status(400).json({
+          error: "Vous n'avez pas validé votre adresse email, connexion refusé. Veuillez consulter votre boite mail à l'adresse que vous avez renseigné lors de votre inscription."
+        });
+      }
+
       const validPwd = bcrypt.compareSync(password, user.getPassword() );
       if (!validPwd) {
         return res.status(400).json({

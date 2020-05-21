@@ -20,7 +20,7 @@ export const initialState = {
   hasError: false,
   errorMessage: '',
   validationSignup: false,
-  validationMessage: 'Votre inscription est confirmé, vous pouvez maintenant vous connecter.',
+  validationMessage: 'Merci pour votre inscription ! Veuillez à présent vérifier votre adresse e-mail. Pour cela, suivez les inscructions indiqués dans l\'email que nous venons de vous envoyer.',
   isVerified: false,
 };
 
