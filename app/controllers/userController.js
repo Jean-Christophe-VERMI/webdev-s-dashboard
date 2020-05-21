@@ -26,6 +26,16 @@ const userController = {
     try {
 
       const {email, password, passwordConfirm, username } = req.body;
+
+      const matchEmail = User.findOne({
+        where : {
+          email: email
+        }
+      });
+
+      if(matchEmail) {
+        return res.status(400).json({msg : "Un compte associé à cet adresse email existe déjà."});
+      }
       
       const bodyErrors = [];
       if (!email) {

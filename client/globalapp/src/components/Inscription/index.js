@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 
 import PropTypes from 'prop-types';
@@ -38,7 +41,7 @@ const Inscription = ({
         <h3 className="formTitle">Formulaire d'inscription</h3>
       </div>
         {validationSignup && (
-          <p>{validationMessage}</p>
+          <b>{validationMessage}</b>
         )}
         <form className="fieldForm" onSubmit={handleSubmit}>
           <TextField 
@@ -80,9 +83,20 @@ const Inscription = ({
             label="Confirmation mot de passe" 
             variant="filled" 
           />
+
+          <div className="checkboxTerms">
+            <p>
+            <Checkbox
+              onChange={handleChange}
+              inputProps={{ 'aria-label': 'primary checkbox' }}
+              required
+              color="primary"
+            />J'accepte les <Link className="footer-link" to='/mentions-legales'>Termes et conditions</Link> du site webdev's dashbord.</p>
+          </div>
+
           <div className="submitButton">
             {hasError && !validationSignup && (
-              <p>{errorMessage}</p>
+              <b>{errorMessage}</b>
             )}
             <Button 
               className="button" 

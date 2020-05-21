@@ -15,9 +15,8 @@ const InscriptionStyled = styled.section`
     color: ${(props) => props.theme.colors.primaryLight};
   }
   
-
   .formulaire {
-    width: 60%;
+    width: 70%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -40,10 +39,15 @@ const InscriptionStyled = styled.section`
       text-align: center;
     }
 
-    p {
+    b {
       font-size: .8rem;
       margin: .5rem;
       color: ${(props) => props.theme.colors.success};
+    }
+
+    .checkboxTerms {
+      text-align: center;
+      font-size: .8rem;
     }
 
   }
@@ -53,7 +57,7 @@ const InscriptionStyled = styled.section`
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    margin-top: 2rem;
+    margin: 2rem;
   }
 
   .submitButton {
@@ -61,10 +65,10 @@ const InscriptionStyled = styled.section`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 1rem 0rem 2rem;
+    
     padding: .8rem 1rem;
 
-    p {
+    b {
       font-size: .8rem;
       margin: .5rem;
       color: ${(props) => props.theme.colors.dangerDark};
