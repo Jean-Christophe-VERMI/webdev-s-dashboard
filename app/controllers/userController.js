@@ -83,12 +83,12 @@ const userController = {
         `;
 
         let transporter = nodemailer.createTransport({
-          host: 'smtp.gmail.com',
+          host: 'smtp.ionos.com',
           port: 465,
           secure: true, // true for 465, false for other ports 587
           auth: {
-              user: 'jcvzenith@gmail.com', // generated ethereal user
-              pass: 'roghqekjbkenkqcr'  // generated ethereal password
+              user: 'contact@webdevsdashbord.com', // generated ethereal user
+              pass: 'VerifYM@il888'  // generated ethereal password
           },
           tls:{
           rejectUnauthorized:false
@@ -98,7 +98,7 @@ const userController = {
         const siteName = 'WEBDEV\'s DASHBOARD';
 
         let mailOptions = {
-          from: '"Nodemailer Contact" <jcvzenith@gmail.com>', // sender address
+          from: '"webdev s dashboard contact" <contact@webdevsdashbord.com>', // sender address
           to: `${email}`, // list of receivers
           subject: `${siteName} verification email`, // Subject line
           // text: 'Hello world?', // plain text body
@@ -109,11 +109,12 @@ const userController = {
           if (error) {
               return console.log(error);
           }
+
           console.log('Message sent: %s', info.messageId);   
           console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
           res.status(200).json(newUser);
-      });
+        });
 
       }
 
@@ -123,7 +124,41 @@ const userController = {
 
   },
 
-  // route : post /connexion
+
+  // ROUTE POST /verification-email
+  verifyEmail: async (req, res) => {
+
+    try {
+
+      const secretToken = req.body.secretToken;
+
+      const user = await User.findOne({
+        where: {
+          secretToken: secretToken
+        }
+      });
+
+      if (!user) {
+        return res.status(404).json({msg: 'Aucun utilisateur ne correspond avec ce code.'})
+      }
+
+      if (user) {
+
+        user.active = true;
+        user.secretToken = '';
+
+        await user.save();
+        res.status(200).json({msg: 'Votre email est validé, vous pouvez maintenant vous connecter.'});
+
+      }
+
+    } catch (error) {
+      res.status(500).json(error);
+    }
+
+  },
+
+  // ROUTE POST /connexion
   loginAction: async (req, res) => {
 
     try {

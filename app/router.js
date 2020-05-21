@@ -12,6 +12,7 @@ const router = express.Router();
 // route gestion des actions sur table app_users
 router.get('/users', userController.getAllUsers);
 router.post('/inscription', userController.signupAction);
+router.post('/verification-email', userController.verifyEmail);
 router.post('/connexion', userController.loginAction);
 router.put('/user/:userId/edit-profil', userController.editProfil);
 router.put('/user/:userId/password', userController.modifyPassword);
