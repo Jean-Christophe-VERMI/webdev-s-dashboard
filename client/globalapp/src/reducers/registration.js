@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
   SEND_USER,
   MODIFY_FIELD,
@@ -20,7 +22,7 @@ export const initialState = {
   hasError: false,
   errorMessage: '',
   validationSignup: false,
-  validationMessage: 'Merci pour votre inscription ! Veuillez à présent vérifier votre adresse e-mail. Pour cela, suivez les inscructions indiqués dans l\'email que nous venons de vous envoyer.',
+  validationMessage: <><p>Merci pour votre inscription ! Veuillez à présent vérifier votre adresse e-mail en suivant les inscructions indiqués dans l'email que nous venons de vous envoyer.</p></>,
   isVerified: false,
 };
 

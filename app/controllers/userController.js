@@ -34,7 +34,7 @@ const userController = {
       });
 
       if(matchEmail) {
-        return res.status(400).json({msg : "Un compte associé à cet adresse email existe déjà."});
+        return res.status(400).json({error : "Un compte associé à cette adresse email existe déjà."});
       }
 
       if(!matchEmail) {
@@ -71,7 +71,7 @@ const userController = {
           res.status(400).json(bodyErrors);
   
         } else {
-          
+
           const newUser = new User();
           newUser.email = email;
           const encryptedPwd = bcrypt.hashSync(password, 10);

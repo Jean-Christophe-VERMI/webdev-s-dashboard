@@ -16,7 +16,7 @@ const InscriptionStyled = styled.section`
   }
   
   .formulaire {
-    width: 70%;
+    width: 75%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -26,6 +26,7 @@ const InscriptionStyled = styled.section`
 
 
     .headerForm {
+      text-align: center;
       width: 100%;
       background-color: ${(props) => props.theme.colors.blueNav};
       border-radius: 4px 4px 0px 0px;
@@ -35,14 +36,8 @@ const InscriptionStyled = styled.section`
     h3 {
       color: ${(props) => props.theme.colors.primaryDark};
       margin: 0;
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    b {
-      font-size: .8rem;
-      margin: .5rem;
-      color: ${(props) => props.theme.colors.success};
+      padding: 1rem;
+      text-transform: uppercase;
     }
 
     .checkboxTerms {
@@ -53,6 +48,7 @@ const InscriptionStyled = styled.section`
         font-size: .8rem;
         text-decoration: none;
         color: ${(props) => props.theme.colors.secondaryDark};
+        font-weight: bold;
       }
 
     }
@@ -64,7 +60,7 @@ const InscriptionStyled = styled.section`
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    margin: 2rem;
+    margin: 1rem 0rem 2rem;
   }
 
   .submitButton {
@@ -75,8 +71,15 @@ const InscriptionStyled = styled.section`
 
     b {
       font-size: .8rem;
-      margin: .5rem;
+      margin: 0rem 0rem .5rem;
       color: ${(props) => props.theme.colors.dangerDark};
+    }
+
+    p {
+      margin: 0rem 0rem .5rem;
+      text-align: center;
+      font-size: .8rem;
+      color: ${(props) => props.theme.colors.success};
     }
 
     button {
@@ -86,8 +89,6 @@ const InscriptionStyled = styled.section`
   }
 
 }
-
-  
   
 `;
 

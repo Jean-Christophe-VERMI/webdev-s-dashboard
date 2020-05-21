@@ -20,13 +20,11 @@ const Inscription = ({
   errorMessage,
   validationMessage,
   validationSignup,
-  isVerified,
 }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
     sendUser();
-    // routeChange();
   };
 
   const handleChange = (event) => {
@@ -35,14 +33,11 @@ const Inscription = ({
 
   return (
     <InscriptionStyled>
-    <h1 className="site-name">WEBDEV's DASHBOARD</h1>
     <div className="formulaire">
       <div className="headerForm">
-        <h3 className="formTitle">Formulaire d'inscription</h3>
+        <h1 className="site-name">WEBDEV's DASHBOARD</h1>
       </div>
-        {validationSignup && (
-          <b>{validationMessage}</b>
-        )}
+        <h3 className="formTitle">Formulaire d'inscription</h3>
         <form className="fieldForm" onSubmit={handleSubmit}>
           <TextField 
             name="username"
@@ -98,6 +93,9 @@ const Inscription = ({
             {hasError && !validationSignup && (
               <b>{errorMessage}</b>
             )}
+            {validationSignup && (
+              <p>{validationMessage}</p>
+            )}
             <Button 
               className="button" 
               variant="contained" 
@@ -123,7 +121,6 @@ Inscription.propTypes = {
   password: PropTypes.string.isRequired,
   passwordConfirm: PropTypes.string.isRequired,
   sendUser: PropTypes.func.isRequired,
-  isVerified: PropTypes.bool.isRequired,
   validationSignup: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   hasError: PropTypes.bool.isRequired,
