@@ -48,6 +48,13 @@ const InscriptionStyled = styled.section`
     .checkboxTerms {
       text-align: center;
       font-size: .8rem;
+
+      a {
+        font-size: .8rem;
+        text-decoration: none;
+        color: ${(props) => props.theme.colors.secondaryDark};
+      }
+
     }
 
   }
@@ -65,8 +72,6 @@ const InscriptionStyled = styled.section`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
-    padding: .8rem 1rem;
 
     b {
       font-size: .8rem;

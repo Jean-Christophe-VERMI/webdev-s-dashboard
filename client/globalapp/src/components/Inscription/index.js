@@ -91,7 +91,7 @@ const Inscription = ({
               inputProps={{ 'aria-label': 'primary checkbox' }}
               required
               color="primary"
-            />J'accepte les <Link className="footer-link" to='/mentions-legales'>Termes et conditions</Link> du site webdev's dashbord.</p>
+            />J'accepte les <Link className="footer-link" to='/mentions-legales'>termes et conditions</Link> du site webdev's dashbord.</p>
           </div>
 
           <div className="submitButton">

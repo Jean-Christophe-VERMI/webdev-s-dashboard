@@ -27,7 +27,7 @@ const userController = {
 
       const {email, password, passwordConfirm, username } = req.body;
 
-      const matchEmail = User.findOne({
+      const matchEmail = await User.findOne({
         where : {
           email: email
         }
@@ -36,96 +36,101 @@ const userController = {
       if(matchEmail) {
         return res.status(400).json({msg : "Un compte associé à cet adresse email existe déjà."});
       }
+
+      if(!matchEmail) {
+
+        const bodyErrors = [];
+        if (!email) {
+          bodyErrors.push('name parameter is missing');
+        }
+        if (!password) {
+          bodyErrors.push('position parameter is missing');
+        }
+        if (!passwordConfirm) {
+          bodyErrors.push('position parameter is missing');
+        }
+        if (!username) {
+          bodyErrors.push('position parameter is missing');
+        }
+  
+        if (!emailValidator.validate(email)) {
+          return res.status(400).json({
+            error: "Cet email n'est pas valide."
+          });
+        }
+  
+        if (password != passwordConfirm) {
+          return res.status(400).json({
+            error: "La confirmation du mot de passe ne correspond pas."
+          });
+        }
+  
+        const secretToken = randomstring.generate();
+        
+        if (bodyErrors.length) {
+          res.status(400).json(bodyErrors);
+  
+        } else {
+          
+          const newUser = new User();
+          newUser.email = email;
+          const encryptedPwd = bcrypt.hashSync(password, 10);
+          newUser.password = encryptedPwd;
+          newUser.username = username;
+          newUser.secretToken = secretToken;
+  
+          await newUser.save();
+  
+          // envoi email de vérification via nodemailer 
+          const msgVerifEmail = `<h3>Bonjour ${username}</h3>
+          <br/> 
+          <h4>Merci pour votre inscription sur WEBDEV's DASHBOARD !<h4/>
+          <br/>
+          Vous pouvez maintenant vérifier votre e-mail pour valider votre inscription. 
+          <br/>
+          Veuillez copier/coller votre code personnel : <b>${secretToken}</b>
+          <br/>
+          A l'adresse suivante : <a href="http://localhost:3000/verification-email">http://localhost:3000/verification-email</a>
+          <br/><br>
+          A bientôt !
+          `;
+  
+          let transporter = nodemailer.createTransport({
+            host: 'smtp.ionos.com',
+            port: 465,
+            secure: true, // true for 465, false for other ports 587
+            auth: {
+                user: 'contact@webdevsdashbord.com', // generated ethereal user
+                pass: 'VerifYM@il888'  // generated ethereal password
+            },
+            tls:{
+            rejectUnauthorized:false
+            }
+          });
+  
+          const siteName = 'WEBDEV\'s DASHBOARD';
+  
+          let mailOptions = {
+            from: '"webdev s dashboard contact" <contact@webdevsdashbord.com>', // sender address
+            to: `${email}`, // list of receivers
+            subject: `${siteName} verification email`, // Subject line
+            // text: 'Hello world?', // plain text body
+            html: msgVerifEmail // html body
+          };
+  
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+  
+            console.log('Message sent: %s', info.messageId);   
+            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+  
+            res.status(200).json(newUser);
+          });
+
+        }
       
-      const bodyErrors = [];
-      if (!email) {
-        bodyErrors.push('name parameter is missing');
-      }
-      if (!password) {
-        bodyErrors.push('position parameter is missing');
-      }
-      if (!passwordConfirm) {
-        bodyErrors.push('position parameter is missing');
-      }
-      if (!username) {
-        bodyErrors.push('position parameter is missing');
-      }
-
-      if (!emailValidator.validate(email)) {
-        return res.status(400).json({
-          error: "Cet email n'est pas valide."
-        });
-      }
-
-      if (password != passwordConfirm) {
-        return res.status(400).json({
-          error: "La confirmation du mot de passe ne correspond pas."
-        });
-      }
-
-      const secretToken = randomstring.generate();
-      
-      if (bodyErrors.length) {
-        res.status(400).json(bodyErrors);
-
-      } else {
-        const newUser = new User();
-        newUser.email = email;
-        const encryptedPwd = bcrypt.hashSync(password, 10);
-        newUser.password = encryptedPwd;
-        newUser.username = username;
-        newUser.secretToken = secretToken;
-
-        await newUser.save();
-
-        // envoi email de vérification via nodemailer 
-        const msgVerifEmail = `<h3>Bonjour ${username}</h3>
-        <br/> 
-        <h4>Merci pour votre inscription sur WEBDEV's DASHBOARD !<h4/>
-        <br/>
-        Vous pouvez maintenant vérifier votre e-mail pour valider votre inscription. 
-        <br/>
-        Veuillez copier/coller votre code personnel : <b>${secretToken}</b>
-        <br/>
-        A l'adresse suivante : <a href="http://localhost:3000/verification-email">http://localhost:3000/verification-email</a>
-        <br/><br>
-        A bientôt !
-        `;
-
-        let transporter = nodemailer.createTransport({
-          host: 'smtp.ionos.com',
-          port: 465,
-          secure: true, // true for 465, false for other ports 587
-          auth: {
-              user: 'contact@webdevsdashbord.com', // generated ethereal user
-              pass: 'VerifYM@il888'  // generated ethereal password
-          },
-          tls:{
-          rejectUnauthorized:false
-          }
-        });
-
-        const siteName = 'WEBDEV\'s DASHBOARD';
-
-        let mailOptions = {
-          from: '"webdev s dashboard contact" <contact@webdevsdashbord.com>', // sender address
-          to: `${email}`, // list of receivers
-          subject: `${siteName} verification email`, // Subject line
-          // text: 'Hello world?', // plain text body
-          html: msgVerifEmail // html body
-        };
-
-        transporter.sendMail(mailOptions, (error, info) => {
-          if (error) {
-              return console.log(error);
-          }
-
-          console.log('Message sent: %s', info.messageId);   
-          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-          res.status(200).json(newUser);
-        });
-
       }
 
     } catch (error) {
