@@ -19,8 +19,8 @@ const Inscription = ({
   sendUser,
   hasError,
   errorMessage,
-  validationMessage,
   validationSignup,
+  validationMessage,
 }) => {
 
   const handleSubmit = (event) => {
@@ -90,10 +90,10 @@ const Inscription = ({
             </p>
             <div className="msgState">
               {hasError && !validationSignup && (
-                <p className="errorMsg">{errorMessage}</p>
+                <div className="errorMsg">{errorMessage}</div>
               )}
               {validationSignup && (
-                <p className="validationMsg">{validationMessage}</p>
+                <div className="validationMsg">{validationMessage}</div>
               )}
             </div>
             <Button 
@@ -122,7 +122,7 @@ Inscription.propTypes = {
   onChange: PropTypes.func.isRequired,
   hasError: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string.isRequired,
-  validationMessage: PropTypes.string.isRequired,
+  //validationMessage: PropTypes.string.isRequired,
 };
 
 Inscription.defaultProps = {

@@ -12,8 +12,8 @@ const VerifEmail = ({
   sendToken,
   hasError,
   errorMessage,
-  validationMessage,
   validationEmail,
+  validationMessage,
 }) => {
   
   const handleSubmit = (event) => {
@@ -45,10 +45,10 @@ const VerifEmail = ({
           />
           <div className="msgState">
             {hasError && !validationEmail && (
-              <p className="errorMsg">{errorMessage}</p>
+              <div className="errorMsg">{errorMessage}</div>
             )}
             {validationEmail && (
-              <p className="validationMsg">{validationMessage}</p>
+              <div className="validationMsg">{validationMessage}</div>
             )}
           </div>
           <Button 

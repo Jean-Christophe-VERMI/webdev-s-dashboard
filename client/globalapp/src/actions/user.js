@@ -5,12 +5,14 @@ export const LOGOUT = 'LOGOUT';
 export const CHECK_IS_LOGGED = 'CHECK_IS_LOGGED';
 export const SEND_USER = 'SEND_USER';
 export const SEND_TOKEN = 'SEND_TOKEN';
+export const SEND_AUTH_INFOS = 'SEND_AUTH_INFOS';
 export const ADD_USER_INFOS = 'ADD_USER_INFOS';
 export const EMPTY_USER = 'EMPTY_USER';
 export const HAS_ERROR = 'HAS_ERROR';
 export const ERROR_MESSAGE = 'ERROR_MESSAGE';
 export const VALIDATION_SIGNUP = 'VALIDATION_SIGNUP';
 export const VALIDATION_EMAIL = 'VALIDATION_EMAIL';
+export const VALIDATION_AUTH = 'VALIDATION_AUTH';
 export const VERIFY_CALLBACK = 'VERIFY_CALLBACK';
 export const CHANGE_USER_INFOS = 'CHANGE_USER_INFOS';
 export const TOGGLE_OPEN_MODIFY = 'TOOGLE_OPEN_MODIFY';
@@ -41,6 +43,12 @@ export const sendUser = (value, key) => ({
 
 export const sendToken = (value, key) => ({
   type: SEND_TOKEN,
+  value,
+  key,
+});
+
+export const sendAuthInfos = (value, key) => ({
+  type: SEND_AUTH_INFOS,
   value,
   key,
 });
@@ -77,6 +85,10 @@ export const validationSignup = () => ({
 
 export const validationEmail = () => ({
   type: VALIDATION_EMAIL,
+});
+
+export const validationAuth = () => ({
+  type: VALIDATION_AUTH,
 });
 
 export const verifyCallback = (response) => ({

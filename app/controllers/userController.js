@@ -192,7 +192,7 @@ const userController = {
 
       if (!user) {
         return res.status(400).json({
-          error: "Cet email n'existe pas."
+          error: "Aucun compte n'est enregistré avec cette adresse email."
         });
 
       }
@@ -206,7 +206,7 @@ const userController = {
       const validPwd = bcrypt.compareSync(password, user.getPassword() );
       if (!validPwd) {
         return res.status(400).json({
-          error: "Le mot de passe ne correspond pas à cet adresse e-mail."
+          error: "Le mot de passe ne correspond pas avec cette adresse e-mail."
         });
       }
 
