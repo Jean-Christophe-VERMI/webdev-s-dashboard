@@ -213,9 +213,7 @@ const userController = {
       req.session.user = user;
       delete req.session.user.password;
 
-      return res.status(200).json({
-        msg: "Connexion réussie."
-      });
+      return res.status(200).json(user);
 
     } catch (err) {
       res.status(500).send(err);

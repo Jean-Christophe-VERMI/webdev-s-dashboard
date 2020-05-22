@@ -5,6 +5,7 @@ import {
   errorMsg,
   validationAuth,
   hasError,
+  addUserInfos,
 } from '../actions/user';
 
 const authMiddleware = store => next => action => {
@@ -20,6 +21,10 @@ const authMiddleware = store => next => action => {
       })
         .then(response => {
           console.log(response);
+
+          const user = (response.data);
+          store.dispatch(addUserInfos(user));
+
           store.dispatch(validationAuth());
         })
         .catch(error => {

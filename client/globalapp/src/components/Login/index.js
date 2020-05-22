@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import LoginStyled from './LoginStyled';
 
 const Login = ({
+  userId,
   email,
   password,
   onChange,
@@ -15,7 +17,21 @@ const Login = ({
   errorMessage,
   validationAuth,
   validationMessage,
+  isLogged,
 }) => {
+  
+  const history = useHistory();
+
+  function routeChange() {
+    let path = `/user/${userId}/dashboard`;
+    history.push(path);
+  };
+ 
+  if (isLogged) {
+    setTimeout(() => {
+      routeChange();
+    }, 3000);
+  }
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -60,6 +76,7 @@ const Login = ({
             {validationAuth && (
               <div className="validationMsg">{validationMessage}</div>
             )}
+
           </div>
           <Button 
             className="submit-btn" 
@@ -76,6 +93,7 @@ const Login = ({
 };
 
 Login.propTypes = {
+  //userId: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   sendAuthInfos: PropTypes.func.isRequired,
@@ -83,6 +101,7 @@ Login.propTypes = {
   onChange: PropTypes.func.isRequired,
   hasError: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string.isRequired,
+  isLogged: PropTypes.bool.isRequired,
   //validationMessage: PropTypes.string.isRequired,
 };
 
