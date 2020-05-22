@@ -43,7 +43,6 @@ const InscriptionStyled = styled.section`
     .fieldForm {
       width: 70%;
       display: flex;
-      justify-content: space-between;
       flex-direction: column;
       margin: 1rem 0rem 2rem;
     }
@@ -77,7 +76,7 @@ const InscriptionStyled = styled.section`
 
     }
 
-    .MuiButtonBase-root.MuiButton-root.MuiButton-contained.button-submit.MuiButton-containedPrimary {
+    .MuiButtonBase-root.MuiButton-root.MuiButton-contained.submit-btn.MuiButton-containedPrimary {
 
       margin: 0 auto;
       

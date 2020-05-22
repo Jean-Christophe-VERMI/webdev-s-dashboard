@@ -100,7 +100,6 @@ const Inscription = ({
               className="submit-btn" 
               variant="contained" 
               color="primary"
-              className="button-submit"
               type="submit"
             >
               Enregistrer
