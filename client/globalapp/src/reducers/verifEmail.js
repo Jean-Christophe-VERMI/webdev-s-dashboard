@@ -1,33 +1,24 @@
 import React from 'react';
 
 import {
-  SEND_USER,
+  SEND_TOKEN,
   MODIFY_FIELD,
   HAS_ERROR,
   ERROR_MESSAGE,
-  VALIDATION_SIGNUP,
+  VALIDATION_EMAIL,
 } from '../actions/user';
 
 export const initialState = {
-  username: '',
-  email: '',
-  password: '',
-  passwordConfirm: '',
-  github: '',
-  twitter: '',
-  linkedIn: '',
-  users: [],
-  items: [],
+  secretToken: '',
   hasError: false,
   errorMessage: '',
-  validationSignup: false,
-  validationMessage: <><p>Merci pour votre inscription ! Veuillez à présent vérifier votre adresse e-mail en suivant les inscructions indiqués dans l'email que nous venons de vous envoyer.</p></>,
-  isVerified: false,
+  validationEmail: false,
+  validationMessage: <><p>Email validé ! Vous pouvez désormais vous connecter avec vos identifiants.</p></>,
 };
 
-const register = (state = initialState, action = {}) => {
+const verifEmail = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SEND_USER:
+    case SEND_TOKEN:
       return {
         ...state,
         [action.key]: action.value,
@@ -42,10 +33,10 @@ const register = (state = initialState, action = {}) => {
         ...state,
         errorMessage: action.value,
       };
-    case VALIDATION_SIGNUP:
+    case VALIDATION_EMAIL:
       return {
         ...state,
-        validationSignup: true,
+        validationEmail: true,
       };
     case HAS_ERROR:
       return {
@@ -57,4 +48,4 @@ const register = (state = initialState, action = {}) => {
   }
 };
 
-export default register;
+export default verifEmail;

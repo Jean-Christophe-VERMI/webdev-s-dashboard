@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const VermificationEmailStyled = styled.section`
+const VerifEmailStyled = styled.section`
   
   width: 100%;
   display: flex;
@@ -79,4 +79,4 @@ const VermificationEmailStyled = styled.section`
   
 `;
 
-export default VermificationEmailStyled;
+export default VerifEmailStyled;

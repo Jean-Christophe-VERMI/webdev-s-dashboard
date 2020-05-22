@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-import VerificationEmailStyled from './VerificationEmailStyled';
+import VerifEmailStyled from './VerifEmailStyled';
 
-const VerificationEmail = ({
+const VerifEmail = ({
   secretToken,
   onChange,
   sendToken,
@@ -27,7 +27,7 @@ const VerificationEmail = ({
 
 
   return (
-  <VerificationEmailStyled>
+  <VerifEmailStyled>
     <div className="formulaire">
         <div className="headerForm">
           <h1 className="site-name">WEBDEV's DASHBOARD</h1>
@@ -35,12 +35,12 @@ const VerificationEmail = ({
         <h3 className="formTitle">Verification email</h3>
         <form className="fieldForm" onSubmit={handleSubmit}>
           <TextField 
-            name="username"
+            name="secretToken"
             onChange={handleChange}
             value={secretToken}
             required
             id="secretToken" 
-            label="secretToken" 
+            label="code de validation" 
             variant="filled" 
           />
           <div className="msgState">
@@ -61,23 +61,23 @@ const VerificationEmail = ({
           </Button>
         </form>
       </div>
-    </VerificationEmailStyled>
+    </VerifEmailStyled>
   );
 };
 
-VerificationEmail.propTypes = {
+VerifEmail.propTypes = {
   secretToken: PropTypes.string.isRequired,
   sendToken: PropTypes.func.isRequired,
   validationEmail: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   hasError: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string.isRequired,
-  validationMessage: PropTypes.string.isRequired,
+  //validationMessage: PropTypes.string.isRequired,
 };
 
-VerificationEmail.defaultProps = {
+VerifEmail.defaultProps = {
   value: '',
   type: 'text',
 };
 
-export default VerificationEmail;
+export default VerifEmail;
