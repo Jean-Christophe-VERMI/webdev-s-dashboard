@@ -16,7 +16,7 @@ const InscriptionStyled = styled.section`
   }
   
   .formulaire {
-    width: 75%;
+    width: 70%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -36,11 +36,19 @@ const InscriptionStyled = styled.section`
     h3 {
       color: ${(props) => props.theme.colors.primaryDark};
       margin: 0;
-      padding: 1rem;
+      padding-top: .5rem;
       text-transform: uppercase;
     }
 
-    .checkboxTerms {
+    .fieldForm {
+      width: 70%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      margin: 1rem 0rem 2rem;
+    }
+
+    .terms {
       text-align: center;
       font-size: .8rem;
 
@@ -53,42 +61,35 @@ const InscriptionStyled = styled.section`
 
     }
 
-  }
-
-  .fieldForm {
-    width: 70%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    margin: 1rem 0rem 2rem;
-  }
-
-  .submitButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    b {
-      font-size: .8rem;
-      margin: 0rem 0rem .5rem;
-      color: ${(props) => props.theme.colors.dangerDark};
-    }
-
-    p {
-      margin: 0rem 0rem .5rem;
+    .msgState {
       text-align: center;
-      font-size: .8rem;
-      color: ${(props) => props.theme.colors.success};
+
+
+      .errorMsg {
+        font-size: .8rem;
+        color: ${(props) => props.theme.colors.dangerDark};
+      }
+
+      .validationMsg {
+        font-size: .8rem;
+        color: ${(props) => props.theme.colors.success};
+      }
+
     }
 
-    button {
-    &:hover {
+    .MuiButtonBase-root.MuiButton-root.MuiButton-contained.button-submit.MuiButton-containedPrimary {
+
+      margin: 0 auto;
+      
+      &:hover {
       background-color: ${(props) => props.theme.colors.secondary};
+      }
+
     }
+
+
   }
 
-}
   
 `;
 

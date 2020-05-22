@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
+// import ReCAPTCHA from "react-google-recaptcha";
 
 import PropTypes from 'prop-types';
 
@@ -34,9 +35,9 @@ const Inscription = ({
   return (
     <InscriptionStyled>
     <div className="formulaire">
-      <div className="headerForm">
-        <h1 className="site-name">WEBDEV's DASHBOARD</h1>
-      </div>
+        <div className="headerForm">
+          <h1 className="site-name">WEBDEV's DASHBOARD</h1>
+        </div>
         <h3 className="formTitle">Formulaire d'inscription</h3>
         <form className="fieldForm" onSubmit={handleSubmit}>
           <TextField 
@@ -79,25 +80,24 @@ const Inscription = ({
             variant="filled" 
           />
 
-          <div className="checkboxTerms">
-            <p>
-            <Checkbox
-              onChange={handleChange}
-              inputProps={{ 'aria-label': 'primary checkbox' }}
-              required
-              color="primary"
-            />J'accepte les <Link className="footer-link" to='/mentions-legales'>termes et conditions</Link> du site webdev's dashbord.</p>
-          </div>
-
-          <div className="submitButton">
-            {hasError && !validationSignup && (
-              <b>{errorMessage}</b>
-            )}
-            {validationSignup && (
-              <p>{validationMessage}</p>
-            )}
+            <p className="terms">
+              <Checkbox
+                onChange={handleChange}
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+                required
+                color="primary"
+              />J'accepte les <Link className="footer-link" to='/mentions-legales'>termes et conditions</Link> du site webdev's dashbord.
+            </p>
+            <div className="msgState">
+              {hasError && !validationSignup && (
+                <p className="errorMsg">{errorMessage}</p>
+              )}
+              {validationSignup && (
+                <p className="validationMsg">{validationMessage}</p>
+              )}
+            </div>
             <Button 
-              className="button" 
+              className="submit-btn" 
               variant="contained" 
               color="primary"
               className="button-submit"
@@ -105,8 +105,6 @@ const Inscription = ({
             >
               Enregistrer
             </Button>
-          </div>
-          
         </form>
     </div>
     </InscriptionStyled>
