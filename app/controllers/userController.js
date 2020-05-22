@@ -88,10 +88,14 @@ const userController = {
           <br/>
           Vous pouvez maintenant vérifier votre e-mail pour valider votre inscription. 
           <br/>
-          Veuillez copier/coller votre code personnel : <b>${secretToken}</b>
+          Veuillez copier votre code de validation : <b>${secretToken}</b> et renseigez le à l'adresse suivante : <a href="http://localhost:3000/verification-email">http://localhost:3000/verification-email</a>
           <br/>
-          A l'adresse suivante : <a href="http://localhost:3000/verification-email">http://localhost:3000/verification-email</a>
-          <br/><br>
+          Rappel de vos identifiants de connexion :
+          <br/>
+          Identifiant : ${email}
+          <br/>
+          Mot de passe : ${password}
+          <br/>
           A bientôt !
           `;
   
@@ -154,7 +158,7 @@ const userController = {
       });
 
       if (!user) {
-        return res.status(404).json({msg: 'Aucun utilisateur ne correspond avec ce code.'})
+        return res.status(404).json({error: 'Code de vérification invalid. Veuillez réessayer svp.'});
       }
 
       if (user) {
