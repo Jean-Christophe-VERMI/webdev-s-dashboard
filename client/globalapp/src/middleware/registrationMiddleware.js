@@ -12,7 +12,7 @@ const registerMiddleware = store => next => action => {
     case SEND_USER: {
       axios({
         method: 'post',
-        url: 'http://localhost:3000/inscription',
+        url: 'http://localhost:4000/inscription',
         data: {
           username: store.getState().registration.username,
           email: store.getState().registration.email,

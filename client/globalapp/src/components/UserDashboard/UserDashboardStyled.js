@@ -5,33 +5,72 @@ const UserDashboardStyled = styled.nav`
 
   min-width: 25%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background-image: url(${navbg});
   background-size: cover;
   
-  .logoNav {
-    margin: 0 auto;
+  .headerNav {
+    margin: 1rem;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+
+    h2 {
+      color: ${(props) => props.theme.colors.secondary};
+      text-align: center;
+    }
+
   }
 
   .logo{
-    height: 120px;
-    margin: 1.5rem;
+    height: 70px;
 
-    &:hover {
-      
+  }
+
+  .user-links {
+    display: flex;
+    justify-content: space-around;
+    text-align: right;
+    padding: 1rem;
+    background-color: ${(props) => props.theme.colors.secondary};
+
+    a:hover {
+      color: ${(props) => props.theme.colors.blueNav};
     }
+
+  }
+
+  .username-link {
+    margin-left: 1rem;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-style: italic;
+    color: ${(props) => props.theme.colors.primaryLight};
+
+  }
+
+  .logout-link {
+    margin-right: 1rem;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-style: italic;
+    color: ${(props) => props.theme.colors.primaryLight};
 
   }
 
   .buttonNav {
     display: flex;
     flex-direction: column;
-    margin: 4rem;
+    justify-content: flex-start;
+    margin: 1rem 4rem;
+    
   }
 
   .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: .8rem .4rem;
     margin: .5rem 1rem;
 
@@ -42,10 +81,21 @@ const UserDashboardStyled = styled.nav`
   }
 
   .navlink {
+    margin-left: .2rem;
     text-decoration: none;
+    font-size: .8rem;
     color: ${(props) => props.theme.colors.primaryLight};
     font-family: ${(props) => props.theme.fonts.default};
   }
+
+  .favori-project{
+    margin: 0 auto;
+    padding: 1rem;
+    width: 75%;
+    background-color: ${(props) => props.theme.colors.primary};
+    border-radius: 4px;
+  }
+
 
 `;
 

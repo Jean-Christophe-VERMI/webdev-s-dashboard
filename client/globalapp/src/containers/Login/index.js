@@ -2,16 +2,16 @@ import { connect } from 'react-redux';
 
 import Login from '../../components/Login';
 
-import { sendAuthInfos, modifyField } from '../../actions/user';
+import { sendAuthInfos, modifyField, clearError, clearValidation } from '../../actions/user';
 
 const mapStateToProps = (state) => ({
   userId: state.auth.userId,
   email: state.auth.email,
   password: state.auth.password,
   hasError: state.auth.hasError,
-  errorMessage: state.auth.errorMessage,
+  errorMessageLogin: state.auth.errorMessageLogin,
   validationAuth: state.auth.validationAuth,
-  validationMessage: state.auth.validationMessage,
+  validationMessageLogin: state.auth.validationMessageLogin,
   isLogged: state.auth.isLogged,
 });
 
@@ -21,6 +21,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onChange: (value, name) => {
     dispatch(modifyField(value, name));
+  },
+  clearError: () => {
+    dispatch(clearError());
+  },
+  clearValidation: () => {
+    dispatch(clearValidation());
   },
   
 });

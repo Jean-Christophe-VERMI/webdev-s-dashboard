@@ -13,7 +13,7 @@ const authMiddleware = store => next => action => {
     case SEND_AUTH_INFOS: {
       axios({
         method: 'post',
-        url: 'http://localhost:3000/connexion',
+        url: 'http://localhost:4000/connexion',
         data: {
           email: store.getState().auth.email,
           password: store.getState().auth.password,

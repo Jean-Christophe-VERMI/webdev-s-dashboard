@@ -7,6 +7,9 @@ import {
   ERROR_MESSAGE,
   VALIDATION_AUTH,
   ADD_USER_INFOS,
+  LOGOUT,
+  CLEAR_ERROR,
+  CLEAR_VALIDATION,
 } from '../actions/user';
 
 export const initialState = {
@@ -15,9 +18,9 @@ export const initialState = {
   email: '',
   password: '',
   hasError: false,
-  errorMessage: '',
+  errorMessageLogin: '',
   validationAuth: false,
-  validationMessage: <><p>Connexion réussie, vous allez être redirigé vers votre Dashbord...</p></>,
+  validationMessageLogin: 'Connexion réussie, vous allez être redirigé vers votre Dashbord...',
   isLogged: false,
   notLogged: true,
 };
@@ -37,7 +40,7 @@ const auth = (state = initialState, action = {}) => {
     case ERROR_MESSAGE:
       return {
         ...state,
-        errorMessage: action.value,
+        errorMessageLogin: action.value,
       };
     case VALIDATION_AUTH:
       return {
@@ -57,6 +60,22 @@ const auth = (state = initialState, action = {}) => {
         username: action.payload.username,
         email: action.payload.email,
         userId: action.payload.id,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        isLogged: false,
+        notLogged: true,
+      };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        errorMessageLogin: '',
+      };
+    case CLEAR_VALIDATION:
+      return {
+        ...state,
+        validationMessageLogin: '',
       };
     default:
     return state;

@@ -11,9 +11,11 @@ const VerifEmail = ({
   onChange,
   sendToken,
   hasError,
-  errorMessage,
+  errorMessageVerifEmail,
   validationEmail,
-  validationMessage,
+  validationMessageVerifEmail,
+  clearError,
+  clearValidation,
 }) => {
   
   const handleSubmit = (event) => {
@@ -24,6 +26,18 @@ const VerifEmail = ({
   const handleChange = (event) => {
     onChange(event.target.value, event.target.name);
   };
+
+  if(errorMessageVerifEmail) {
+    setTimeout(() => {
+      clearError();
+    }, 8000);
+  }
+
+  if(validationEmail) {
+    setTimeout(() => {
+      clearValidation();
+    }, 8000);
+  }
 
 
   return (
@@ -45,10 +59,10 @@ const VerifEmail = ({
           />
           <div className="msgState">
             {hasError && !validationEmail && (
-              <div className="errorMsg">{errorMessage}</div>
+              <div className="errorMsg">{errorMessageVerifEmail}</div>
             )}
             {validationEmail && (
-              <div className="validationMsg">{validationMessage}</div>
+              <div className="validationMsg">{validationMessageVerifEmail}</div>
             )}
           </div>
           <Button 
@@ -71,8 +85,10 @@ VerifEmail.propTypes = {
   validationEmail: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   hasError: PropTypes.bool.isRequired,
-  errorMessage: PropTypes.string.isRequired,
-  //validationMessage: PropTypes.string.isRequired,
+  errorMessageVerifEmail: PropTypes.string.isRequired,
+  validationMessageVerifEmail: PropTypes.string.isRequired,
+  clearError: PropTypes.func.isRequired,
+  clearValidation: PropTypes.func.isRequired,
 };
 
 VerifEmail.defaultProps = {

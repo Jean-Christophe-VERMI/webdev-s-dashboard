@@ -8,6 +8,8 @@ import authMiddleware from '../middleware/authMiddleware';
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
+
+
 const enhancers = composeEnhancers(
   applyMiddleware(
     logMiddleware,
@@ -21,8 +23,11 @@ const enhancers = composeEnhancers(
 
 const store = createStore(
   rootReducer,
+  
   // preloadedState,
   enhancers,
 );
+
+
 
 export default store;

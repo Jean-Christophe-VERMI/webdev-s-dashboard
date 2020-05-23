@@ -14,10 +14,12 @@ const Login = ({
   onChange,
   sendAuthInfos,
   hasError,
-  errorMessage,
+  errorMessageLogin,
   validationAuth,
-  validationMessage,
+  validationMessageLogin,
   isLogged,
+  clearError,
+  clearValidation,
 }) => {
   
   const history = useHistory();
@@ -28,9 +30,7 @@ const Login = ({
   };
  
   if (isLogged) {
-    setTimeout(() => {
-      routeChange();
-    }, 3000);
+    routeChange();
   }
   
   const handleSubmit = (event) => {
@@ -42,6 +42,17 @@ const Login = ({
     onChange(event.target.value, event.target.name);
   };
 
+  if(errorMessageLogin) {
+    setTimeout(() => {
+      clearError();
+    }, 8000);
+  }
+
+  if(validationAuth) {
+    setTimeout(() => {
+      clearValidation();
+    }, 8000);
+  }
 
   return (
   <LoginStyled>
@@ -61,6 +72,7 @@ const Login = ({
             variant="filled" 
           />
           <TextField 
+            type="password"
             name="password"
             onChange={handleChange}
             value={password}
@@ -71,12 +83,11 @@ const Login = ({
           />
           <div className="msgState">
             {hasError && !validationAuth && (
-              <div className="errorMsg">{errorMessage}</div>
+              <div className="errorMsg">{errorMessageLogin}</div>
             )}
             {validationAuth && (
-              <div className="validationMsg">{validationMessage}</div>
+              <div className="validationMsg">{validationMessageLogin}</div>
             )}
-
           </div>
           <Button 
             className="submit-btn" 
@@ -100,9 +111,11 @@ Login.propTypes = {
   validationAuth: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   hasError: PropTypes.bool.isRequired,
-  errorMessage: PropTypes.string.isRequired,
+  errorMessageLogin: PropTypes.string.isRequired,
   isLogged: PropTypes.bool.isRequired,
-  //validationMessage: PropTypes.string.isRequired,
+  validationMessageLogin: PropTypes.string.isRequired,
+  clearError: PropTypes.func.isRequired,
+  clearValidation: PropTypes.func.isRequired,
 };
 
 Login.defaultProps = {

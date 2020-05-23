@@ -12,7 +12,7 @@ const verifEmailMiddleware = store => next => action => {
     case SEND_TOKEN: {
       axios({
         method: 'post',
-        url: 'http://localhost:3000/verification-email',
+        url: 'http://localhost:4000/verification-email',
         data: {
           secretToken: store.getState().verifEmail.secretToken,
         },

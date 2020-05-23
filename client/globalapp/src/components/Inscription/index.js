@@ -18,9 +18,11 @@ const Inscription = ({
   onChange,
   sendUser,
   hasError,
-  errorMessage,
+  errorMessageRegister,
   validationSignup,
-  validationMessage,
+  validationMessageRegister,
+  clearError,
+  clearValidation,
 }) => {
 
   const handleSubmit = (event) => {
@@ -31,6 +33,20 @@ const Inscription = ({
   const handleChange = (event) => {
     onChange(event.target.value, event.target.name);
   };
+
+  if(errorMessageRegister) {
+    setTimeout(() => {
+      clearError();
+    }, 8000);
+  }
+
+  
+  if(validationSignup) {
+    setTimeout(() => {
+      clearValidation();
+    }, 8000);
+  }
+  
 
   return (
     <InscriptionStyled>
@@ -90,10 +106,10 @@ const Inscription = ({
             </p>
             <div className="msgState">
               {hasError && !validationSignup && (
-                <div className="errorMsg">{errorMessage}</div>
+                <div className="errorMsg">{errorMessageRegister}</div>
               )}
               {validationSignup && (
-                <div className="validationMsg">{validationMessage}</div>
+                <div className="validationMsg">{validationMessageRegister}</div>
               )}
             </div>
             <Button 
@@ -121,8 +137,10 @@ Inscription.propTypes = {
   validationSignup: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   hasError: PropTypes.bool.isRequired,
-  errorMessage: PropTypes.string.isRequired,
-  //validationMessage: PropTypes.string.isRequired,
+  errorMessageRegister: PropTypes.string.isRequired,
+  validationMessageRegister: PropTypes.string.isRequired,
+  clearError: PropTypes.func.isRequired,
+  clearValidation: PropTypes.func.isRequired,
 };
 
 Inscription.defaultProps = {

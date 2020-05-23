@@ -6,6 +6,8 @@ import {
   HAS_ERROR,
   ERROR_MESSAGE,
   VALIDATION_SIGNUP,
+  CLEAR_ERROR,
+  CLEAR_VALIDATION,
 } from '../actions/user';
 
 export const initialState = {
@@ -19,9 +21,9 @@ export const initialState = {
   users: [],
   items: [],
   hasError: false,
-  errorMessage: '',
+  errorMessageRegister: '',
   validationSignup: false,
-  validationMessage: <><p>Merci pour votre inscription ! Veuillez à présent vérifier votre adresse e-mail en suivant les inscructions indiqués dans l'email que nous venons de vous envoyer.</p></>,
+  validationMessageRegister: 'Merci pour votre inscription ! Veuillez à présent vérifier votre adresse e-mail en suivant les inscructions indiqués dans l\'email que nous venons de vous envoyer.',
   isVerified: false,
 };
 
@@ -40,17 +42,31 @@ const register = (state = initialState, action = {}) => {
     case ERROR_MESSAGE:
       return {
         ...state,
-        errorMessage: action.value,
+        errorMessageRegister: action.value,
       };
     case VALIDATION_SIGNUP:
       return {
         ...state,
         validationSignup: true,
+        username: '',
+        email: '',
+        password: '',
+        passwordConfirm: '',
       };
     case HAS_ERROR:
       return {
         ...state,
         hasError: true,
+      };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        errorMessageRegister: '',
+      };
+    case CLEAR_VALIDATION:
+      return {
+        ...state,
+        validationMessageRegister: '',
       };
     default:
     return state;

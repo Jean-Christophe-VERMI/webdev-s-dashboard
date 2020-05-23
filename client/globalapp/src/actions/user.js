@@ -2,6 +2,8 @@ export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const MODIFY_FIELD = 'MODIFY_FIELD';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
+export const CLEAR_VALIDATION = 'CLEAR_VALIDATION';
 export const CHECK_IS_LOGGED = 'CHECK_IS_LOGGED';
 export const SEND_USER = 'SEND_USER';
 export const SEND_TOKEN = 'SEND_TOKEN';
@@ -33,6 +35,14 @@ export const modifyField = (value, key) => ({
 
 export const login = () => ({
   type: LOGIN,
+});
+
+export const clearError = () => ({
+  type: CLEAR_ERROR,
+});
+
+export const clearValidation = () => ({
+  type: CLEAR_VALIDATION,
 });
 
 export const sendUser = (value, key) => ({

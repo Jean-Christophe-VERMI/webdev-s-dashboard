@@ -2,14 +2,14 @@ import { connect } from 'react-redux';
 
 import VerifEmail from '../../components/VerifEmail';
 
-import { sendToken, modifyField } from '../../actions/user';
+import { sendToken, modifyField, clearError, clearValidation } from '../../actions/user';
 
 const mapStateToProps = (state) => ({
   secretToken: state.verifEmail.secretToken,
-  errorMessage: state.verifEmail.errorMessage,
+  errorMessageVerifEmail: state.verifEmail.errorMessageVerifEmail,
   hasError: state.verifEmail.hasError,
   validationEmail: state.verifEmail.validationEmail,
-  validationMessage: state.verifEmail.validationMessage,
+  validationMessageVerifEmail: state.verifEmail.validationMessageVerifEmail,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,6 +18,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onChange: (value, name) => {
     dispatch(modifyField(value, name));
+  },
+  clearError: () => {
+    dispatch(clearError());
+  },
+  clearValidation: () => {
+    dispatch(clearValidation());
   },
   
 });

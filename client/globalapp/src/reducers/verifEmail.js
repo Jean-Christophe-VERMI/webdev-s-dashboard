@@ -6,14 +6,16 @@ import {
   HAS_ERROR,
   ERROR_MESSAGE,
   VALIDATION_EMAIL,
+  CLEAR_ERROR,
+  CLEAR_VALIDATION,
 } from '../actions/user';
 
 export const initialState = {
   secretToken: '',
   hasError: false,
-  errorMessage: '',
+  errorMessageVerifEmail: '',
   validationEmail: false,
-  validationMessage: <><p>Email validé ! Vous pouvez désormais vous connecter avec vos identifiants.</p></>,
+  validationMessageVerifEmail: 'Email validé ! Vous pouvez désormais vous connecter avec vos identifiants.',
 };
 
 const verifEmail = (state = initialState, action = {}) => {
@@ -31,17 +33,28 @@ const verifEmail = (state = initialState, action = {}) => {
     case ERROR_MESSAGE:
       return {
         ...state,
-        errorMessage: action.value,
+        errorMessageVerifEmail: action.value,
       };
     case VALIDATION_EMAIL:
       return {
         ...state,
         validationEmail: true,
+        secretToken: '',
       };
     case HAS_ERROR:
       return {
         ...state,
         hasError: true,
+      };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        errorMessageVerifEmail: '',
+      };
+    case CLEAR_VALIDATION:
+      return {
+        ...state,
+        validationMessageVerifEmail: '',
       };
     default:
     return state;
