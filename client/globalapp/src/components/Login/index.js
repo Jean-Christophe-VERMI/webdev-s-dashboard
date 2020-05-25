@@ -30,7 +30,9 @@ const Login = ({
   };
  
   if (isLogged) {
-    routeChange();
+    setTimeout(() => {
+      routeChange();
+    }, 5000);
   }
   
   const handleSubmit = (event) => {
@@ -47,12 +49,13 @@ const Login = ({
       clearError();
     }, 8000);
   }
-
+  
   if(validationAuth) {
     setTimeout(() => {
       clearValidation();
-    }, 8000);
+    }, 5000);
   }
+  
 
   return (
   <LoginStyled>
@@ -86,7 +89,9 @@ const Login = ({
               <div className="errorMsg">{errorMessageLogin}</div>
             )}
             {validationAuth && (
-              <div className="validationMsg">{validationMessageLogin}</div>
+              <div className="validationMsg">
+                <p>{validationMessageLogin}</p>
+              </div>
             )}
           </div>
           <Button 

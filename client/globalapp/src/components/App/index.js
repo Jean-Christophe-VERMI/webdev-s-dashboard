@@ -8,13 +8,14 @@ import HomePage from '../HomePage';
 // import Login from '../Login';
 // import VerifEmail  from '../VerifEmail';
 // import Inscription from '../Inscription';
-import ProjectDashboard from '../ProjectDashboard';
+// import ProjectDashboard from '../ProjectDashboard';
 
 // Containers
 import Inscription from '../../containers/Inscription';
 import VerifEmail from '../../containers/VerifEmail';
 import Login from '../../containers/Login';
 import Main from '../../containers/Main';
+import ProjectDashboard from '../../containers/ProjectDashboard';
 
 
 // Styles

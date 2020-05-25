@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
@@ -29,19 +28,12 @@ const UserDashboard = ({
             <h2>WEBDEV's DASHBOARD</h2>
         </div>
         <div className="user-links">
-          <Switch>
-            <NavLink className="username-link" to="/">
-              {username}
-            </NavLink>
-          </Switch>
-
-          <Switch>
+          <NavLink className="username-link" to="/">
+            {username}
+          </NavLink>
           <NavLink className="logout-link" to="/" onClick={handleLogout}>
             Déconnexion
           </NavLink>
-          </Switch>
-
-          
         </div>
         
         <div className="buttonNav">
