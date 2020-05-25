@@ -47,6 +47,7 @@ const auth = (state = initialState, action = {}) => {
         validationAuth: true,
         isLogged: true,
         notLogged: false,
+        password: '',
       };
     case HAS_ERROR:
       return {
@@ -63,8 +64,13 @@ const auth = (state = initialState, action = {}) => {
     case LOGOUT:
       return {
         ...state,
+        validationAuth: false,
         isLogged: false,
         notLogged: true,
+        username: '',
+        userId: '',
+        email: '',
+        validationMessageLogin: initialState.validationMessageLogin,
       };
     case CLEAR_ERROR:
       return {

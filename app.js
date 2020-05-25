@@ -21,8 +21,8 @@ app.use(cors('*'));
 
 app.use(session({
   proxy: true,
-  saveUninitialized: true,
-  resave: true,
+  saveUninitialized: false,
+  resave: false,
   secret: 'new secret connexion',
   cookie: {
     secure: true

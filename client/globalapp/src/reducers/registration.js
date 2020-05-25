@@ -5,6 +5,7 @@ import {
   HAS_ERROR,
   ERROR_MESSAGE,
   VALIDATION_SIGNUP,
+  VALIDATION_AUTH,
   CLEAR_ERROR,
   CLEAR_VALIDATION,
 } from '../actions/user';
@@ -51,6 +52,12 @@ const register = (state = initialState, action = {}) => {
         email: '',
         password: '',
         passwordConfirm: '',
+      };
+    case VALIDATION_AUTH:
+      return {
+        ...state,
+        email: '',
+        password: '',
       };
     case HAS_ERROR:
       return {

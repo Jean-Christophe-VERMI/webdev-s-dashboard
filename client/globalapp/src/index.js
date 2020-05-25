@@ -2,11 +2,13 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import './styles/index.css';
 import App from './components/App';
 
-import store from './store';
+import { store, persistor } from './store';
+
 
 import * as serviceWorker from './serviceWorker';
 
@@ -14,7 +16,9 @@ const rootReactElement = (
   <Provider store={store}>
     <BrowserRouter>
       <React.StrictMode>
-        <App />
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
       </React.StrictMode>
     </BrowserRouter>
   </Provider>

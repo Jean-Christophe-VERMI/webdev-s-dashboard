@@ -5,8 +5,10 @@ import Main from '../../components/Main';
 // import { sendAuthInfos, modifyField } from '../../actions/user';
 
 const mapStateToProps = (state) => ({
-  isLogged: state.auth.isLogged,
-  notLogged: state.auth.notLogged,
+  username: state.main.username,
+  userId: state.main.userId,
+  isLogged: state.main.isLogged,
+  notLogged: state.main.notLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

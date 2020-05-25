@@ -5,9 +5,9 @@ import UserDashboard from '../../components/UserDashboard';
 import { logout } from '../../actions/user';
 
 const mapStateToProps = (state) => ({
-  username: state.auth.username,
-  userId: state.auth.userId,
-  logout: state.auth.logout,
+  username: state.main.username,
+  userId: state.main.userId,
+  logout: state.main.logout,
 });
 
 const mapDispatchToProps = (dispatch) => ({

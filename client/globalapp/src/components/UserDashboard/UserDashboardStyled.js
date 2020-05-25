@@ -17,7 +17,7 @@ const UserDashboardStyled = styled.nav`
     justify-content: space-around;
 
     h2 {
-      color: ${(props) => props.theme.colors.secondary};
+      color: ${(props) => props.theme.colors.primaryLight};
       text-align: center;
     }
 
@@ -33,18 +33,16 @@ const UserDashboardStyled = styled.nav`
     justify-content: space-around;
     text-align: right;
     padding: 1rem;
-    background-color: ${(props) => props.theme.colors.secondary};
+    background-color: ${(props) => props.theme.colors.primary};
 
     a:hover {
-      color: ${(props) => props.theme.colors.blueNav};
+      color: ${(props) => props.theme.colors.secondaryDark};
     }
 
   }
 
   .username-link {
     margin-left: 1rem;
-    font-size: .8rem;
-    text-transform: uppercase;
     font-style: italic;
     color: ${(props) => props.theme.colors.primaryLight};
 
@@ -53,7 +51,7 @@ const UserDashboardStyled = styled.nav`
   .logout-link {
     margin-right: 1rem;
     font-size: .8rem;
-    text-transform: uppercase;
+    
     font-style: italic;
     color: ${(props) => props.theme.colors.primaryLight};
 
