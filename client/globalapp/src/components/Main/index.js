@@ -3,10 +3,11 @@ import React from 'react';
 // Components
 import Nav from '../Nav';
 import Footer from '../Footer';
-// import SearchProjectBar from '../SearchProjectBar';
+import SearchProjectBar from '../SearchProjectBar';
+
 // Containers
 import UserDashboard from '../../containers/UserDashboard';
-import SearchProjectBar from '../../containers/SearchProjectBar';
+//import SearchProjectBar from '../../containers/SearchProjectBar';
 // Styles
 import MainStyled from './MainStyled';
 

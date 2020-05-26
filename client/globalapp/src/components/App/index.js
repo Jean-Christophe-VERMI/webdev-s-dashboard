@@ -17,6 +17,7 @@ import VerifEmail from '../../containers/VerifEmail';
 import Login from '../../containers/Login';
 import Main from '../../containers/Main';
 import ProjectDashboard from '../../containers/ProjectDashboard';
+import ProjectList from '../../containers/ProjectList';
 
 
 // Styles
@@ -34,6 +35,7 @@ const App = () => (
             <Route exact path='/inscription' component={Inscription} />
             <Route exact path='/verification-email' component={VerifEmail} />
             <Route exact path='/user/:userId/dashboard' component={ProjectDashboard} />
+            <Route exact path='/user/:userId/projets' component={ProjectList} />
           </Switch>
         </Main>
       </Router>

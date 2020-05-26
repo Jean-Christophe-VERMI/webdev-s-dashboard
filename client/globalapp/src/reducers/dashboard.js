@@ -1,22 +1,18 @@
 import { 
-  FETCH_ALL_PROJECTS,
-  FETCH_FILTRED_PROJECTS,
+  SAVE_PROJECTS,
+  HAS_ERROR,
   ERROR_MESSAGE,
  } from '../actions/dashboard.js';
 
 const initialState = {
   allprojects: [],
   errorMessageProject: '',
+  hasError : false,
 };
 
 const dashboard = (state = initialState, action = {}) => {
   switch (action.type) {
-    case FETCH_ALL_PROJECTS:
-      return {
-        ...state,
-        allprojects: action.project,
-      };
-    case FETCH_FILTRED_PROJECTS:
+    case SAVE_PROJECTS:
       return {
         ...state,
         allprojects: action.project,
@@ -25,6 +21,11 @@ const dashboard = (state = initialState, action = {}) => {
       return {
         ...state,
         errorMessageProject: action.value,
+      };
+    case HAS_ERROR:
+      return {
+        ...state,
+        hasError: true,
       };
     default:
       return state;

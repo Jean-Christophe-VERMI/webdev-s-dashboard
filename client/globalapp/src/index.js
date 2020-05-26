@@ -15,11 +15,9 @@ import * as serviceWorker from './serviceWorker';
 const rootReactElement = (
   <Provider store={store}>
     <BrowserRouter>
-      <React.StrictMode>
         <PersistGate persistor={persistor}>
           <App />
         </PersistGate>
-      </React.StrictMode>
     </BrowserRouter>
   </Provider>
 

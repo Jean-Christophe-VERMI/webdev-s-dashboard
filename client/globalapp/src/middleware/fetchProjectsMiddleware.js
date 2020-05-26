@@ -2,9 +2,9 @@ import axios from 'axios';
 
 import {
   FETCH_ALL_PROJECTS,
-  fetchAllProjects,
+  saveProjects,
   FETCH_FILTRED_PROJECTS,
-  fetchFiltredProjects,
+  hasError,
   errorMsg,
 } from '../actions/dashboard';
 
@@ -20,15 +20,16 @@ const fetchProjectsMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response.data);
-          store.dispatch(fetchAllProjects(response.data));
+          store.dispatch(saveProjects(response.data));
         })
         .catch((error) => {
           if (error.response) {
 
             console.log(error.response.data.error);
-            const errorMessage = error.response.data.error;
+            const errorMessageProject = error.response.data.error;
             
-            store.dispatch(errorMsg(errorMessage));
+            store.dispatch(hasError());
+            store.dispatch(errorMsg(errorMessageProject));
            
           }
         });
@@ -44,7 +45,7 @@ const fetchProjectsMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response.data);
-          store.dispatch(fetchFiltredProjects(response.data));
+          store.dispatch(saveProjects(response.data));
         })
         .catch((error) => {
           console.log(error);

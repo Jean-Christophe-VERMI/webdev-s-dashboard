@@ -11,13 +11,14 @@ import AllProjects from '../../containers/AllProjects';
 import SearchProjectBarStyled from './SearchProjectBarStyled';
 
 
-const SearchProjectBar = ({fetchAllProjects}) => (
+const SearchProjectBar = () => (
 
   <SearchProjectBarStyled>
     <AllProjects />
     <div>*FiltredProjects</div>
   </SearchProjectBarStyled>
-  
+    
 );
+
 
 export default SearchProjectBar;
