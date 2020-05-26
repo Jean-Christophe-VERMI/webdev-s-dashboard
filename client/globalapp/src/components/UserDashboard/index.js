@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import UserDashboardStyled from './UserDashboardStyled';
 import logo from './logo.png';
@@ -24,16 +25,18 @@ const UserDashboard = ({
     <UserDashboardStyled>
       
         <div className="headerNav">
-            <img src={logo} className="logo" alt="logo" />
-            <h2>WEBDEV's DASHBOARD</h2>
+          <h2>WEBDEV's DASHBOARD</h2>
+          <img src={logo} className="logo" alt="logo" />
         </div>
         <div className="user-links">
           <NavLink className="username-link" to="/">
             {username}
           </NavLink>
-          <NavLink className="logout-link" to="/" onClick={handleLogout}>
-            Déconnexion
-          </NavLink>
+          <Tooltip title="Déconnexion" placement="right-start">
+            <NavLink className="logout-link" to="/" onClick={handleLogout}>
+              <ExitToAppIcon />
+            </NavLink>
+          </Tooltip>
         </div>
         
         <div className="buttonNav">

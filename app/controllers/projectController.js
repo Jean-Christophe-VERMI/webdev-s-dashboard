@@ -14,7 +14,8 @@ const projectController = {
       
       let user = await User.findByPk(userId);
       if(!user) {
-        return res.status(404).json('Can not find user with id '+userId);
+       res.status(404).json('Can not find user with id '+userId);
+       return;
       }
 
       let projets = await Project.findAll({
@@ -27,11 +28,13 @@ const projectController = {
       });
 
       if (projets.length === 0) {
-        res.status(404).json({msg: 'Aucun projet trouvé'});
+        res.status(404).json({error: 'Aucun projet trouvé'});
+        return;
       }
 
       if (projets) {
         res.status(200).json(projets);
+        return;
       }
 
     } catch (error) {

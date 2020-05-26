@@ -9,30 +9,32 @@ const UserDashboardStyled = styled.nav`
   background-size: cover;
   
   .headerNav {
-    margin: 1rem;
     display: flex; 
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
 
     h2 {
-      color: ${(props) => props.theme.colors.primaryLight};
+      margin: 0;
+      padding-top: 1rem;
+      color: ${(props) => props.theme.colors.secondary};
       text-align: center;
     }
 
   }
 
   .logo{
-    height: 70px;
-
+    height: 100px;
+    padding-bottom: 1rem;
+    padding-top: .3rem;
   }
 
   .user-links {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     text-align: right;
-    padding: 1rem;
+    padding: .5rem;
+    margin: 0 auto;
     background-color: ${(props) => props.theme.colors.primary};
 
     a:hover {
@@ -42,16 +44,14 @@ const UserDashboardStyled = styled.nav`
   }
 
   .username-link {
-    margin-left: 1rem;
+    margin-right: .5rem;
     font-style: italic;
     color: ${(props) => props.theme.colors.primaryLight};
 
   }
 
   .logout-link {
-    margin-right: 1rem;
-    font-size: .8rem;
-    
+    margin-left: .5rem;
     font-style: italic;
     color: ${(props) => props.theme.colors.primaryLight};
 

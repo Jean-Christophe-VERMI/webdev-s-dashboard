@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Theme from '../Theme';
 // import Main from '../Main';
 import HomePage from '../HomePage';
+
 // import Login from '../Login';
 // import VerifEmail  from '../VerifEmail';
 // import Inscription from '../Inscription';
@@ -40,5 +41,6 @@ const App = () => (
   </Theme>
 
 );
+
 
 export default App;

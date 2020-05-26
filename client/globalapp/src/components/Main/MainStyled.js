@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const MainStyled = styled.main`
+const MainStyled = styled.div`
 
   width: 100%;
   background: rgb(65,199,209);
@@ -10,6 +10,17 @@ const MainStyled = styled.main`
     display: flex;
     flex-direction: row;
 
+  }
+
+  .searchProjectBar {
+    margin-left: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 15vh;
+    background-color: ${(props) => props.theme.colors.primaryLight};
   }
   
  

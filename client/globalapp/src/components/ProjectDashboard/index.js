@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components 
-// import SearchProject from '../SearchProject';
+// import SearchProjectBar from '../SearchProjectBar';
 
 
 // Containers

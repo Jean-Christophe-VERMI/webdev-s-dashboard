@@ -6,6 +6,9 @@ const AppStyled = styled.div`
   line-height: ${(props) => props.theme.lineHeight};
   color: ${(props) => props.theme.colors.black};
   background-color: ${(props) => props.theme.colors.primary};
+
+  
+
 `;
 
 export default AppStyled;
