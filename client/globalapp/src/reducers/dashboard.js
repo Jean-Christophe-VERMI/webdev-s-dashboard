@@ -4,10 +4,14 @@ import {
   ERROR_MESSAGE_DASHBOARD,
  } from '../actions/dashboard.js';
 
+ import {
+   VALIDATION_POST_PROJECT,
+ } from '../actions/project.js';
+
 const initialState = {
   allprojects: [],
   errorMessageProject: '',
-  userHasNoProject : false,
+  userHasNoProject : true,
 };
 
 const dashboard = (state = initialState, action = {}) => {
@@ -26,6 +30,11 @@ const dashboard = (state = initialState, action = {}) => {
       return {
         ...state,
         userHasNoProject: true,
+      };
+    case VALIDATION_POST_PROJECT:
+      return {
+        ...state,
+        userHasNoProject : false,
       };
     default:
       return state;

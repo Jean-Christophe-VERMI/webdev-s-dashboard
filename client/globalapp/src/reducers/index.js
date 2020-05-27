@@ -7,6 +7,7 @@ import registration from './registration';
 import verifEmail from './verifEmail';
 import auth from './auth';
 import main from './main';
+import project from './project';
 
 const persistConfig = {
   key: 'root',
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   verifEmail,
   auth,
   main,
+  project,
 });
 
 export default persistReducer(persistConfig, rootReducer);

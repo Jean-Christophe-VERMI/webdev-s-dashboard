@@ -8,7 +8,14 @@ import {
   errorMsgDashboard,
 } from '../actions/dashboard';
 
-const fetchProjectsMiddleware = (store) => (next) => (action) => {
+import { 
+  SEND_PROJECT, 
+  validationPostProject,
+  hasErrorPostProject,
+  errorMsgPostProject,
+ } from '../actions/project';
+
+const projectMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case FETCH_ALL_PROJECTS: {
@@ -53,6 +60,37 @@ const fetchProjectsMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    case SEND_PROJECT: {
+      let userId = store.getState().main.userId;
+
+      axios({
+        method: 'post',
+        url: `http://localhost:4000/user/${userId}/projets/nouveau-projet`,
+        data: {
+          title: store.getState().project.title,
+          description: store.getState().project.description,
+          catégorie_type: store.getState().project.catégorie_type,
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(saveProjects(response.data));
+          store.dispatch(validationPostProject());
+        })
+        .catch((error) => {
+          if (error.response) {
+
+            console.log(error.response.data.error);
+            const errorMessagePostProject = error.response.data.error;
+            
+            store.dispatch(hasErrorPostProject());
+            store.dispatch(errorMsgPostProject(errorMessagePostProject));
+           
+          }
+        });
+      next(action);
+      break;
+    }
     default:
       console.log('Je laisse passer cette action: ', action);
       next(action);
@@ -60,4 +98,4 @@ const fetchProjectsMiddleware = (store) => (next) => (action) => {
   
 };
 
-export default fetchProjectsMiddleware;
+export default projectMiddleware;

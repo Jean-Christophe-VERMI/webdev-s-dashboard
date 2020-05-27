@@ -6,7 +6,7 @@ import logMiddleware from '../middleware/logMiddleware';
 import registrationMiddleware from '../middleware/registrationMiddleware';
 import verifEmailMiddleware from '../middleware/verifEmailMiddleware';
 import authMiddleware from '../middleware/authMiddleware';
-import fetchProjectsMiddleware from '../middleware/fetchProjectsMiddleware';
+import projectMiddleware from '../middleware/projectMiddleware';
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
@@ -18,7 +18,7 @@ const enhancers = composeEnhancers(
     registrationMiddleware,
     verifEmailMiddleware,
     authMiddleware,
-    fetchProjectsMiddleware,
+    projectMiddleware,
     // secondMiddleware,
   ),
 );

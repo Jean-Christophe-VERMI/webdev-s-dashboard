@@ -18,10 +18,12 @@ import Login from '../../containers/Login';
 import Main from '../../containers/Main';
 import ProjectDashboard from '../../containers/ProjectDashboard';
 import ProjectList from '../../containers/ProjectList';
+import NewProject from '../../containers/NewProject';
 
 
 // Styles
 import AppStyled from './AppStyled';
+
 
 const App = ({ fetchAllProjects, isLogged }) => {
   
@@ -41,6 +43,7 @@ const App = ({ fetchAllProjects, isLogged }) => {
               <Route exact path='/verification-email' component={VerifEmail} />
               <Route exact path='/user/:userId/dashboard' component={ProjectDashboard} />
               <Route exact path='/user/:userId/projets' component={ProjectList} />
+              <Route exact path='/user/:userId/projets/nouveau-projet' component={NewProject} />
             </Switch>
           </Main>
         </Router>
