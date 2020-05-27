@@ -10,7 +10,7 @@ const VerifEmail = ({
   secretToken,
   onChange,
   sendToken,
-  hasError,
+  hasErrorVerifEmail,
   errorMessageVerifEmail,
   validationEmail,
   validationMessageVerifEmail,
@@ -58,7 +58,7 @@ const VerifEmail = ({
             variant="filled" 
           />
           <div className="msgState">
-            {hasError && !validationEmail && (
+            {hasErrorVerifEmail && !validationEmail && (
               <div className="errorMsg">{errorMessageVerifEmail}</div>
             )}
             {validationEmail && (
@@ -84,7 +84,7 @@ VerifEmail.propTypes = {
   sendToken: PropTypes.func.isRequired,
   validationEmail: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
-  hasError: PropTypes.bool.isRequired,
+  hasErrorVerifEmail: PropTypes.bool.isRequired,
   errorMessageVerifEmail: PropTypes.string.isRequired,
   validationMessageVerifEmail: PropTypes.string.isRequired,
   clearError: PropTypes.func.isRequired,

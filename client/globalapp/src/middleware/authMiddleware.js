@@ -4,7 +4,7 @@ import {
   SEND_AUTH_INFOS,
   errorMsg,
   validationAuth,
-  hasError,
+  hasErrorAuth,
   addUserInfos,
 } from '../actions/user';
 
@@ -33,7 +33,7 @@ const authMiddleware = store => next => action => {
             console.log(error.response.data.error);
             const errorMessage = error.response.data.error;
             
-            store.dispatch(hasError());
+            store.dispatch(hasErrorAuth());
             store.dispatch(errorMsg(errorMessage));
 
            

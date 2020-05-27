@@ -4,7 +4,7 @@ import {
   SEND_TOKEN,
   errorMsg,
   validationEmail,
-  hasError,
+  hasErrorVerifEmail,
 } from '../actions/user';
 
 const verifEmailMiddleware = store => next => action => {
@@ -27,7 +27,7 @@ const verifEmailMiddleware = store => next => action => {
             console.log(error.response.data.error);
             const errorMessage = error.response.data.error;
             
-            store.dispatch(hasError());
+            store.dispatch(hasErrorVerifEmail());
             store.dispatch(errorMsg(errorMessage));
 
            

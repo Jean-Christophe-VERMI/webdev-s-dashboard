@@ -1,13 +1,13 @@
 import { 
   SAVE_PROJECTS,
-  HAS_ERROR,
-  ERROR_MESSAGE,
+  USER_HAS_NO_PROJECT,
+  ERROR_MESSAGE_DASHBOARD,
  } from '../actions/dashboard.js';
 
 const initialState = {
   allprojects: [],
   errorMessageProject: '',
-  hasError : false,
+  userHasNoProject : false,
 };
 
 const dashboard = (state = initialState, action = {}) => {
@@ -17,15 +17,15 @@ const dashboard = (state = initialState, action = {}) => {
         ...state,
         allprojects: action.project,
       };
-    case ERROR_MESSAGE:
+    case ERROR_MESSAGE_DASHBOARD:
       return {
         ...state,
         errorMessageProject: action.value,
       };
-    case HAS_ERROR:
+    case USER_HAS_NO_PROJECT:
       return {
         ...state,
-        hasError: true,
+        userHasNoProject: true,
       };
     default:
       return state;

@@ -23,26 +23,30 @@ import ProjectList from '../../containers/ProjectList';
 // Styles
 import AppStyled from './AppStyled';
 
-const App = () => (
-
-  <Theme>
-    <AppStyled>
-      <Router>
-        <Main>
-          <Switch>
-            <Route exact path='/' component={HomePage} />
-            <Route exact path='/connexion' component={Login} />
-            <Route exact path='/inscription' component={Inscription} />
-            <Route exact path='/verification-email' component={VerifEmail} />
-            <Route exact path='/user/:userId/dashboard' component={ProjectDashboard} />
-            <Route exact path='/user/:userId/projets' component={ProjectList} />
-          </Switch>
-        </Main>
-      </Router>
-    </AppStyled>
-  </Theme>
-
-);
-
+const App = ({ fetchAllProjects, isLogged }) => {
+  
+  if(isLogged) {
+    fetchAllProjects();
+  }
+  
+  return (
+    <Theme>
+      <AppStyled>
+        <Router>
+          <Main>
+            <Switch>
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/connexion' component={Login} />
+              <Route exact path='/inscription' component={Inscription} />
+              <Route exact path='/verification-email' component={VerifEmail} />
+              <Route exact path='/user/:userId/dashboard' component={ProjectDashboard} />
+              <Route exact path='/user/:userId/projets' component={ProjectList} />
+            </Switch>
+          </Main>
+        </Router>
+      </AppStyled>
+    </Theme>
+  );
+};
 
 export default App;

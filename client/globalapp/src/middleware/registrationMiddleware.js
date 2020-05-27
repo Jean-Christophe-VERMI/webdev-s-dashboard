@@ -4,7 +4,7 @@ import {
   SEND_USER,
   errorMsg,
   validationSignup,
-  hasError,
+  hasErrorRegister,
 } from '../actions/user';
 
 const registerMiddleware = store => next => action => {
@@ -30,7 +30,7 @@ const registerMiddleware = store => next => action => {
             console.log(error.response.data.error);
             const errorMessage = error.response.data.error;
             
-            store.dispatch(hasError());
+            store.dispatch(hasErrorRegister());
             store.dispatch(errorMsg(errorMessage));
 
            

@@ -13,7 +13,7 @@ const Login = ({
   password,
   onChange,
   sendAuthInfos,
-  hasError,
+  hasErrorAuth,
   errorMessageLogin,
   validationAuth,
   validationMessageLogin,
@@ -32,7 +32,7 @@ const Login = ({
   if (isLogged) {
     setTimeout(() => {
       routeChange();
-    }, 5000);
+    }, 3000);
   }
   
   const handleSubmit = (event) => {
@@ -53,7 +53,7 @@ const Login = ({
   if(validationAuth) {
     setTimeout(() => {
       clearValidation();
-    }, 5000);
+    }, 3000);
   }
   
 
@@ -85,7 +85,7 @@ const Login = ({
             variant="filled" 
           />
           <div className="msgState">
-            {hasError && !validationAuth && (
+            {hasErrorAuth && !validationAuth && (
               <div className="errorMsg">{errorMessageLogin}</div>
             )}
             {validationAuth && (
@@ -115,7 +115,7 @@ Login.propTypes = {
   sendAuthInfos: PropTypes.func.isRequired,
   validationAuth: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
-  hasError: PropTypes.bool.isRequired,
+  hasErrorAuth: PropTypes.bool.isRequired,
   errorMessageLogin: PropTypes.string.isRequired,
   isLogged: PropTypes.bool.isRequired,
   validationMessageLogin: PropTypes.string.isRequired,

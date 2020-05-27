@@ -10,7 +10,7 @@ const SearchProjectBarStyled = styled.header`
   width: 75%;
   margin-left: 25%;
   height: 15vh;
-  background-color: ${(props) => props.theme.colors.primaryLight};
+  background-color: ${(props) => props.theme.colors.quaternary};
 
   
 `;

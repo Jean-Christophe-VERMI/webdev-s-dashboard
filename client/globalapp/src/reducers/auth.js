@@ -2,7 +2,7 @@
 import {
   SEND_AUTH_INFOS,
   MODIFY_FIELD,
-  HAS_ERROR,
+  HAS_ERROR_AUTH,
   ERROR_MESSAGE,
   VALIDATION_AUTH,
   ADD_USER_INFOS,
@@ -16,7 +16,7 @@ export const initialState = {
   username: '',
   email: '',
   password: '',
-  hasError: false,
+  hasErrorAuth: false,
   errorMessageLogin: '',
   validationAuth: false,
   validationMessageLogin: 'Connexion réussie, vous allez être redirigé vers votre Dashbord...',
@@ -49,10 +49,10 @@ const auth = (state = initialState, action = {}) => {
         notLogged: false,
         password: '',
       };
-    case HAS_ERROR:
+    case HAS_ERROR_AUTH:
       return {
         ...state,
-        hasError: true,
+        hasErrorAuth: true,
       };
     case ADD_USER_INFOS:
       return {

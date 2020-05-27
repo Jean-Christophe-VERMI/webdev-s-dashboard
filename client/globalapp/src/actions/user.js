@@ -10,7 +10,9 @@ export const SEND_TOKEN = 'SEND_TOKEN';
 export const SEND_AUTH_INFOS = 'SEND_AUTH_INFOS';
 export const ADD_USER_INFOS = 'ADD_USER_INFOS';
 export const EMPTY_USER = 'EMPTY_USER';
-export const HAS_ERROR = 'HAS_ERROR';
+export const HAS_ERROR_AUTH = 'HAS_ERROR_AUTH';
+export const HAS_ERROR_REGISTER = 'HAS_ERROR_REGISTER';
+export const HAS_ERROR_VERIF_EMAIL = 'HAS_ERROR_VERIF_EMAIL';
 export const ERROR_MESSAGE = 'ERROR_MESSAGE';
 export const VALIDATION_SIGNUP = 'VALIDATION_SIGNUP';
 export const VALIDATION_EMAIL = 'VALIDATION_EMAIL';
@@ -20,6 +22,19 @@ export const CHANGE_USER_INFOS = 'CHANGE_USER_INFOS';
 export const TOGGLE_OPEN_MODIFY = 'TOOGLE_OPEN_MODIFY';
 export const UPDATE_USER_INFOS = 'UPDATE_USER_INFOS';
 export const DELETE_USER = 'DELETE_USER';
+
+
+export const hasErrorAuth = () => ({
+  type: HAS_ERROR_AUTH,
+});
+
+export const hasErrorRegister = () => ({
+  type: HAS_ERROR_REGISTER,
+});
+
+export const hasErrorVerifEmail = () => ({
+  type: HAS_ERROR_VERIF_EMAIL,
+});
 
 export const changeValue = (value, name) => ({
   type: CHANGE_VALUE,
@@ -78,10 +93,6 @@ export const addUserInfos = (user) => ({
 
 export const emptyUser = () => ({
   type: EMPTY_USER,
-});
-
-export const hasError = () => ({
-  type: HAS_ERROR,
 });
 
 export const errorMsg = (value) => ({

@@ -35,10 +35,10 @@ const UserDashboardStyled = styled.nav`
     text-align: right;
     padding: .5rem;
     margin: 0 auto;
-    background-color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.quaternary};
 
     a:hover {
-      color: ${(props) => props.theme.colors.secondaryDark};
+      color: ${(props) => props.theme.colors.secondary};
     }
 
   }

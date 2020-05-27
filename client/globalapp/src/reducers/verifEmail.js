@@ -2,7 +2,7 @@
 import {
   SEND_TOKEN,
   MODIFY_FIELD,
-  HAS_ERROR,
+  HAS_ERROR_VERIF_EMAIL,
   ERROR_MESSAGE,
   VALIDATION_EMAIL,
   CLEAR_ERROR,
@@ -11,7 +11,7 @@ import {
 
 export const initialState = {
   secretToken: '',
-  hasError: false,
+  hasErrorVerifEmail: false,
   errorMessageVerifEmail: '',
   validationEmail: false,
   validationMessageVerifEmail: 'Email validé ! Vous pouvez désormais vous connecter avec vos identifiants.',
@@ -40,10 +40,10 @@ const verifEmail = (state = initialState, action = {}) => {
         validationEmail: true,
         secretToken: '',
       };
-    case HAS_ERROR:
+    case HAS_ERROR_VERIF_EMAIL:
       return {
         ...state,
-        hasError: true,
+        hasErrorVerifEmail: true,
       };
     case CLEAR_ERROR:
       return {

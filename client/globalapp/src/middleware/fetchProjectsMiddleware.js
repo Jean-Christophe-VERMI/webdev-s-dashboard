@@ -4,8 +4,8 @@ import {
   FETCH_ALL_PROJECTS,
   saveProjects,
   FETCH_FILTRED_PROJECTS,
-  hasError,
-  errorMsg,
+  userHasNoProject,
+  errorMsgDashboard,
 } from '../actions/dashboard';
 
 const fetchProjectsMiddleware = (store) => (next) => (action) => {
@@ -28,8 +28,8 @@ const fetchProjectsMiddleware = (store) => (next) => (action) => {
             console.log(error.response.data.error);
             const errorMessageProject = error.response.data.error;
             
-            store.dispatch(hasError());
-            store.dispatch(errorMsg(errorMessageProject));
+            store.dispatch(userHasNoProject());
+            store.dispatch(errorMsgDashboard(errorMessageProject));
            
           }
         });

@@ -11,7 +11,7 @@ import main from './main';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['main', 'dashboard'],
+  whitelist: ['main'],
 }
 
 const rootReducer = combineReducers({

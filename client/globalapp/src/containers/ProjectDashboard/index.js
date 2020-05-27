@@ -6,7 +6,8 @@ import ProjectDashboard from '../../components/ProjectDashboard';
 
 const mapStateToProps = (state) => ({
   isLogged: state.main.isLogged,
-  //notLogged: state.auth.notLogged,
+  userHasNoProject: state.dashboard.userHasNoProject,
+  userId: state.main.userId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

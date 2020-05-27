@@ -2,7 +2,7 @@
 import {
   SEND_USER,
   MODIFY_FIELD,
-  HAS_ERROR,
+  HAS_ERROR_REGISTER,
   ERROR_MESSAGE,
   VALIDATION_SIGNUP,
   VALIDATION_AUTH,
@@ -20,7 +20,7 @@ export const initialState = {
   linkedIn: '',
   users: [],
   items: [],
-  hasError: false,
+  hasErrorRegister: false,
   errorMessageRegister: '',
   validationSignup: false,
   validationMessageRegister: 'Merci pour votre inscription ! Veuillez à présent vérifier votre adresse e-mail en suivant les inscructions indiqués dans l\'email que nous venons de vous envoyer.',
@@ -59,10 +59,10 @@ const register = (state = initialState, action = {}) => {
         email: '',
         password: '',
       };
-    case HAS_ERROR:
+    case HAS_ERROR_REGISTER:
       return {
         ...state,
-        hasError: true,
+        hasErrorRegister: true,
       };
     case CLEAR_ERROR:
       return {

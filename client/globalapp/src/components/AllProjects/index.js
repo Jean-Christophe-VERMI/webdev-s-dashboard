@@ -6,17 +6,12 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import AllProjectsStyled from './AllProjectsStyled';
 
-const AllProjects = ({fetchAllProjects, userId}) => {
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetchAllProjects();
-  };
+const AllProjects = ({ userId }) => {
 
   const id = userId;
   return (
     <AllProjectsStyled>
-      <Button className="button" variant="contained" color="primary" onClick={handleSubmit}>
+      <Button className="button" variant="contained" color="primary">
         <SearchIcon />
         <NavLink className="navlink" to={`/user/${id}/projets`}>
           Tous les projets

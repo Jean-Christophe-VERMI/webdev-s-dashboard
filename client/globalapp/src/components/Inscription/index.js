@@ -17,7 +17,7 @@ const Inscription = ({
   passwordConfirm,
   onChange,
   sendUser,
-  hasError,
+  hasErrorRegister,
   errorMessageRegister,
   validationSignup,
   validationMessageRegister,
@@ -105,7 +105,7 @@ const Inscription = ({
               />J'accepte les <Link className="footer-link" to='/mentions-legales'>termes et conditions</Link> du site webdev's dashbord.
             </p>
             <div className="msgState">
-              {hasError && !validationSignup && (
+              {hasErrorRegister && !validationSignup && (
                 <div className="errorMsg">{errorMessageRegister}</div>
               )}
               {validationSignup && (
@@ -136,7 +136,7 @@ Inscription.propTypes = {
   sendUser: PropTypes.func.isRequired,
   validationSignup: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
-  hasError: PropTypes.bool.isRequired,
+  hasErrorRegister: PropTypes.bool.isRequired,
   errorMessageRegister: PropTypes.string.isRequired,
   validationMessageRegister: PropTypes.string.isRequired,
   clearError: PropTypes.func.isRequired,
