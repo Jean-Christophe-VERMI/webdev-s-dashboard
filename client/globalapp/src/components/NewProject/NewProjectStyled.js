@@ -25,6 +25,21 @@ const NewProjectStyled = styled.main`
     border-radius: 5px;
     background-color: ${(props) => props.theme.colors.primaryLight};
 
+    .project-categorie {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .categorie {
+      width: 50%;
+    }
+
+    .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated {
+      padding-left: .5rem;
+    }
+
 
     .headerForm {
       text-align: center;

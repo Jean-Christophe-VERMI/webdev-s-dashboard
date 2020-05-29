@@ -3,10 +3,11 @@ import React from 'react';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Select from '@material-ui/core/Select';
+import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 import NewProjectStyled from './NewProjectStyled';
 
@@ -14,11 +15,11 @@ const NewProject = ({
   userId, 
   title, 
   description, 
+  fullstack,
+  backend,
+  frontend,
   catégorie_type,
   onChange,
-  fullstack,
-  frontend,
-  backend,
   sendProject,
   validationPostProject,
   hasErrorPostProject,
@@ -27,6 +28,36 @@ const NewProject = ({
   clearErrorProject,
   clearValidationProject,
 }) => {
+
+  
+  const useStyles = makeStyles((theme) => ({
+    button: {
+      display: 'block',
+      marginTop: theme.spacing(2),
+    },
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+    },
+  }));
+
+  const classes = useStyles();
+  const [catégorie, setCatégorie] = React.useState('');
+  
+  const [open, setOpen] = React.useState(false);
+
+  const handleChangeSelected = (event) => {
+    setCatégorie(event.target.value);
+    onChange(event.target.value, event.target.name);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -49,8 +80,6 @@ const NewProject = ({
     }, 5000);
   }
 
-  const id = userId;
-
   return (
   <NewProjectStyled>
     <div className="formulaire">
@@ -58,15 +87,44 @@ const NewProject = ({
           <h1 className="form-title">Nouveau projet</h1>
         </div>
         <form className="fieldForm" onSubmit={handleSubmit}>
-          <TextField 
-            name="title"
-            onChange={handleChange}
-            value={title}
-            required
-            id="field-title" 
-            label="Nom du projet" 
-            variant="filled" 
-          />
+          <div className="project-categorie">
+            <div className="project-title">
+              <TextField 
+              name="title"
+              onChange={handleChange}
+              value={title}
+              required
+              id="field-title" 
+              label="Nom du projet" 
+              variant="filled" 
+            />
+            </div>
+            <div className="categorie">
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-controlled-open-select-label">Catégorie</InputLabel>
+                <Select
+                  labelId="demo-controlled-open-select-label"
+                  id="demo-controlled-open-select"
+                  open={open}
+                  onClose={handleClose}
+                  onOpen={handleOpen}
+                  value={catégorie}
+                  name="catégorie_type"
+                  onChange={handleChangeSelected}
+                  name="catégorie_type"
+                  variant="filled"
+                  required
+                >
+                  <MenuItem value="">
+                    <em></em>
+                  </MenuItem>
+                  <MenuItem value='fullstack' name="catégorie_type">Fullstack</MenuItem>
+                  <MenuItem value='backend' name="catégorie_type">Back-end</MenuItem>
+                  <MenuItem value='frontend' name="catégorie_type">Front-End</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+          </div>
           <TextField 
           name="description"
           onChange={handleChange}
@@ -75,43 +133,25 @@ const NewProject = ({
           id="filled-textarea"
           multiline
           rows={4}
-          label="Description du projet"
+          label="Description"
           variant="filled" 
           />
-          <FormControl variant="filled">
-            <InputLabel id="demo-simple-select-filled-label">Catégorie</InputLabel>
-            <Select
-              name="catégorie_type"
-              labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
-              value={catégorie_type} 
-              onChange={handleChange}
-              required
-            >
-              <MenuItem value="">
-              </MenuItem>
-              <MenuItem name="catégorie_type" value={catégorie_type} onChange={handleChange}>Fullstack</MenuItem>
-              <MenuItem name="catégorie_type" value={catégorie_type} onChange={handleChange}>Back-end</MenuItem>
-              <MenuItem name="catégorie_type" value={catégorie_type} onChange={handleChange}>Front-end</MenuItem>
-              
-            </Select>
-          </FormControl>
-            <div className="msgState">
-              {hasErrorPostProject && !validationPostProject && (
-                <div className="errorMsg">{errorMessagePostProject}</div>
-              )}
-              {validationPostProject && (
-                <div className="validationMsg">{validationMessagePostProject}</div>
-              )}
-            </div>
-            <Button 
-              className="submit-btn" 
-              variant="contained" 
-              color="primary"
-              type="submit"
-            >
-              Enregistrer
-            </Button>
+          <div className="msgState">
+            {hasErrorPostProject && !validationPostProject && (
+              <div className="errorMsg">{errorMessagePostProject}</div>
+            )}
+            {validationPostProject && (
+              <div className="validationMsg">{validationMessagePostProject}</div>
+            )}
+          </div>
+          <Button 
+            className="submit-btn" 
+            variant="contained" 
+            color="primary"
+            type="submit"
+          >
+            Enregistrer
+          </Button>
         </form>
     </div>
   </NewProjectStyled>
