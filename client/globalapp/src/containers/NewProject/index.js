@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
   title: state.project.title,
   description: state.project.description,
   catégorie_type: state.project.catégorie_type,
-  validalidationPostProject: state.project.validalidationPostProject,
+  validationPostProject: state.project.validationPostProject,
   hasErrorPostProject: state.project.hasErrorPostProject,
   errorMessagePostProject: state.project.errorMessagePostProject,
   validationMessagePostProject: state.project.validationMessagePostProject,

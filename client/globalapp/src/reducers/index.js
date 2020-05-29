@@ -12,7 +12,7 @@ import project from './project';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['main'],
+  whitelist: ['main', 'dashboard'],
 }
 
 const rootReducer = combineReducers({

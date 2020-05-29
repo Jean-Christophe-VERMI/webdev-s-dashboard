@@ -19,7 +19,7 @@ export const initialState = {
   image: '',
   hasErrorPostProject: false,
   errorMessagePostProject: '',
-  validalidationPostProject: false,
+  validationPostProject: false,
   validationMessagePostProject: 'Nouveau projet créé avec succès',
 };
 
@@ -51,6 +51,7 @@ const project = (state = initialState, action = {}) => {
         title: '',
         description: '',
         catégorie_type: '',
+        validationPostProject: true,
       };
     case HAS_ERROR_POST_PROJECT:
       return {

@@ -23,7 +23,6 @@ const ProjectDashboard = (isLogged, userHasNoProject, userId) => {
           <p>Ici sur votre Dashboard vous pouvez retrouver des statistiques sur l'ensemble de vos projets.</p>
           <p>Vous pouvez également rechercher des jours spécifiques à l'ensemble de vos projets gâce à la recherche par Tags.</p>
           <p>Enfin vous trouverez un accès rapide à vos 3 derniers projets terminés.</p>
-          <p>N'attendez plus, commencez par créer votre premier projet !</p>
         </div>
       )}
       <div className="dashboard-infos">

@@ -15,9 +15,6 @@ const NewProject = ({
   userId, 
   title, 
   description, 
-  fullstack,
-  backend,
-  frontend,
   catégorie_type,
   onChange,
   sendProject,
@@ -43,6 +40,9 @@ const NewProject = ({
 
   const classes = useStyles();
   const [catégorie, setCatégorie] = React.useState('');
+
+  catégorie_type = catégorie;
+  console.log(catégorie_type);
   
   const [open, setOpen] = React.useState(false);
 
@@ -74,11 +74,13 @@ const NewProject = ({
     }, 8000);
   }
   
+  
   if(validationPostProject) {
     setTimeout(() => {
       clearValidationProject();
-    }, 5000);
+    }, 8000);
   }
+  
 
   return (
   <NewProjectStyled>
@@ -111,16 +113,15 @@ const NewProject = ({
                   value={catégorie}
                   name="catégorie_type"
                   onChange={handleChangeSelected}
-                  name="catégorie_type"
                   variant="filled"
                   required
                 >
                   <MenuItem value="">
                     <em></em>
                   </MenuItem>
-                  <MenuItem value='fullstack' name="catégorie_type">Fullstack</MenuItem>
-                  <MenuItem value='backend' name="catégorie_type">Back-end</MenuItem>
-                  <MenuItem value='frontend' name="catégorie_type">Front-End</MenuItem>
+                  <MenuItem value='Fullstack' name="catégorie_type">Fullstack</MenuItem>
+                  <MenuItem value='Back-end' name="catégorie_type">Back-end</MenuItem>
+                  <MenuItem value='Front-end' name="catégorie_type">Front-End</MenuItem>
                 </Select>
               </FormControl>
             </div>
