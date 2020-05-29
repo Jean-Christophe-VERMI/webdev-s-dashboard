@@ -4,7 +4,7 @@ const ProjectDashboardStyled = styled.section`
 
   margin-top: 15vh;
   width: 100%;
-  background-color: ${(props) => props.theme.colors.primaryLight};
+  background-color: ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.default};
 
   .noProject {
@@ -44,26 +44,42 @@ const ProjectDashboardStyled = styled.section`
   }
 
   .stats-projets {
-    width: 40%;
-    background-color: ${(props) => props.theme.colors.primary};
-    padding: 1rem 2rem;
+    width: 50%;
+    background-color: ${(props) => props.theme.colors.primaryLight};
     border-radius: 4px;
+    border: 1px solid ${(props) => props.theme.colors.primaryLight};
 
     .stats-title {
+      border-radius: 4px 4px 0px 0px;
+      padding: 1rem;
+      background-color: ${(props) => props.theme.colors.quaternary};
+      color: ${(props) => props.theme.colors.primaryLight};
       margin: 0;
       text-transform: uppercase;
+    }
+
+    .content-stats-project {
+      padding: 1rem;
     }
   }
 
   .tag-search {
     width: 40%;
-    background-color: ${(props) => props.theme.colors.primary};
-    padding: 1rem 2rem;
+    background-color: ${(props) => props.theme.colors.primaryLight};
     border-radius: 4px;
+    border: 1px solid ${(props) => props.theme.colors.primaryLight};
 
     .tag-title {
+      border-radius: 4px 4px 0px 0px;
+      padding: 1rem;
+      background-color: ${(props) => props.theme.colors.quaternary};
+      color: ${(props) => props.theme.colors.primaryLight};
       margin: 0;
       text-transform: uppercase;
+    }
+
+    .content-tag-search {
+      padding: 1rem;
     }
   }
 
@@ -73,13 +89,21 @@ const ProjectDashboardStyled = styled.section`
   }
 
   .last-finish-project {
-    background-color: ${(props) => props.theme.colors.primary};
-    padding: 1rem 2rem;
+    background-color: ${(props) => props.theme.colors.primaryLight};
     border-radius: 4px;
+    border: 1px solid ${(props) => props.theme.colors.primaryLight};
 
     .finish-project-tittle {
+      border-radius: 4px 4px 0px 0px;
+      padding: 1rem;
+      background-color: ${(props) => props.theme.colors.quaternary};
+      color: ${(props) => props.theme.colors.primaryLight};
       margin: 0;
       text-transform: uppercase;
+    }
+
+    .content-finish-project {
+      padding: 1rem;
     }
   }
 

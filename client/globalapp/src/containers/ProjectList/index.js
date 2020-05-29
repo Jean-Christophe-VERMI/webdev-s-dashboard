@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ProjectList from '../../components/ProjectList';
 
 const mapStateToProps = (state) => ({
-  allProjects: state.dashboard.allProjects,
+  allprojects: state.dashboard.allprojects,
   errorMessageProject: state.dashboard.errorMessageProject,
 });
 

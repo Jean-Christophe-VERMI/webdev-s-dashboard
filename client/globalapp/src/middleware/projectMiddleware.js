@@ -15,6 +15,10 @@ import {
   errorMsgPostProject,
  } from '../actions/project';
 
+import {
+  fetchAllProjects,
+} from '../actions/dashboard';
+
 const projectMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
@@ -76,6 +80,7 @@ const projectMiddleware = (store) => (next) => (action) => {
           console.log(response.data);
           store.dispatch(saveProjects(response.data));
           store.dispatch(validationPostProject());
+          store.dispatch(fetchAllProjects());
         })
         .catch((error) => {
           if (error.response) {

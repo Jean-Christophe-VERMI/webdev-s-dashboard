@@ -6,6 +6,7 @@ export const ERROR_MESSAGE_POST_PROJECT = 'ERROR_MESSAGE_POST_PROJECT';
 export const VALIDATION_POST_PROJECT = 'VALIDATION_POST_PROJECT';
 export const CLEAR_ERROR_PROJECT = 'CLEAR_ERROR_PROJECT';
 export const CLEAR_VALIDATION_PROJECT = 'CLEAR_VALIDATION_PROJECT';
+export const DISPATCH_CURRENT_PROJECT = 'DISPATCH_CURRENT_PROJECT';
 
 
 export const sendProject = (value, key) => ({
@@ -47,4 +48,10 @@ export const clearValidationProject = (project) => ({
 
 export const validationPostProject = () => ({
   type: VALIDATION_POST_PROJECT,
+});
+
+
+export const dispatchCurrentProject = (id) => ({
+  type: DISPATCH_CURRENT_PROJECT,
+  id,
 });

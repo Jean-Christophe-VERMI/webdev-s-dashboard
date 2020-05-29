@@ -27,18 +27,18 @@ const ProjectDashboard = (isLogged, userHasNoProject, userId) => {
       )}
       <div className="dashboard-infos">
         <section className="stats-projets">
-          <h4 className="stats-title">Statistiques Projets</h4>
-          <p>Composant StatsProjects</p>
+          <div className="stats-title">Statistiques Projets</div>
+          <div className="content-stats-project">Composant StatsProjects</div>
         </section>
         <section className="tag-search">
-          <h4 className="tag-title">Recherche par Tags</h4>
-          <p>Composant TagSearchDay</p>
+          <div className="tag-title">Recherche par Tags</div>
+          <div className="content-tag-search">Composant TagSearchDay</div>
         </section>
       </div>
       <div className="projects-finish">
         <section className="last-finish-project">
-          <h4 className="finish-project-tittle">Mes 3 derniers projets terminés</h4>
-          <p>Composant FinishProjects</p>
+          <div className="finish-project-tittle">Mes 3 derniers projets terminés</div>
+          <div className="content-finish-project">Composant FinishProjects</div>
         </section>
       </div>
     </ProjectDashboardStyled>

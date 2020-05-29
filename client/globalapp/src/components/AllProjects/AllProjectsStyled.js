@@ -8,6 +8,7 @@ const AllProjectStyled = styled.div`
     justify-content: center;
     padding: .8rem .8rem;
     margin: .5rem 1rem;
+    border: 1px solid ${(props) => props.theme.colors.primaryLight};
 
     &:hover {
       background-color: ${(props) => props.theme.colors.secondary};
