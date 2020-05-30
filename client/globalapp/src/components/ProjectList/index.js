@@ -8,18 +8,26 @@ import Project from '../../containers/Project/';
 
 import ProjectListStyled from './ProjectListStyled';
 
-const ProjectList = ( allprojects, errorMessageProject, hasError) => {
+const ProjectList = ( allprojects, errorMessageProject, userHasNoProject) => {
 
+  
   console.log(allprojects.allprojects);
+  console.log(errorMessageProject);
 
   const projets = allprojects.allprojects;
+
 
   return (
     <ProjectListStyled>
       <h1>MES PROJETS</h1>
+      {userHasNoProject && (
+        <div className="noProject">
+          <p>{errorMessageProject}</p>
+        </div>
+      )}
       <div className='projets'>
         {projets.map((project) => (
-          <Project key={project._id} {...project} />
+          <Project className="oneProject" key={project.id} {...project} />
         ))}
       </div>
     </ProjectListStyled>

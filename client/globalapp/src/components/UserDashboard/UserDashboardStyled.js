@@ -4,7 +4,7 @@ import navbg from './nav-bg.jpg';
 const UserDashboardStyled = styled.nav`
 
   min-width: 25%;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(${navbg});
   background-size: cover;
   

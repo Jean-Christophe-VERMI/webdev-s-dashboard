@@ -9,7 +9,7 @@ export const getSlugByProjectTitle = (title) => {
 };
 
 export const getUrlByProjectTitle = (title) => {
-  const url = `/projects/${getSlugByProjectTitle(title)}`;
+  const url = `/projets/${getSlugByProjectTitle(title)}`;
   return url;
 };
 

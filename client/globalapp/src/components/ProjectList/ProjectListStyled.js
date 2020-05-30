@@ -5,19 +5,19 @@ const ProjectListStyled = styled.main`
   margin-top: 15vh;
   width: 100%;
   background-color: ${(props) => props.theme.colors.primary};
-
+  
   h1 {
     text-align: center;
     color: ${(props) => props.theme.colors.primaryLight};
   }
 
   .projets {
+    margin: 1rem;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-around;
+    flex-direction: row-reverse;
   }
+
 
   .errorMsg {
     font-size: .8rem;

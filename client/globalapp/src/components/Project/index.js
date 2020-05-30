@@ -5,11 +5,9 @@ import { getUrlByProjectTitle } from '../../selectors/index';
 
 import ProjectStyled from './ProjectStyled';
 
-const Project = ({ title, description, id, catégorie_type, created_at, dispatchCurrentProject }) => {
+const Project = ({ title, description, id, catégorie_type, date, dispatchCurrentProject }) => {
 
-  const date = created_at;
-  const dateFormat = date.slice(0, 10);
-  console.log(date.slice(0, 10));
+  console.log(date);
   
   return (
     <ProjectStyled>
@@ -26,11 +24,11 @@ const Project = ({ title, description, id, catégorie_type, created_at, dispatch
           </Link>
         </div>
         <div className="description">
-          {description}
+          <p>{description}</p>
         </div>
         <div className="footer-content">
           <p className="categorie">{catégorie_type}</p>
-          <p>Crée le : {dateFormat}</p> 
+          <p>Crée le : {date}</p> 
         </div>
       </div>
     </ProjectStyled>

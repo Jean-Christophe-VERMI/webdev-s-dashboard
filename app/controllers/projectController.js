@@ -24,6 +24,11 @@ const projectController = {
         },
         include: [{
           association: 'technos',
+        },{
+          association: 'days',
+          include: [{
+            association: 'tags',
+          }]
         }]
       });
 

@@ -19,7 +19,7 @@ import Main from '../../containers/Main';
 import ProjectDashboard from '../../containers/ProjectDashboard';
 import ProjectList from '../../containers/ProjectList';
 import NewProject from '../../containers/NewProject';
-
+import ProjectDetails from '../../containers/ProjectDetails';
 
 // Styles
 import AppStyled from './AppStyled';
@@ -44,6 +44,7 @@ const App = ({ fetchAllProjects, isLogged }) => {
               <Route exact path='/user/:userId/dashboard' component={ProjectDashboard} />
               <Route exact path='/user/:userId/projets' component={ProjectList} />
               <Route exact path='/user/:userId/projets/nouveau-projet' component={NewProject} />
+              <Route exact path='/projets/:projetTitle' component={ProjectDetails} />
             </Switch>
           </Main>
         </Router>

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 const ProjectStyled = styled.div`
 
-  max-width: 30%;
+  width: 30%;
+  margin: 0 auto;
 
   .content{
   background-color: ${(props) => props.theme.colors.primaryLight};
@@ -16,10 +17,7 @@ const ProjectStyled = styled.div`
   .header-content {
   padding: .5rem;
   border-radius: 4px 4px 0px 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  text-align: center;
   background-color: ${(props) => props.theme.colors.quaternary};
   text-transform: uppercase;
 
@@ -30,8 +28,15 @@ const ProjectStyled = styled.div`
   }
 
   .description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 20vh;
     padding: .5rem;
+
+    p {
+      text-align: center;
+    }
   }
 
   .footer-content {
