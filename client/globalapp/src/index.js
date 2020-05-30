@@ -14,11 +14,11 @@ import * as serviceWorker from './serviceWorker';
 
 const rootReactElement = (
   <Provider store={store}>
-    <BrowserRouter>
-        <PersistGate persistor={persistor}>
-          <App />
-        </PersistGate>
-    </BrowserRouter>
+    <PersistGate persistor={persistor}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PersistGate>
   </Provider>
 
 );

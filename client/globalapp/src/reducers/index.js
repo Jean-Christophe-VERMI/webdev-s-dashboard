@@ -8,6 +8,7 @@ import verifEmail from './verifEmail';
 import auth from './auth';
 import main from './main';
 import project from './project';
+import day from './day';
 
 const persistConfig = {
   key: 'root',
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   auth,
   main,
   project,
+  day,
 });
 
 export default persistReducer(persistConfig, rootReducer);

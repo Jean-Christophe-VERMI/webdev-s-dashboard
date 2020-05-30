@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ProjectStyled = styled.div`
 
   width: 30%;
-  margin: 0 auto;
+  margin: 1rem auto;
 
   .content{
   background-color: ${(props) => props.theme.colors.primaryLight};
