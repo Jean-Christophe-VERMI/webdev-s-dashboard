@@ -5,7 +5,7 @@ import { dispatchCurrentDay } from '../../actions/day';
 import Day from '../../components/Day';
 
 const mapStateToProps = (state) => ({
-  
+  allprojects: state.dashboard.allprojects,
 });
 
 const mapDispatchToProps = (dispatch) => ({

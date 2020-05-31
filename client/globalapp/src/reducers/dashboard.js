@@ -1,5 +1,6 @@
 import { 
   SAVE_PROJECTS,
+  SAVE_DAYS_DY_TAGNAME,
   ERROR_MESSAGE_DASHBOARD,
  } from '../actions/dashboard.js';
 
@@ -13,6 +14,7 @@ import {
 
 const initialState = {
   allprojects: [],
+  alldaysByTagName: [],
   errorMessageProject: '',
   userHasNoProject : true,
 };
@@ -23,6 +25,11 @@ const dashboard = (state = initialState, action = {}) => {
       return {
         ...state,
         allprojects: action.project,
+      };
+    case SAVE_DAYS_DY_TAGNAME:
+      return {
+        ...state,
+        alldaysByTagName: action.day,
       };
     case ERROR_MESSAGE_DASHBOARD:
       return {

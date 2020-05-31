@@ -8,13 +8,13 @@ import ProjectDetailsStyled from './ProjectDetailsStyled';
 const ProjectDetails = ({ allprojects, currentProject, }) => {
 
   const projet = allprojects.find((project) => project.id === currentProject);
-  console.log(projet);
+  // console.log(projet);
   
-  const technos = projet.technos;
-  console.log(technos);
+  // const technos = projet.technos;
+  // console.log(technos);
 
   const jours = projet.days;
-  console.log(jours);
+  // console.log(jours);
 
     return (
 

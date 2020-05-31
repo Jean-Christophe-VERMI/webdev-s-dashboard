@@ -4,7 +4,7 @@ const ProjectDetailsStyled = styled.div`
   
   margin-top: 15vh;
   width: 100%;
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.primaryLight};
   
 
   .projet-section {
@@ -70,8 +70,8 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .title-section-days {
+    padding: .5rem;
     background-color: ${(props) => props.theme.colors.quaternary};
-    padding: 1rem;
     text-align: center;
     color: ${(props) => props.theme.colors.primaryLight};
     font-style: italic;
