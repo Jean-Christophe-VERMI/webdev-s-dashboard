@@ -14,20 +14,22 @@ const Day = ({ allprojects, date, project_id, id, text, code, ref_source, dispat
   
   return (
     <DayStyled>
-      <div className='content'>
-          <Link
-            className='date'
-            onClick={() => {
-              dispatchCurrentDay(id);
-            }}
-            to={getUrlByDayDate(date)}
-          >
-            {dateFormat}
-          </Link>
+      <div className='content-day'>
+          <div className="date">
+            <Link
+              className='day-link'
+              onClick={() => {
+                dispatchCurrentDay(id);
+              }}
+              to={getUrlByDayDate(date)}
+            >
+              {dateFormat}
+            </Link>
+          </div>
           <div className="tag">
-            <p>modifier</p>
+            <p>x</p>
             {tags.map((tag) => (
-              <Tag key={tag.id} {...tag} />
+              <Tag className="tag-link" key={tag.id} {...tag} />
             ))}
             <p>ajouter</p>
           </div>

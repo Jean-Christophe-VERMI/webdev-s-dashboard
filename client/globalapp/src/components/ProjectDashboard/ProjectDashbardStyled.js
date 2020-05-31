@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 const ProjectDashboardStyled = styled.section`
 
-  margin-top: 15vh;
   width: 100%;
-  background-color: ${(props) => props.theme.colors.primary};
+  background: rgb(65,199,209);
+  background: linear-gradient(0deg, rgba(65,199,209,1) 0%, rgba(66,82,130,1) 100%);
   font-family: ${(props) => props.theme.fonts.default};
 
-  .noProject {
+  .infosDashboard {
+    color: ${(props) => props.theme.colors.primaryLight};
     margin: 0 auto;
     width: 90%;
     padding: 1rem;

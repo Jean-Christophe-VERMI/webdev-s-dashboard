@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 const NewProjectStyled = styled.main`
 
-  margin-top: 15vh;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: ${(props) => props.theme.colors.primary};
+  background: rgb(65,199,209);
+  background: linear-gradient(0deg, rgba(65,199,209,1) 0%, rgba(66,82,130,1) 100%);
 
   .form-title {
     color: ${(props) => props.theme.colors.primaryLight};
@@ -24,6 +24,7 @@ const NewProjectStyled = styled.main`
     align-items: center;
     border-radius: 5px;
     background-color: ${(props) => props.theme.colors.primaryLight};
+    border: 1px solid ${(props) => props.theme.colors.primaryLight};
 
     .project-categorie {
       display: flex;
@@ -44,7 +45,7 @@ const NewProjectStyled = styled.main`
     .headerForm {
       text-align: center;
       width: 100%;
-      background-color: ${(props) => props.theme.colors.blueNav};
+      background-color: ${(props) => props.theme.colors.quaternary};
       border-radius: 4px 4px 0px 0px;
     }
 

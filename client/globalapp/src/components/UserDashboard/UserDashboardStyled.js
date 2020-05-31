@@ -9,15 +9,17 @@ const UserDashboardStyled = styled.nav`
   background-size: cover;
   
   .headerNav {
+    margin: auto;
+    padding: 1.5rem;
     display: flex; 
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 
     h2 {
       margin: 0;
-      padding-top: 1rem;
-      color: ${(props) => props.theme.colors.secondary};
+      padding: 0;
+      color: ${(props) => props.theme.colors.primaryLight};
       text-align: center;
     }
 
@@ -25,8 +27,6 @@ const UserDashboardStyled = styled.nav`
 
   .logo{
     height: 100px;
-    padding-bottom: 1rem;
-    padding-top: .3rem;
   }
 
   .user-links {
@@ -35,11 +35,8 @@ const UserDashboardStyled = styled.nav`
     text-align: right;
     padding: .5rem;
     margin: 0 auto;
-    background-color: ${(props) => props.theme.colors.quaternary};
-
-    a:hover {
-      color: ${(props) => props.theme.colors.secondary};
-    }
+    border-top: 1px solid ${(props) => props.theme.colors.primaryLight};
+    background-color: ${(props) => props.theme.colors.primary};
 
   }
 
@@ -53,7 +50,7 @@ const UserDashboardStyled = styled.nav`
   .logout-link {
     margin-left: .5rem;
     font-style: italic;
-    color: ${(props) => props.theme.colors.primaryLight};
+    color: ${(props) => props.theme.colors.quaternary};
 
   }
 

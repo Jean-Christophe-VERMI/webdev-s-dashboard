@@ -18,13 +18,13 @@ const ProjectDashboard = (isLogged, userHasNoProject, userId) => {
   return (
   
     <ProjectDashboardStyled>
-      {userHasNoProject && (
-        <div className="noProject">
-          <p>Ici sur votre Dashboard vous pouvez retrouver des statistiques sur l'ensemble de vos projets.</p>
-          <p>Vous pouvez également rechercher des jours spécifiques à l'ensemble de vos projets gâce à la recherche par Tags.</p>
-          <p>Enfin vous trouverez un accès rapide à vos 3 derniers projets terminés.</p>
-        </div>
-      )}
+      
+      <div className="infosDashboard">
+        <p>Bienvenue sur votre Dashboard, ici vous retrouverez des statistiques sur l'ensemble de vos projets.</p>
+        <p>Vous pouvez également rechercher des jours spécifiques à l'ensemble de vos projets grâce à la recherche par Tags.</p>
+        <p>Enfin, vous trouverez un accès rapide à vos 3 derniers projets terminés.</p>
+      </div>
+
       <div className="dashboard-infos">
         <section className="stats-projets">
           <div className="stats-title">Statistiques Projets</div>

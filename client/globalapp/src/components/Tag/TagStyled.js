@@ -10,6 +10,10 @@ const TagStyled = styled.div`
       display: block;
       color: ${(props) => props.theme.colors.primaryLight};
 
+      &:hover {
+          font-weight: bold;
+        }
+
     }
 
   }

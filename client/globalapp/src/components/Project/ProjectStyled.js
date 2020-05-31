@@ -6,7 +6,7 @@ const ProjectStyled = styled.div`
   margin: 1rem auto;
 
   .content{
-  background-color: ${(props) => props.theme.colors.primaryLight};
+  background-color: ${(props) => props.theme.colors.primary};
   display: flex;
   flex-direction: column;
   border-radius: 4px;
@@ -22,6 +22,8 @@ const ProjectStyled = styled.div`
   text-transform: uppercase;
 
     a {
+      text-decoration: none;
+      font-weight: bold;
       color :  ${(props) => props.theme.colors.primaryLight};
     }
 
@@ -31,7 +33,7 @@ const ProjectStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 20vh;
+    min-height: 15vh;
     padding: .5rem;
 
     p {

@@ -19,45 +19,49 @@ const ProjectDetails = ({ allprojects, currentProject, }) => {
     return (
 
       <ProjectDetailsStyled>
-        <div className="projet-section">
-          <section className="project-infos">
-            <div className="header-project-infos">
-              <div className="title">
-                {projet.title}
+        <div className="content">
+          <section className="section-project">
+            <div className="project-infos">
+              <div className="header-project-infos">
+                <div className="infos-title-type">
+                  <div className="title">
+                    {projet.title}
+                  </div>
+                  <div className="cat-type">
+                    {projet.catégorie_type}
+                  </div>
+                </div>
+                  
+                <div className="cat-edit">
+                  <div className="editer-btn">
+                    Editer le projet
+                  </div>
+                <div className="cat-etat">
+                  {projet.catégorie_état}
+                </div>
+                </div>
               </div>
-              <div className="cat-type">
-              {projet.catégorie_type}
+              <div className="description">
+                {projet.description}
               </div>
-            </div>
-            <div className="description">
-              {projet.description}
-            </div>
-            <div className="technos">
-              <div className="techno">Techno 1</div>
-              <div className="techno">Techno 2</div>
-              <div className="techno">Techno 3</div>
+              <div className="technos">
+                <div className="techno">Techno 1</div>
+                <div className="techno">Techno 2</div>
+                <div className="techno">Techno 3</div>
+              </div>
             </div>
           </section>
-          <section className="projet-etat">
-            <div className="cat-etat">
-              {projet.catégorie_état}
+          <section className="section-days">
+            <div className="header-section-days">
+              <button>Ajouter un jour</button>
             </div>
-            <div className="editer-btn">
-              button editer
+            <div className="jours">
+              {jours.map((day) => (
+                <Day className="oneProject" key={day.id} {...day} />
+              ))}
             </div>
           </section>
         </div>
-        
-
-        <div className="title-section-days">
-          <h4>Liste des jours associés à ce projet</h4>
-        </div>
-
-        <section className="jours">
-          {jours.map((day) => (
-            <Day className="oneProject" key={day.id} {...day} />
-          ))}
-        </section>
 
       </ProjectDetailsStyled>
         

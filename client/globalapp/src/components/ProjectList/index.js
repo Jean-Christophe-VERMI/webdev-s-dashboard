@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import ControlPointIcon from '@material-ui/icons/ControlPoint';
 
 // Components 
 // import Project from '../Project';
@@ -8,18 +11,26 @@ import Project from '../../containers/Project/';
 
 import ProjectListStyled from './ProjectListStyled';
 
-const ProjectList = ( allprojects, errorMessageProject, userHasNoProject) => {
+const ProjectList = ( allprojects, errorMessageProject, userHasNoProject, userId) => {
 
   
   console.log(allprojects.allprojects);
   console.log(errorMessageProject);
 
   const projets = allprojects.allprojects;
-
+  const id = userId;
 
   return (
     <ProjectListStyled>
-      <h1>MES PROJETS</h1>
+      <div className="header-projectList">
+        <Button className="button" variant="contained" color="primary">
+          <NavLink className="navlink" to={`/user/${id}/projets/nouveau-projet`}>
+            Nouveau projet
+          </NavLink>
+          <ControlPointIcon />
+        </Button>
+        <h1>MES PROJETS</h1>
+      </div>
       {userHasNoProject && (
         <div className="noProject">
           <p>{errorMessageProject}</p>

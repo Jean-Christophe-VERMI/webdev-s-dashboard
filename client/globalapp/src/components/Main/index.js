@@ -3,7 +3,6 @@ import React from 'react';
 // Components
 import Nav from '../Nav';
 import Footer from '../Footer';
-import SearchProjectBar from '../SearchProjectBar';
 
 // Containers
 import UserDashboard from '../../containers/UserDashboard';
@@ -20,9 +19,6 @@ const Main = ({ children, isLogged, notLogged }) => (
       )}
       {isLogged && (
         <UserDashboard />
-      )}
-      {isLogged && (
-        <SearchProjectBar />
       )}
       {children}
     </div>

@@ -32,6 +32,7 @@ const NavStyled = styled.nav`
   }
 
   .button {
+    border: 1px solid ${(props) => props.theme.colors.primaryLight};
     padding: .8rem .4rem;
     margin: .5rem 1rem;
 

@@ -11,7 +11,7 @@ const theme = {
     secondary: '#4c96d7',
     secondaryDark: '#3f51b5',
     ternary: '#1aae9f',
-    quaternary: '#425483',
+    quaternary: '#3f51b5',
     blueNav: '#001b30',
     danger: '#ff6b6b',
     dangerDark: '#ee5253',
