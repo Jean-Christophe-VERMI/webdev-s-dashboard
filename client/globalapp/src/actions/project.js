@@ -4,6 +4,7 @@ export const MODIFY_FIELD_PROJECT = 'MODIFY_FIELD_PROJECT';
 export const HAS_ERROR_POST_PROJECT = 'HAS_ERROR_POST_PROJECT';
 export const ERROR_MESSAGE_POST_PROJECT = 'ERROR_MESSAGE_POST_PROJECT';
 export const VALIDATION_POST_PROJECT = 'VALIDATION_POST_PROJECT';
+export const VALIDATION_EDIT_PROJECT = 'VALIDATION_EDIT_PROJECT';
 export const CLEAR_ERROR_PROJECT = 'CLEAR_ERROR_PROJECT';
 export const CLEAR_VALIDATION_PROJECT = 'CLEAR_VALIDATION_PROJECT';
 export const DISPATCH_CURRENT_PROJECT = 'DISPATCH_CURRENT_PROJECT';
@@ -49,6 +50,10 @@ export const clearValidationProject = (project) => ({
 
 export const validationPostProject = () => ({
   type: VALIDATION_POST_PROJECT,
+});
+
+export const validationEditProject = () => ({
+  type: VALIDATION_EDIT_PROJECT,
 });
 
 export const editorProject = () => ({

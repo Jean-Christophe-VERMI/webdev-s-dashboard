@@ -6,6 +6,7 @@ import {
   HAS_ERROR_POST_PROJECT,
   ERROR_MESSAGE_POST_PROJECT,
   VALIDATION_POST_PROJECT,
+  VALIDATION_EDIT_PROJECT,
   CLEAR_ERROR_PROJECT,
   CLEAR_VALIDATION_PROJECT,
   DISPATCH_CURRENT_PROJECT,
@@ -22,7 +23,9 @@ export const initialState = {
   hasErrorPostProject: false,
   errorMessagePostProject: '',
   validationPostProject: false,
+  validationEditProject: false,
   validationMessagePostProject: 'Nouveau projet créé avec succès',
+  validationMessageEditProject: 'Modifications enregistrés',
 };
 
 const project = (state = initialState, action = {}) => {
@@ -55,6 +58,14 @@ const project = (state = initialState, action = {}) => {
         catégorie_type: '',
         validationPostProject: true,
       };
+    case VALIDATION_EDIT_PROJECT:
+      return {
+        ...state,
+        title: '',
+        description: '',
+        catégorie_type: '',
+        validationEditProject: true,
+      };
     case DISPATCH_CURRENT_PROJECT:
       return {
         ...state,
@@ -74,6 +85,7 @@ const project = (state = initialState, action = {}) => {
       return {
         ...state,
         validationMessagePostProject: '',
+        validationMessageEditProject: '',
       };
     default:
     return state;

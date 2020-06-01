@@ -10,10 +10,12 @@ import {
 
 import { 
   SEND_PROJECT, 
+  EDIT_PROJECT,
+  validationEditProject,
   validationPostProject,
   hasErrorPostProject,
   errorMsgPostProject,
- } from '../actions/project';
+} from '../actions/project';
 
 import {
   fetchAllProjects,
@@ -80,6 +82,39 @@ const projectMiddleware = (store) => (next) => (action) => {
           console.log(response.data);
           store.dispatch(saveProjects(response.data));
           store.dispatch(validationPostProject());
+          store.dispatch(fetchAllProjects());
+        })
+        .catch((error) => {
+          if (error.response) {
+
+            console.log(error.response.data.error);
+            const errorMessagePostProject = error.response.data.error;
+            
+            store.dispatch(hasErrorPostProject());
+            store.dispatch(errorMsgPostProject(errorMessagePostProject));
+           
+          }
+        });
+      next(action);
+      break;
+    }
+    case EDIT_PROJECT: {
+      let projetId = store.getState().project.currentProject;
+
+      axios({
+        method: 'put',
+        url: `http://localhost:4000/projets/${projetId}/editer`,
+        data: {
+          title: store.getState().project.title,
+          description: store.getState().project.description,
+          categorieType: store.getState().project.catégorie_type,
+          categorieEtat: store.getState().project.catégorie_état,
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(saveProjects(response.data));
+          store.dispatch(validationEditProject());
           store.dispatch(fetchAllProjects());
         })
         .catch((error) => {

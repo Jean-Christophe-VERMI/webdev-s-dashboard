@@ -24,8 +24,8 @@ router.get('/user/:userId/projets', projectController.getAllProjectsByUser);
 router.get('/user/:userId/projets/search', projectController.getAllProjectsByUserAndFilter);
 router.get('/projets/:projetId/:projetTitle', projectController.getOneProject);
 router.post('/user/:userId/projets/nouveau-projet', projectController.createNewProject);
-router.put('/projets/:projetId/:projetTitle/editer', projectController.updateProject);
-router.delete('/projets/:projetId/:projetTitle/delete', projectController.deleteProject);
+router.put('/projets/:projetId/editer', projectController.updateProject);
+router.delete('/projets/:projetId/delete', projectController.deleteProject);
 
 
 // route gestion des action sur table days

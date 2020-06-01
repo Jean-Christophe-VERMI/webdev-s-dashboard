@@ -164,7 +164,7 @@ const projectController = {
     } 
   },
 
-  // ROUTE PUT /projets/:projetId/:projetTitle/editer
+  // ROUTE PUT /projets/:projetId/editer
   updateProject: async (req, res) => {
 
     try {
@@ -210,11 +210,11 @@ const projectController = {
       res.json(projet);
 
     } catch (error) {
-      res.status(500).json(error);
+      res.status(500).json({error : "une erreur c'est produite"});
     } 
   },
 
-  // ROUTE DELETE /projets/:projetId/:projetTitle/delete
+  // ROUTE DELETE /projets/:projetId/delete
   deleteProject: async (req, res) => {
 
     try {
