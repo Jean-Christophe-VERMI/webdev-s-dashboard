@@ -9,6 +9,7 @@ import auth from './auth';
 import main from './main';
 import project from './project';
 import day from './day';
+import editor from './editor';
 
 const persistConfig = {
   key: 'root',
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   main,
   project,
   day,
+  editor,
 });
 
 export default persistReducer(persistConfig, rootReducer);

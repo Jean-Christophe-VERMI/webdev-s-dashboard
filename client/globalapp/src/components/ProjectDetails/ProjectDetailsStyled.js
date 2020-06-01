@@ -14,6 +14,17 @@ const ProjectDetailsStyled = styled.div`
 
   .section-project {
     width: 70%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editor-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
   }
 
   .infos-title-type {
@@ -25,7 +36,6 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .cat-edit {
-    padding: .5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -109,6 +119,7 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .technos {
+    padding: .5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;

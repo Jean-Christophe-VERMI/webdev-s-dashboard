@@ -2,11 +2,11 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 
 import Day from '../../containers/Day';
+import Editor from '../../containers/Editor';
 
 import ProjectDetailsStyled from './ProjectDetailsStyled';
-import { dispatchCurrentProject } from '../../actions/project';
 
-const ProjectDetails = ({ allprojects, currentProject, editorProject }) => {
+const ProjectDetails = ({ allprojects, currentProject, editorProject, dispatchCurrentProject }) => {
 
   const projet = allprojects.find((project) => project.id === currentProject);
   const jours = projet.days;
@@ -52,6 +52,9 @@ const ProjectDetails = ({ allprojects, currentProject, editorProject }) => {
                 </div>
               </div>
             </section>
+          </div>
+          <div className="editor-section">
+            <Editor />
           </div>
         </section>
         <section className="section-days">
