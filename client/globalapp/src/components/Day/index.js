@@ -3,12 +3,14 @@ import Moment from 'moment';
 import 'moment/locale/fr';
 import { Link } from 'react-router-dom';
 import { getUrlByDayDate } from '../../selectors/index';
+import CreateIcon from '@material-ui/icons/Create';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import Tag from '../../containers/Tag';
 
 import DayStyled from './DayStyled';
 
-const Day = ({ allprojects, date, project_id, id, text, code, ref_source, dispatchCurrentDay, tags }) => {
+const Day = ({ editorDay, date, project_id, id, text, code, ref_source, dispatchCurrentDay, tags }) => {
   
   const dateFormat = Moment(date).locale('fr').format("dddd, Do MMMM YYYY");
   
@@ -16,14 +18,17 @@ const Day = ({ allprojects, date, project_id, id, text, code, ref_source, dispat
     <DayStyled>
       <div className='content-day'>
           <div className="date">
+            <div className='day-link'>{dateFormat}</div>
             <Link
-              className='day-link'
               onClick={() => {
                 dispatchCurrentDay(id);
+                editorDay();
               }}
-              to={getUrlByDayDate(date)}
+              to="#"
             >
-              {dateFormat}
+              <Tooltip title="Editer" placement="bottom">
+                <CreateIcon className="icon" />
+              </Tooltip>
             </Link>
           </div>
           <div className="tag">

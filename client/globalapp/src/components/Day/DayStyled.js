@@ -12,10 +12,21 @@ const DayStyled = styled.div`
     border-radius: 4px;
     display: flex;
     flex-direction: column;
+
+    .date {
+      padding: .3rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
     
+    .icon {
+      color: ${(props) => props.theme.colors.primary};
+      height: 20px;
+    }
    
     .day-link {
-      padding: .3rem;
       text-decoration: none;
       display: block;
       text-transform: uppercase;

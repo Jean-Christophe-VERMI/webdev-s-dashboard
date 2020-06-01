@@ -6,17 +6,24 @@ import {
 
  import {
    VALIDATION_POST_PROJECT,
+   EDITOR_PROJECT,
  } from '../actions/project.js';
 
  import {
    LOGOUT,
  } from '../actions/user.js';
 
+ import {
+  EDITOR_DAY,
+ } from '../actions/day';
+
 const initialState = {
   allprojects: [],
   alldaysByTagName: [],
   errorMessageProject: '',
   userHasNoProject : true,
+  editorDay: false,
+  editorProject: false,
 };
 
 const dashboard = (state = initialState, action = {}) => {
@@ -39,8 +46,20 @@ const dashboard = (state = initialState, action = {}) => {
     case VALIDATION_POST_PROJECT:
       return {
         ...state,
-        userHasNoProject : false,
+        userHasNoProject: false,
         errorMessageProject: '',
+      };
+    case EDITOR_DAY:
+      return {
+        ...state,
+        editorDay: true,
+        editorProject: false,
+      };
+    case EDITOR_PROJECT:
+      return {
+        ...state,
+        editorProject: true,
+        editorDay: false,
       };
     case LOGOUT:
       return {

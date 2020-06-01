@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import ProjectDetails from '../../components/ProjectDetails';
 
-import { editProject } from '../../actions/project';
+import { editProject, dispatchCurrentProject, editorProject } from '../../actions/project';
 
 const mapStateToProps = (state) => ({
   allprojects: state.dashboard.allprojects,
@@ -18,6 +18,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   editProject: (value, name) => {
     dispatch(editProject(value, name));
+  },
+  editorProject: () => {
+    dispatch(editorProject());
+  },
+  dispatchCurrentProject: (id) => {
+    dispatch(dispatchCurrentProject(id));
   },
 });
 

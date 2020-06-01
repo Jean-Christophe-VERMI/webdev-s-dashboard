@@ -7,6 +7,7 @@ export const VALIDATION_POST_DAY = 'VALIDATION_POST_DAY';
 export const CLEAR_ERROR_DAY = 'CLEAR_ERROR_DAY';
 export const CLEAR_VALIDATION_DAY = 'CLEAR_VALIDATION_DAY';
 export const DISPATCH_CURRENT_DAY = 'DISPATCH_CURRENT_DAY';
+export const EDITOR_DAY = 'EDITOR_DAY';
 
 
 export const sendDay = (value, key) => ({
@@ -48,6 +49,10 @@ export const clearValidationDay = (day) => ({
 
 export const validationPostDay = () => ({
   type: VALIDATION_POST_DAY,
+});
+
+export const editorDay = () => ({
+  type: EDITOR_DAY,
 });
 
 export const dispatchCurrentDay = (id) => ({

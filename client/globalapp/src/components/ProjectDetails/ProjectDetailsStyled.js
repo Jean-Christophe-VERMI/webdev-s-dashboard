@@ -13,7 +13,7 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .section-project {
-    width: 60%;
+    width: 70%;
   }
 
   .infos-title-type {
@@ -39,7 +39,7 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .section-days {
-    width: 40%;
+    width: 30%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.30);
     overflow-y: auto;
@@ -86,8 +86,16 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .description {
-    min-height: 10vh;
-    padding: 1rem;
+    min-height: 15vh;
+    max-width: 60%;
+  }
+
+  .bottom-infos-project {
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
   }
 
   .projet-etat {
@@ -97,7 +105,6 @@ const ProjectDetailsStyled = styled.div`
 
   .project-categorie-techno {
     background-color: ${(props) => props.theme.colors.primaryDark};
-    padding: 1rem;
 
   }
 
@@ -105,12 +112,13 @@ const ProjectDetailsStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 
     .techno {
       border-radius: 4px;
       border: 1px solid ${(props) => props.theme.colors.primaryLight};
       padding: .5rem;
-      margin: .5rem;
+      margin-left: .3rem;
     }
   }
 
@@ -127,6 +135,18 @@ const ProjectDetailsStyled = styled.div`
     flex-wrap: wrap;
     flex-direction: column-reverse;
     align-items: center;
+  }
+
+  .button {
+    margin-top: .3rem;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid ${(props) => props.theme.colors.primaryLight};
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.secondary};
+    }
+    
   }
 
 `;
