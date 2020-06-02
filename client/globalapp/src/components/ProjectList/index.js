@@ -11,13 +11,15 @@ import Project from '../../containers/Project/';
 
 import ProjectListStyled from './ProjectListStyled';
 
-const ProjectList = ( allprojects, errorMessageProject, userHasNoProject, userId) => {
-
-  
-  console.log(allprojects.allprojects);
-  console.log(errorMessageProject);
+const ProjectList = (
+  allprojects, 
+  errorMessageProject, 
+  userHasNoProject, 
+  userId 
+ ) => {
 
   const projets = allprojects.allprojects;
+  console.log(projets);
   const id = userId;
 
   return (

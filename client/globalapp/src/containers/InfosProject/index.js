@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 
-import ProjectDetails from '../../components/ProjectDetails';
+import InfosProject from '../../components/InfosProject';
+
+import { dispatchCurrentProject, editorProject } from '../../actions/project';
 
 const mapStateToProps = (state) => ({
   allprojects: state.dashboard.allprojects,
   currentProject: state.project.currentProject,
-  validationEditProject: state.project.validationEditProject,
-  validationMessageEditProject: state.project.validationMessageEditProject,
   title: state.project.title,
   description: state.project.description,
   catégorie_type: state.project.catégorie_type,
@@ -16,8 +16,13 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  
+  editorProject: () => {
+    dispatch(editorProject());
+  },
+  dispatchCurrentProject: (id) => {
+    dispatch(dispatchCurrentProject(id));
+  },
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(InfosProject);

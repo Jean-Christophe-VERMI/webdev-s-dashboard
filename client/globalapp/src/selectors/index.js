@@ -15,6 +15,12 @@ export const getUrlByProjectTitle = (title) => {
   return url;
 };
 
+export const getUrlByProjectTitleEditer = (title) => {
+  const url = `/projets/${getSlugByProjectTitle(title)}/editer`;
+  return url;
+};
+
+
 /*
 export const getProjectBySlug = (Projects, slug) => {
   // eslint-disable-next-line arrow-body-style

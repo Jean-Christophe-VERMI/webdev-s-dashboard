@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
   hasErrorPostProject: state.project.hasErrorPostProject,
   errorMessagePostProject: state.project.errorMessagePostProject,
   validationMessageEditProject: state.project.validationMessageEditProject,
+  userId: state.main.userId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

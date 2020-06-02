@@ -45,6 +45,7 @@ const App = ({ fetchAllProjects, isLogged }) => {
               <Route exact path='/user/:userId/projets' component={ProjectList} />
               <Route exact path='/user/:userId/projets/nouveau-projet' component={NewProject} />
               <Route exact path='/projets/:projetTitle' component={ProjectDetails} />
+              <Route exact path='/projets/:projetTitle/editer' component={ProjectDetails} />
             </Switch>
           </Main>
         </Router>

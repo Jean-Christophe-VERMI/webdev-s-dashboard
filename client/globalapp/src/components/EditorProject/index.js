@@ -1,4 +1,6 @@
 import React from 'react';
+// import { NavLink } from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -22,6 +24,7 @@ const EditorProject = ({
   validationMessageEditProject,
   clearErrorProject,
   clearValidationProject,
+  userId,
  }) => {
  
   const useStyles = makeStyles((theme) => ({
@@ -117,7 +120,6 @@ const EditorProject = ({
                   name="catégorie_type"
                   onChange={handleChangeSelectedCategorie}
                   variant="filled"
-                  required
                 >
                   <MenuItem value="">
                     <em></em>
@@ -141,7 +143,6 @@ const EditorProject = ({
                   name="catégorie_type"
                   onChange={handleChangeSelectedEtat}
                   variant="filled"
-                  required
                 >
                   <MenuItem value="">
                     <em></em>
@@ -157,7 +158,6 @@ const EditorProject = ({
               name="title"
               onChange={handleChange}
               value={title}
-              required
               id="field-title" 
               label="Nom du projet" 
               variant="filled" 
@@ -186,8 +186,8 @@ const EditorProject = ({
             variant="contained" 
             color="primary"
             type="submit"
-          >
-            Enregistrer
+            >
+              Enregistrer
           </Button>
         </form>
       </div>

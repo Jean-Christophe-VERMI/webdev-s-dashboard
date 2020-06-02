@@ -115,7 +115,6 @@ const projectMiddleware = (store) => (next) => (action) => {
           console.log(response.data);
           store.dispatch(saveProjects(response.data));
           store.dispatch(validationEditProject());
-          store.dispatch(fetchAllProjects());
         })
         .catch((error) => {
           if (error.response) {
