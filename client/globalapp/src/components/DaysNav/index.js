@@ -3,7 +3,10 @@ import React from 'react';
 import Day from '../../containers/Day';
 import DaysNavStyled from './DaysNavStyled';
 
-const DaysNav = ({ allprojects, currentProject }) => {
+const DaysNav = ({ 
+  allprojects, 
+  currentProject 
+}) => {
 
   const projet = allprojects.find((project) => project.id === currentProject);
   console.log(projet);

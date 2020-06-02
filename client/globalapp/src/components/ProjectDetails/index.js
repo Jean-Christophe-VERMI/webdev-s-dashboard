@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import InfosProject from '../../containers/InfosProject';
 import DaysNav from '../../containers/DaysNav';
@@ -6,13 +6,9 @@ import Editor from '../../containers/Editor';
 
 import ProjectDetailsStyled from './ProjectDetailsStyled';
 
-const ProjectDetails = ({
-  validationEditProject,
-  validationMessageEditProject,
- }) => {
+const ProjectDetails = () => {
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
       <ProjectDetailsStyled>   
         <div className="content">
           <section className="section-project">
@@ -20,11 +16,6 @@ const ProjectDetails = ({
             <InfosProject />
             </div>
             <div className="editor-section">
-            {validationEditProject && (
-              <div className="validationMsg">
-                <p>{validationMessageEditProject}</p>
-              </div>
-            )}
               <Editor />
             </div>
           </section>
@@ -33,7 +24,6 @@ const ProjectDetails = ({
           </section>
         </div>
       </ProjectDetailsStyled>  
-    </Suspense>
   );
 };
 

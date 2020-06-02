@@ -16,7 +16,7 @@ const ProjectList = (
   errorMessageProject, 
   userHasNoProject, 
   userId 
- ) => {
+) => {
 
   const projets = allprojects.allprojects;
   console.log(projets);
