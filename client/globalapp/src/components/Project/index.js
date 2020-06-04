@@ -7,7 +7,14 @@ import { getUrlByProjectTitle } from '../../selectors/index';
 
 import ProjectStyled from './ProjectStyled';
 
-const Project = ({ title, description, id, catégorie_type, date, dispatchCurrentProject }) => {
+const Project = ({ 
+  title, 
+  description, 
+  id, 
+  catégorie_type, 
+  date, 
+  dispatchCurrentProject 
+}) => {
   
   const dateFormat = Moment(date).locale('fr').format("dddd, Do MMMM YYYY");
 

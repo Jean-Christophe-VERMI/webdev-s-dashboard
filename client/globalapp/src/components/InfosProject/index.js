@@ -1,21 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { getUrlByProjectTitleEditer } from '../../selectors/index';
+// import { getUrlByProjectTitleEditer } from '../../selectors/index';
 import InfosProjectStyled from './InfosProject';
 
-const InfosProject = ({ 
-  allprojects,
-  currentProject,
-  editorProject, 
-  dispatchCurrentProject,
-}) => {
+const InfosProject = ({ lesprojets, currentProject, dispatchCurrentProject, editorProject }) => {
 
-  const projet = allprojects.find((project) => project.id === currentProject);
-  console.log(projet);
   const id = currentProject;
+  const projet = lesprojets.find((project) => project.id === currentProject);
+  console.log(projet);
+  
   return (
+    
     <InfosProjectStyled>
+
       <section className="header-project-infos">
         <div className="infos-title-type">
           <div className="title">
@@ -44,9 +42,8 @@ const InfosProject = ({
             onClick={() => {
               dispatchCurrentProject(id);
               editorProject();
-            }}><NavLink className="navlink" to={getUrlByProjectTitleEditer(projet.title)}>
+            }}>
               Editer le projet
-              </NavLink>
             </Button>
           </div>
         </div>

@@ -6,6 +6,7 @@ import { dispatchCurrentProject, editorProject } from '../../actions/project';
 
 const mapStateToProps = (state) => ({
   allprojects: state.dashboard.allprojects,
+  oneProject: state.dashboard.oneProject,
   currentProject: state.project.currentProject,
   title: state.project.title,
   description: state.project.description,

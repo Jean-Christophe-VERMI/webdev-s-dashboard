@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import DaysNav from '../../components/DaysNav';
 
 const mapStateToProps = (state) => ({
-  allprojects: state.dashboard.allprojects,
+  daysOfProject: state.dashboard.daysOfProject,
   currentProject: state.project.currentProject,
 });
 
