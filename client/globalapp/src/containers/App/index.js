@@ -6,6 +6,8 @@ import { fetchAllProjects } from '../../actions/dashboard';
 
 const mapStateToProps = (state) => ({
   isLogged: state.main.isLogged,
+  allprojects: state.dashboard.allprojects,
+  currentProject: state.project.currentProject,
 });
 
 const mapDispatchToProps = (dispatch) => ({

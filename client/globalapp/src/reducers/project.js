@@ -9,7 +9,8 @@ import {
   VALIDATION_EDIT_PROJECT,
   CLEAR_ERROR_PROJECT,
   CLEAR_VALIDATION_PROJECT,
-  DISPATCH_CURRENT_PROJECT,
+  DISPATCH_CURRENT_PROJECT_ID,
+  DISPATCH_CURRENT_PROJECT_TITLE,
 } from '../actions/project';
 
 export const initialState = {
@@ -19,7 +20,8 @@ export const initialState = {
   catégorie_état: '',
   favori: false,
   image: '',
-  currentProject: '',
+  currentProjectId: '',
+  currentProjectTitle: '',
   hasErrorPostProject: false,
   errorMessagePostProject: '',
   validationPostProject: false,
@@ -66,10 +68,15 @@ const project = (state = initialState, action = {}) => {
         catégorie_type: '',
         validationEditProject: true,
       };
-    case DISPATCH_CURRENT_PROJECT:
+    case DISPATCH_CURRENT_PROJECT_ID:
       return {
         ...state,
-        currentProject: action.id,
+        currentProjectId: action.id,
+      };
+    case DISPATCH_CURRENT_PROJECT_TITLE:
+      return {
+        ...state,
+        currentProjectTitle: action.title,
       };
     case HAS_ERROR_POST_PROJECT:
       return {

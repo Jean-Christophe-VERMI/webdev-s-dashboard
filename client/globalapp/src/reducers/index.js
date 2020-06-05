@@ -14,7 +14,7 @@ import editor from './editor';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['main'],
+  whitelist: ['main', 'dashboard', 'project'],
 }
 
 const rootReducer = combineReducers({

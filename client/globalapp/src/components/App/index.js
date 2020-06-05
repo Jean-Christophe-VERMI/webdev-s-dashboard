@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
@@ -24,12 +24,14 @@ import ProjectDetails from '../../containers/ProjectDetails';
 // Styles
 import AppStyled from './AppStyled';
 
-
-const App = ({ fetchAllProjects, isLogged }) => {
+const App = ({ fetchAllProjects, isLogged, allprojects, currentProject }) => {
   
-  if(isLogged) {
-    fetchAllProjects();
-  }
+  useEffect(() => {
+    if(isLogged) {
+      fetchAllProjects();
+    }
+  }, []);
+  
   
   return (
     <Theme>

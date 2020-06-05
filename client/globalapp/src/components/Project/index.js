@@ -13,7 +13,8 @@ const Project = ({
   id, 
   catégorie_type, 
   date, 
-  dispatchCurrentProject 
+  dispatchCurrentProjectId,
+  dispatchCurrentProjectTitle,
 }) => {
   
   const dateFormat = Moment(date).locale('fr').format("dddd, Do MMMM YYYY");
@@ -25,7 +26,8 @@ const Project = ({
           <Link
             className='title'
             onClick={() => {
-              dispatchCurrentProject(id);
+              dispatchCurrentProjectId(id);
+              dispatchCurrentProjectTitle(title);
             }}
             to={getUrlByProjectTitle(title)}
           >

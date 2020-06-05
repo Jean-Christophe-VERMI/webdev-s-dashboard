@@ -1,0 +1,30 @@
+const projet = allprojects.find((project) => project.id === currentProject);
+console.log(projet);
+const days = projet.days;
+console.log(days);
+dispatchDaysOfProject(days);
+
+
+<div className="cat-type">
+              {projet.catégorie_type}
+            </div>
+          </div>
+          <div className="technos">
+            <div className="techno">Techno 1</div>
+            <div className="techno">Techno 2</div>
+            <div className="techno">Techno 3</div>
+          </div>
+        </section>
+        <section className="bottom-infos-project">
+          <div className="description">
+            {projet.description}
+          </div>
+          <div className="cat-edit">
+            <div className="cat-etat">
+              {projet.catégorie_état}
+            </div>
+
+projet = allprojects.find((project) => project.id === currentProject)
+<DaysNav lesprojets={projet.days} />
+
+<InfosProject data={allprojects.find((projet) => projet.id === currentProject)} />

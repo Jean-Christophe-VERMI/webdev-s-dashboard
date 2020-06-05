@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { dispatchCurrentProject } from '../../actions/project';
+import { dispatchCurrentProjectId, dispatchCurrentProjectTitle } from '../../actions/project';
 
 import Project from '../../components/Project';
 
@@ -9,8 +9,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchCurrentProject: (id) => {
-    dispatch(dispatchCurrentProject(id));
+  dispatchCurrentProjectId: (id) => {
+    dispatch(dispatchCurrentProjectId(id));
+  },
+  dispatchCurrentProjectTitle: (title) => {
+    dispatch(dispatchCurrentProjectTitle(title));
   },
 });
 
