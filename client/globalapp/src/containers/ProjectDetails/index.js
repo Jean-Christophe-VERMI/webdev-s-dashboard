@@ -6,6 +6,7 @@ const mapStateToProps = (state) => ({
   validationEditProject: state.project.validationEditProject,
   currentProjectId: state.project.currentProjectId,
   currentProjectTitle: state.project.currentProjectTitle,
+  hasNewDay: state.day.hasNewDay,
 });
 
 const mapDispatchToProps = (dispatch) => ({

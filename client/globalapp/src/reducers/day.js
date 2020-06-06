@@ -7,6 +7,7 @@ import {
   CLEAR_ERROR_DAY,
   CLEAR_VALIDATION_DAY,
   DISPATCH_CURRENT_DAY,
+  ADD_NEW_DAY,
 } from '../actions/day';
 
 export const initialState = {
@@ -20,10 +21,16 @@ export const initialState = {
   errorMessagePostDay: '',
   validationPostDay: false,
   validationMessagePostDay: 'Nouveau jour ajouté au projet',
+  hasNewDay: false,
 };
 
 const day = (state = initialState, action = {}) => {
   switch (action.type) {
+    case ADD_NEW_DAY:
+      return {
+        ...state,
+        hasNewDay: true,
+      };
     case EDIT_DAY:
       return {
         ...state,

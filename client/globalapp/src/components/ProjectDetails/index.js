@@ -4,7 +4,6 @@ import Loading from '../Loading';
 
 import InfosProject from '../../containers/InfosProject';
 import DaysNav from '../../containers/DaysNav';
-
 import Editor from '../../containers/Editor';
 
 import ProjectDetailsStyled from './ProjectDetailsStyled';
@@ -13,13 +12,14 @@ const ProjectDetails = ({
   validationEditProject,
   currentProjectTitle,
   currentProjectId,
+  hasNewDay,
 }) => {
 
   const [projet, setProjet] = useState(null);
   const [days, setDays] = useState(null);
 
   useEffect(() => {
-    async function getProject() {
+    const getProject = async () => {
       try {
         const projetId = currentProjectId;
         const projetTitle = currentProjectTitle;
@@ -35,8 +35,6 @@ const ProjectDetails = ({
     getProject();
 
   }, []);
-
-  
 
   console.log(projet);
   
