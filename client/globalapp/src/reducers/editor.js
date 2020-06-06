@@ -1,5 +1,6 @@
 import {
    EDITOR_PROJECT,
+   VALIDATION_EDIT_PROJECT,
  } from '../actions/project.js';
 
  import {
@@ -7,13 +8,17 @@ import {
  } from '../actions/day';
 
  import {
-   REDIRECT_ACTION
+   REDIRECT_ACTION,
+   NOT_EMPTY_FIELD_TITLE,
+   EMPTY_FIELD_TITLE,
  } from '../actions/editor';
 
 const initialState = {
   editorDay: false,
   editorProject: false,
   isRedirect: false,
+  isModifyTitle: false,
+  isEmptyFieldTitle: true,
 };
 
 const editor = (state = initialState, action = {}) => {
@@ -31,9 +36,26 @@ const editor = (state = initialState, action = {}) => {
         editorDay: false,
       };
     case REDIRECT_ACTION:
+      return {
+        ...state,
+        isRedirect: true,
+      };
+    case NOT_EMPTY_FIELD_TITLE:
+      return {
+        ...state,
+        isEmptyFieldTitle: false,
+      };
+    case EMPTY_FIELD_TITLE:
+      return {
+        ...state,
+        isEmptyFieldTitle: initialState.isEmptyFieldTitle,
+      };
+    case VALIDATION_EDIT_PROJECT:
         return {
           ...state,
-          isRedirect: true,
+          isRedirect: initialState.isRedirect,
+          isModifyTitle: initialState.isModifyTitle,
+          isEmptyFieldTitle:initialState.isEmptyFieldTitle,
         };
     default:
       return state;

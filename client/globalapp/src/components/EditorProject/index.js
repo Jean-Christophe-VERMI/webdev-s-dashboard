@@ -15,6 +15,7 @@ import EditorProjectStyled from './EditorProjectStyled';
 
 const EditorProject = ({ 
   title, 
+  currentProjectTitle,
   description, 
   catégorie_type,
   catégorie_état,
@@ -30,6 +31,9 @@ const EditorProject = ({
   dispatchNewTitleURL,
   redirectAction,
   isRedirect,
+  notEmptyFieldTitle,
+  emptyFieldTitle,
+  isEmptyFieldTitle,
  }) => {
  
   const useStyles = makeStyles((theme) => ({
@@ -52,6 +56,8 @@ const EditorProject = ({
 
   catégorie_état = etat;
   console.log(catégorie_état);
+
+  //title = currentProjectTitle;
   
   const [openCategorie, setOpenCategorie] = React.useState(false);
   const [openEtat, setOpenEtat] = React.useState(false);
@@ -82,24 +88,36 @@ const EditorProject = ({
     setOpenEtat(true);
   };
 
-  if (isRedirect) {
-    return <Redirect to={getUrlByProjectTitle(newTitleURL)} />
-  }
-
+  if(!isEmptyFieldTitle && isRedirect) {
+    dispatchNewTitleURL(title);
+    return <Redirect to={getUrlByProjectTitle(title)} />
+  };
+  
+  if (isEmptyFieldTitle && isRedirect ) {
+    return <Redirect to={getUrlByProjectTitle(currentProjectTitle)} />
+  };
+  
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatchNewTitleURL(title);
     editProject();
     redirectAction();
+  };
+
+  const handleChangeTitle = (event) => {
+    onChange(event.target.value, event.target.name);
+    if(event.target.value === ""){
+      emptyFieldTitle();
+    } else {
+      notEmptyFieldTitle();
+    }
   };
 
   const refreshPage = () => {
     setTimeout(() => {
       window.location.reload(false)
-    }, 200);
+    }, 50);
   }
   
-
   const handleChange = (event) => {
     onChange(event.target.value, event.target.name);
   };
@@ -152,7 +170,7 @@ const EditorProject = ({
                   onClose={handleCloseEtat}
                   onOpen={handleOpenEtat}
                   value={etat}
-                  name="catégorie_type"
+                  name="catégorie_état"
                   onChange={handleChangeSelectedEtat}
                   variant="filled"
                 >
@@ -168,7 +186,7 @@ const EditorProject = ({
           <div className="project-title">
               <TextField 
               name="title"
-              onChange={handleChange}
+              onChange={handleChangeTitle}
               value={title}
               id="field-title" 
               label="Nom du projet" 
