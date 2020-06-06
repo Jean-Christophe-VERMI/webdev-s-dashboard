@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import App from '../../components/App';
 
-import { fetchAllProjects } from '../../actions/dashboard';
+import { } from '../../actions/dashboard';
 
 const mapStateToProps = (state) => ({
   isLogged: state.main.isLogged,
@@ -11,9 +11,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllProjects: () => {
-    dispatch(fetchAllProjects());
-  },
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

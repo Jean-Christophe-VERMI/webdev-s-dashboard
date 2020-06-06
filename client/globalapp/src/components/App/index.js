@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
@@ -25,13 +25,6 @@ import ProjectDetails from '../../containers/ProjectDetails';
 import AppStyled from './AppStyled';
 
 const App = ({ fetchAllProjects, isLogged, allprojects, currentProject }) => {
-  
-  useEffect(() => {
-    if(isLogged) {
-      fetchAllProjects();
-    }
-  }, []);
-  
   
   return (
     <Theme>

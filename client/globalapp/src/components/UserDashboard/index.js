@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
@@ -11,10 +11,15 @@ import UserDashboardStyled from './UserDashboardStyled';
 import logo from './logo.png';
 
 const UserDashboard = ({
+  fetchAllProjects,
   username,
   userId,
   logout,
 }) => {
+
+  useEffect(() => {
+    fetchAllProjects();
+  }, []);
 
   const handleLogout = () => {
     logout();

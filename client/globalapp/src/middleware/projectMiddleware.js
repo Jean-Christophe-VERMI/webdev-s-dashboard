@@ -99,7 +99,7 @@ const projectMiddleware = (store) => (next) => (action) => {
       break;
     }
     case EDIT_PROJECT: {
-      let projetId = store.getState().project.currentProject;
+      let projetId = store.getState().project.currentProjectId;
 
       axios({
         method: 'put',

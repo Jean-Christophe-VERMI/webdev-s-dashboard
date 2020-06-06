@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect } from "react-router-dom";
+import { getUrlByProjectTitle } from '../../selectors/index';
 // import { NavLink } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
@@ -24,7 +26,10 @@ const EditorProject = ({
   validationMessageEditProject,
   clearErrorProject,
   clearValidationProject,
-  userId,
+  newTitleURL,
+  dispatchNewTitleURL,
+  redirectAction,
+  isRedirect,
  }) => {
  
   const useStyles = makeStyles((theme) => ({
@@ -77,27 +82,34 @@ const EditorProject = ({
     setOpenEtat(true);
   };
 
+  if (isRedirect) {
+    return <Redirect to={getUrlByProjectTitle(newTitleURL)} />
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatchNewTitleURL(title);
     editProject();
+    redirectAction();
   };
+
+  const refreshPage = () => {
+    setTimeout(() => {
+      window.location.reload(false)
+    }, 200);
+  }
+  
 
   const handleChange = (event) => {
     onChange(event.target.value, event.target.name);
   };
-  
+
   if(errorMessagePostProject) {
     setTimeout(() => {
       clearErrorProject();
     }, 8000);
-  }
+  };
   
-  
-  if(validationEditProject) {
-    setTimeout(() => {
-      clearValidationProject();
-    }, 8000);
-  }
 
   return (
     <EditorProjectStyled>
@@ -177,15 +189,13 @@ const EditorProject = ({
             {hasErrorPostProject && !validationEditProject && (
               <div className="errorMsg">{errorMessagePostProject}</div>
             )}
-            {validationEditProject && (
-              <div className="validationMsg">{validationMessageEditProject}</div>
-            )}
           </div>
           <Button 
             className="submit-btn" 
             variant="contained" 
             color="primary"
             type="submit"
+            onClick={refreshPage}
             >
               Enregistrer
           </Button>

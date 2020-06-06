@@ -6,9 +6,14 @@ import {
   EDITOR_DAY,
  } from '../actions/day';
 
+ import {
+   REDIRECT_ACTION
+ } from '../actions/editor';
+
 const initialState = {
   editorDay: false,
   editorProject: false,
+  isRedirect: false,
 };
 
 const editor = (state = initialState, action = {}) => {
@@ -25,6 +30,11 @@ const editor = (state = initialState, action = {}) => {
         editorProject: true,
         editorDay: false,
       };
+    case REDIRECT_ACTION:
+        return {
+          ...state,
+          isRedirect: true,
+        };
     default:
       return state;
   }

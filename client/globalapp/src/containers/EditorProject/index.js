@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 
 import EditorProject from '../../components/EditorProject';
 
-import { editProject, modifyFieldProject, clearErrorProject, clearValidationProject } from '../../actions/project';
+import { editProject, modifyFieldProject, clearErrorProject, dispatchNewTitleURL } from '../../actions/project';
+import { redirectAction } from '../../actions/editor';
 
 const mapStateToProps = (state) => ({
   currentProject: state.project.currentProject,
@@ -14,7 +15,8 @@ const mapStateToProps = (state) => ({
   hasErrorPostProject: state.project.hasErrorPostProject,
   errorMessagePostProject: state.project.errorMessagePostProject,
   validationMessageEditProject: state.project.validationMessageEditProject,
-  userId: state.main.userId,
+  newTitleURL: state.project.newTitleURL,
+  isRedirect: state.editor.isRedirect,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -24,12 +26,16 @@ const mapDispatchToProps = (dispatch) => ({
   onChange: (value, name) => {
     dispatch(modifyFieldProject(value, name));
   },
+  dispatchNewTitleURL: (title) => {
+    dispatch(dispatchNewTitleURL(title));
+  },
   clearErrorProject: () => {
     dispatch(clearErrorProject());
   },
-  clearValidationProject: () => {
-    dispatch(clearValidationProject());
+  redirectAction: () => {
+    dispatch(redirectAction());
   },
+  
   
 });
 

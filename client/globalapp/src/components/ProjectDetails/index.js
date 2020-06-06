@@ -10,6 +10,7 @@ import Editor from '../../containers/Editor';
 import ProjectDetailsStyled from './ProjectDetailsStyled';
 
 const ProjectDetails = ({
+  validationEditProject,
   currentProjectTitle,
   currentProjectId,
 }) => {
@@ -32,7 +33,10 @@ const ProjectDetails = ({
       }
     };
     getProject();
+
   }, []);
+
+  
 
   console.log(projet);
   

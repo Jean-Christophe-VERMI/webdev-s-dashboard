@@ -10,7 +10,7 @@ export const CLEAR_VALIDATION_PROJECT = 'CLEAR_VALIDATION_PROJECT';
 export const DISPATCH_CURRENT_PROJECT_ID = 'DISPATCH_CURRENT_PROJECT_ID';
 export const DISPATCH_CURRENT_PROJECT_TITLE = 'DISPATCH_CURRENT_PROJECT_TITLE';
 export const EDITOR_PROJECT = 'EDITOR_PROJECT';
-
+export const DISPATCH_NEW_TITLE_URL = 'DISPATCH_NEW_TITLE_URL';
 
 export const sendProject = (value, key) => ({
   type: SEND_PROJECT,
@@ -64,6 +64,11 @@ export const editorProject = () => ({
 export const dispatchCurrentProjectId = (id) => ({
   type: DISPATCH_CURRENT_PROJECT_ID,
   id,
+});
+
+export const dispatchNewTitleURL = (title) => ({
+  type: DISPATCH_NEW_TITLE_URL,
+  title,
 });
 
 

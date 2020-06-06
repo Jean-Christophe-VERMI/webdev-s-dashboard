@@ -1,11 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { getUrlByProjectTitleEditer } from '../../selectors/index';
+
 import InfosProjectStyled from './InfosProject';
 
 const InfosProject = ({ 
   data,
   editorProject, 
+  currentProjectTitle,
+  validationEditProject,
+  validationMessageEditProject,
+  clearValidationProject,
 }) => {
+
+  /*
+  if(validationEditProject === true ) {
+    setTimeout(() => {
+      clearValidationProject();
+    }, 8000);
+  };
+  */
 
   return (
     <InfosProjectStyled>
@@ -37,11 +52,16 @@ const InfosProject = ({
             onClick={() => {
               editorProject();
             }}>
-              Editer le projet
+              <Link to={getUrlByProjectTitleEditer(currentProjectTitle)} >
+                Editer le projet
+              </Link>
             </Button>
           </div>
         </div>
       </section>
+      {validationEditProject && (
+        <div className="validationMsg">{validationMessageEditProject}</div>
+      )}
     </InfosProjectStyled>
   );
 };

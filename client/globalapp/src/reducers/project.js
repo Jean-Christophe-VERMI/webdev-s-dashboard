@@ -11,6 +11,7 @@ import {
   CLEAR_VALIDATION_PROJECT,
   DISPATCH_CURRENT_PROJECT_ID,
   DISPATCH_CURRENT_PROJECT_TITLE,
+  DISPATCH_NEW_TITLE_URL,
 } from '../actions/project';
 
 export const initialState = {
@@ -22,6 +23,7 @@ export const initialState = {
   image: '',
   currentProjectId: '',
   currentProjectTitle: '',
+  newTitleURL: '',
   hasErrorPostProject: false,
   errorMessagePostProject: '',
   validationPostProject: false,
@@ -76,6 +78,12 @@ const project = (state = initialState, action = {}) => {
     case DISPATCH_CURRENT_PROJECT_TITLE:
       return {
         ...state,
+        currentProjectTitle: action.title,
+      };
+    case DISPATCH_NEW_TITLE_URL:
+      return {
+        ...state,
+        newTitleURL: action.title,
         currentProjectTitle: action.title,
       };
     case HAS_ERROR_POST_PROJECT:
