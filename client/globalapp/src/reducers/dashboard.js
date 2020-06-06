@@ -1,6 +1,6 @@
 import { 
   SAVE_PROJECTS,
-  SAVE_DAYS_DY_TAGNAME,
+  SAVE_DAYS_BY_TAGNAME,
   ERROR_MESSAGE_DASHBOARD,
   DISPATCH_DAYS_OF_PROJECT,
   DISPATCH_ONE_PROJECT,
@@ -41,7 +41,7 @@ const dashboard = (state = initialState, action = {}) => {
           ...state,
           oneProject: action.project,
         };
-    case SAVE_DAYS_DY_TAGNAME:
+    case SAVE_DAYS_BY_TAGNAME:
       return {
         ...state,
         alldaysByTagName: action.day,

@@ -1,5 +1,4 @@
 import {
-  SEND_DAY,
   MODIFY_FIELD_DAY,
   EDIT_DAY,
   HAS_ERROR_POST_DAY,
@@ -25,11 +24,6 @@ export const initialState = {
 
 const day = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SEND_DAY:
-      return {
-        ...state,
-        [action.key]: action.value,
-      };
     case EDIT_DAY:
       return {
         ...state,

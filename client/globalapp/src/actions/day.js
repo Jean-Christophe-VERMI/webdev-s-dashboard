@@ -1,4 +1,4 @@
-export const SEND_DAY = 'SEND_DAY';
+export const ADD_NEW_DAY = 'ADD_NEW_DAY';
 export const EDIT_DAY = 'EDIT_DAY';
 export const MODIFY_FIELD_DAY = 'MODIFY_FIELD_DAY';
 export const HAS_ERROR_POST_DAY = 'HAS_ERROR_POST_DAY';
@@ -10,10 +10,8 @@ export const DISPATCH_CURRENT_DAY = 'DISPATCH_CURRENT_DAY';
 export const EDITOR_DAY = 'EDITOR_DAY';
 
 
-export const sendDay = (value, key) => ({
-  type: SEND_DAY,
-  value,
-  key,
+export const addNewDay = () => ({
+  type: ADD_NEW_DAY,
 });
 
 export const editDay = (value, key) => ({

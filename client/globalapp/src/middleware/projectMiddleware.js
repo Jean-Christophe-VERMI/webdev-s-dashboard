@@ -21,6 +21,10 @@ import {
   fetchAllProjects,
 } from '../actions/dashboard';
 
+import {
+  ADD_NEW_DAY,
+} from '../actions/day';
+
 const projectMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
@@ -125,6 +129,28 @@ const projectMiddleware = (store) => (next) => (action) => {
             store.dispatch(hasErrorPostProject());
             store.dispatch(errorMsgPostProject(errorMessagePostProject));
            
+          }
+        });
+      next(action);
+      break;
+    }
+    case ADD_NEW_DAY: {
+      let projetId = store.getState().project.currentProjectId;
+      let projetTitle = store.getState().project.currentProjectTitle;
+
+      axios({
+        method: 'post',
+        url: `http://localhost:4000/projets/${projetId}/${projetTitle}/nouveau-jour`,
+      })
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(fetchAllProjects());
+          //store.dispatch(saveProjects(response.data));
+          
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data.error);
           }
         });
       next(action);
