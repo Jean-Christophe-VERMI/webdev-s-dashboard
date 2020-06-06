@@ -23,6 +23,7 @@ import {
 
 import {
   ADD_NEW_DAY,
+  validationPostDay,
 } from '../actions/day';
 
 const projectMiddleware = (store) => (next) => (action) => {
@@ -145,7 +146,7 @@ const projectMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(fetchAllProjects());
-          //store.dispatch(saveProjects(response.data));
+          store.dispatch(validationPostDay());
           
         })
         .catch((error) => {

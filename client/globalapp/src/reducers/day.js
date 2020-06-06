@@ -20,7 +20,7 @@ export const initialState = {
   hasErrorPostDay: false,
   errorMessagePostDay: '',
   validationPostDay: false,
-  validationMessagePostDay: 'Nouveau jour ajouté au projet',
+  validationMessagePostDay: 'Ajout en cours ...',
   hasNewDay: false,
 };
 
