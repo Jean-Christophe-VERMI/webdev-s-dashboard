@@ -5,7 +5,8 @@ import { dispatchCurrentDay, editorDay } from '../../actions/day';
 import Day from '../../components/Day';
 
 const mapStateToProps = (state) => ({
-  
+  currentProjectTitle: state.project.currentProjectTitle,
+  currentDay: state.day.currentDay,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 const EditorProjectStyled = styled.div`
   width: 100%;
+  height: 70vh;
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  background-color: rgba(239, 247, 246, 0.7);
   
 
   .form-title {
@@ -20,9 +22,8 @@ const EditorProjectStyled = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    border-radius: 5px;
     background-color: ${(props) => props.theme.colors.primaryLight};
-    border: 1px solid ${(props) => props.theme.colors.primaryLight};
+    
 
     .project-categorie {
       display: flex;

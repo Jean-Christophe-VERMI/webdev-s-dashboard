@@ -3,7 +3,7 @@ const { Day, Tag } = require('../models/relations');
 
 const dayController = {
 
-  // ROUTE GET /projets/:projetId/:projetTitle/jours/:dayId/:dayDate
+  // ROUTE GET /projets/:projetId/:projetTitle/jours/:dayId
   getOneDay: async (req, res) => {
 
     try {
@@ -54,7 +54,7 @@ const dayController = {
     
   },
 
-  // ROUTE PUT /projets/:projetId/:projetTitle/jours/:dayId/:dayDate/editer
+  // ROUTE PUT /projets/:projetId/:projetTitle/jours/:dayId/editer
   updateDay: async (req, res) => {
 
     try {

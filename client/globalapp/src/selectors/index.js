@@ -16,7 +16,12 @@ export const getUrlByProjectTitle = (title) => {
 };
 
 export const getUrlByProjectTitleEditer = (title) => {
-  const url = `/projets/${getSlugByProjectTitle(title)}/editer`;
+  const url = `/projets/${getSlugByProjectTitle(title)}/editer-projet`;
+  return url;
+};
+
+export const getUrlByProjectTitleEditerJour = (title) => {
+  const url = `/projets/${getSlugByProjectTitle(title)}/editer-jour`;
   return url;
 };
 

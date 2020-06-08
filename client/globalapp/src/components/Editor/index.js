@@ -2,10 +2,11 @@ import React from 'react';
 
 // component
 //import EditorProject from '../EditorProject';
-import EditorDay from '../EditorDay';
+//import EditorDay from '../EditorDay';
 
 // container
 import EditorProject from '../../containers/EditorProject';
+import EditorDay from '../../containers/EditorDay';
 
 import iconFolder from './folder.svg';
 import EditorStyled from './EditorStyled';

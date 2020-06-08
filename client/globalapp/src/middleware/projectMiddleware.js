@@ -24,6 +24,8 @@ import {
 import {
   ADD_NEW_DAY,
   validationPostDay,
+  EDIT_DAY,
+  validationEditDay,
 } from '../actions/day';
 
 const projectMiddleware = (store) => (next) => (action) => {
@@ -150,6 +152,32 @@ const projectMiddleware = (store) => (next) => (action) => {
           console.log(response.data);
           store.dispatch(fetchAllProjects());
           store.dispatch(validationPostDay());
+          
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data.error);
+          }
+        });
+      next(action);
+      break;
+    }
+    case EDIT_DAY: {
+      let projetId = store.getState().project.currentProjectId;
+      let projetTitle = store.getState().project.currentProjectTitle;
+      let dayId = store.getState().day.currentDay;
+
+      axios({
+        method: 'put',
+        url: `http://localhost:4000/projets/${projetId}/${projetTitle}/jours/${dayId}/editer`,
+        data: {
+          text: store.getState().day.text,
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(fetchAllProjects());
+          store.dispatch(validationEditDay());
           
         })
         .catch((error) => {

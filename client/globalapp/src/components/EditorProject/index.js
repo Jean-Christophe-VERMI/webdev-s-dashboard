@@ -1,7 +1,6 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 import { getUrlByProjectTitle } from '../../selectors/index';
-// import { NavLink } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';

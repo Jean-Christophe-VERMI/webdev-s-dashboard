@@ -4,6 +4,7 @@ import {
   HAS_ERROR_POST_DAY,
   ERROR_MESSAGE_POST_DAY,
   VALIDATION_POST_DAY,
+  VALIDATION_EDIT_DAY,
   CLEAR_ERROR_DAY,
   CLEAR_VALIDATION_DAY,
   DISPATCH_CURRENT_DAY,
@@ -19,7 +20,9 @@ export const initialState = {
   hasErrorPostDay: false,
   errorMessagePostDay: '',
   validationPostDay: false,
+  validationEditDay: false,
   validationMessagePostDay: 'Ajout en cours ...',
+  validationMessageEditDay: 'Modifications enregistrés',
   hasNewDay: false,
 };
 
@@ -50,6 +53,11 @@ const day = (state = initialState, action = {}) => {
         ...state,
         validationPostDay: true,
       };
+    case VALIDATION_EDIT_DAY:
+        return {
+          ...state,
+          validationEditDay: true,
+        };
     case DISPATCH_CURRENT_DAY:
       return {
         ...state,

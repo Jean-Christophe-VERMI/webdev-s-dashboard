@@ -5,6 +5,11 @@ const DayStyled = styled.div`
   margin: .5rem;
   width: 80%;
   text-align: center;
+
+  &:hover {
+    -webkit-animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
   
   .content-day{
     background-color: ${(props) => props.theme.colors.quaternary};
@@ -54,6 +59,27 @@ const DayStyled = styled.div`
 
   }
 
+
+  @-webkit-keyframes shadow-drop-center {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 35px 0px rgba(76, 150, 215, 0.9);
+              box-shadow: 0 0 35px 0px rgba(76, 150, 215, 0.9);
+    }
+  }
+  @keyframes shadow-drop-center {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 35px 0px rgba(76, 150, 215, 0.9);
+              box-shadow: 0 0 35px 0px rgba(76, 150, 215, 0.9);
+    }
+  }
 
 
   
