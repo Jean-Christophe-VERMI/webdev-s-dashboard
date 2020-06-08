@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const DayStyled = styled.div`
 
-  margin: 1rem;
+  margin: .5rem;
   width: 80%;
   text-align: center;
   

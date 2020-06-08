@@ -1,21 +1,19 @@
 import React from 'react';
+
+import TextField from '@material-ui/core/TextField';
+
 import Day from '../../containers/Day';
+
 import DaysNavStyled from './DaysNavStyled';
 
 const DaysNav = ({ 
   data, 
+  onChange,
   addNewDay,
   validationPostDay,
   validationMessagePostDay,
   clearValidationDay,
 }) => {
-
-  const sendDayAndRefresh = () => {
-    addNewDay();
-    setTimeout(() => {
-      window.location.reload(false)
-    }, 2000);
-  }
 
   if(validationPostDay) {
     setTimeout(() => {
@@ -23,14 +21,39 @@ const DaysNav = ({
     }, 3000);
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addNewDay();
+    setTimeout(() => {
+      window.location.reload(false)
+    }, 2000);
+  };
+
+  const handleChange = (event) => {
+    onChange(event.target.value, event.target.name);
+  };
+
   return (
     <DaysNavStyled>
       <div className="header-section-days">
-        <button onClick={sendDayAndRefresh}>Ajouter un jour</button>
+        <form className="fieldForm" onSubmit={handleSubmit}>
+          <div className="addNewDay">
+            <p className="label-day">Selectionnez une date</p>
+            <TextField
+              id="date"
+              format="DD/MM/yyyy"
+              name="date"
+              type="date"
+              onChange={handleChange}
+              required
+            />
+            <button className="add-day-btn" >Ajouter un jour</button>
+          </div>
+        </form>
       </div>
       {validationPostDay && (
         <div className="validationMsg">
-          <p>{validationMessagePostDay}</p>
+          {validationMessagePostDay}
         </div>
       )}
       <div className="jours">

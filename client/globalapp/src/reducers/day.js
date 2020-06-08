@@ -11,7 +11,6 @@ import {
 } from '../actions/day';
 
 export const initialState = {
-  date: '',
   project_id: '',
   text: '',
   code: '',

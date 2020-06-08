@@ -142,6 +142,9 @@ const projectMiddleware = (store) => (next) => (action) => {
       axios({
         method: 'post',
         url: `http://localhost:4000/projets/${projetId}/${projetTitle}/nouveau-jour`,
+        data: {
+          date: store.getState().day.date,
+        },
       })
         .then((response) => {
           console.log(response.data);

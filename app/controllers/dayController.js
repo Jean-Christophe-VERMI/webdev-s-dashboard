@@ -39,9 +39,11 @@ const dayController = {
     try {
 
       const projetId = req.params.projetId;
+      const date = req.body.date;
       
       let newDay = new Day();
       newDay.project_id = projetId;
+      newDay.date = date;
       await newDay.save();
 
       res.status(200).json(newDay);
