@@ -35,7 +35,7 @@ const EditorDay = ({
     };
     getOneDay();
 
-  }, []);
+  }, [currentDay]);
 
   console.log(oneDay);
 
