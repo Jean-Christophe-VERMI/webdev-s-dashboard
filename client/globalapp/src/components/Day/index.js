@@ -3,8 +3,8 @@ import Moment from 'moment';
 import 'moment/locale/fr';
 import { Link } from 'react-router-dom';
 import { getUrlByProjectTitleEditerJour } from '../../selectors/index';
-import CreateIcon from '@material-ui/icons/Create';
-import Tooltip from '@material-ui/core/Tooltip';
+// import CreateIcon from '@material-ui/icons/Create';
+// import Tooltip from '@material-ui/core/Tooltip';
 
 import Tag from '../../containers/Tag';
 
@@ -29,7 +29,6 @@ const Day = ({
     <DayStyled>
       <div className='content-day'>
           <div className="date">
-            <div className='day-link'>{dateFormat}</div>
             <Link
               onClick={() => {
                 dispatchCurrentDay(id);
@@ -37,9 +36,7 @@ const Day = ({
               }}
               to={getUrlByProjectTitleEditerJour(currentProjectTitle)}
             >
-              <Tooltip title="Editer" placement="bottom">
-                <CreateIcon className="icon" />
-              </Tooltip>
+              <div className='day-link'>{dateFormat}</div>
             </Link>
           </div>
           <div className="tag">

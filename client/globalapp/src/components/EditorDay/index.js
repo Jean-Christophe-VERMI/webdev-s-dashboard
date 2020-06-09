@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Moment from 'moment';
+import 'moment/locale/fr';
 
-import Button from '@material-ui/core/Button';
-// import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-
+// Components
 import Loading from '../Loading';
-// import InlineEdit from '../InlineEdit';
 import EditorDayStyled from './EditorDayStyled';
 
+// Containers
 import InlineEdit from '../../containers/InlineEdit';
 
 
 const EditorDay = ({
-  onChange,
   editDay,
-  // text,
   currentDay,
   currentProjectId,
   currentProjectTitle,
@@ -34,7 +32,6 @@ const EditorDay = ({
         const response = await axios.get(`http://localhost:4000/projets/${projetId}/${projetTitle}/jours/${dayId}`);
         const day = response.data;
         setDays(day);
-        setStoredHeading(day.text);
         saveDataText(day.text);
       } catch (error) {
         console.log(error);
@@ -45,17 +42,10 @@ const EditorDay = ({
   }, [currentDay]);
 
   console.log(oneDay);
-
-  const [textEdit, setStoredHeading] = useState("editer une note");
-  
-
-  console.log(textFromData);
-  
   
   const handleSubmit = (event) => {
     event.preventDefault();
     editDay();
-  
   };
   
   const refreshPage = () => {
@@ -70,26 +60,29 @@ const EditorDay = ({
         <Loading />
       )}
       {oneDay && (
-        <form className="form-day" onSubmit={handleSubmit}>
-          <h4 className="title-textField">Notes du jour</h4>
-            <div className="text-zone">
-            {!textEdit && (
-              <Loading />
-            )}
-            {textEdit && (
-              <InlineEdit />
-            )}
+        <section>
+          <div className="top-editor">
+            <div className="date-jour">
+              {Moment(oneDay.date).locale('fr').format("dddd, Do MMMM YYYY")}
             </div>
-          <Button 
-            className="submit-btn" 
-            variant="contained" 
-            color="primary"
-            type="submit"
-            onClick={refreshPage}
-            >
-              Enregistrer
-          </Button>
-        </form>
+            <button 
+              className="submit-btn" 
+              variant="contained" 
+              color="primary"
+              type="submit"
+              form="form-day"
+              onClick={refreshPage}
+              >
+                Enregistrer
+            </button>
+          </div>
+          <form id="form-day" onSubmit={handleSubmit}>
+            <h4 className="title-textField">Notes du jour</h4>
+              <div className="text-zone">
+                <InlineEdit />
+              </div>
+          </form>
+        </section>
       )}
     </EditorDayStyled>
   );

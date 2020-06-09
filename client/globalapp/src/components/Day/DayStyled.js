@@ -22,8 +22,12 @@ const DayStyled = styled.div`
       padding: .3rem;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+
+      a {
+        text-decoration: none;
+      }
     }
     
     .icon {
@@ -66,8 +70,8 @@ const DayStyled = styled.div`
               box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
     100% {
-      -webkit-box-shadow: 0 0 35px 0px rgba(76, 150, 215, 0.9);
-              box-shadow: 0 0 35px 0px rgba(76, 150, 215, 0.9);
+      -webkit-box-shadow: 0 0 25px 0px rgba(76, 150, 215, 0.9);
+              box-shadow: 0 0 25px 0px rgba(76, 150, 215, 0.9);
     }
   }
   @keyframes shadow-drop-center {
@@ -76,8 +80,8 @@ const DayStyled = styled.div`
               box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
     100% {
-      -webkit-box-shadow: 0 0 35px 0px rgba(76, 150, 215, 0.9);
-              box-shadow: 0 0 35px 0px rgba(76, 150, 215, 0.9);
+      -webkit-box-shadow: 0 0 25px 0px rgba(76, 150, 215, 0.9);
+              box-shadow: 0 0 25px 0px rgba(76, 150, 215, 0.9);
     }
   }
 

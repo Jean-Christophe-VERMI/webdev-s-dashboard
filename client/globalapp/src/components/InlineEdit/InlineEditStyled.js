@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const InlineEditStyled = styled.div`
-  width: 80%;
+  width: 100%;
 
   .inline-text_copy--active,
   .inline-text_input--active {
@@ -10,13 +10,11 @@ const InlineEditStyled = styled.div`
     color: inherit;
     text-align: inherit;
     padding: 0rem;
-    background: none;
-    border: none;
-    border-bottom: 1px dashed black;
   }
 
   .inline-text_copy--active {
-    cursor: pointer;
+    cursor: text;
+    
   }
 
   .inline-text_copy--hidden,
@@ -25,8 +23,7 @@ const InlineEditStyled = styled.div`
   }
 
   .inline-text_input--active {
-    padding: .5rem;
-    border-bottom: 1px solid black;
+    padding: .3rem;
     text-align: left;
   }
 `;

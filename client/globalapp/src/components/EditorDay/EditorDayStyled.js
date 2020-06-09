@@ -6,7 +6,20 @@ const EditorDayStyled = styled.div`
   background-color: rgba(239, 247, 246, 0.7);
   text-align: left;
 
-  .form-day {
+  .top-editor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    color: ${(props) => props.theme.colors.primaryLight};
+  }
+
+  .date-jour {
+    text-transform: uppercase;
+  }
+
+  #form-day {
     padding: 2rem;
     width: auto;
     height: auto;
@@ -30,12 +43,9 @@ const EditorDayStyled = styled.div`
     width: 90%;
   }
 
-  .MuiButtonBase-root.MuiButton-root.MuiButton-contained.submit-btn.MuiButton-containedPrimary {
-    margin: 3rem auto 0rem;
-
-    &:hover {
-    background-color: ${(props) => props.theme.colors.secondary};
-    }
+  .submit-btn {
+    cursor: pointer;
+    padding: .2rem .4rem;
   }
 
 `;
