@@ -1,6 +1,7 @@
 export const ADD_NEW_DAY = 'ADD_NEW_DAY';
 export const EDIT_DAY = 'EDIT_DAY';
 export const MODIFY_FIELD_DAY = 'MODIFY_FIELD_DAY';
+export const EDIT_FIELD_DAY = 'EDIT_FIELD_DAY';
 export const HAS_ERROR_POST_DAY = 'HAS_ERROR_POST_DAY';
 export const ERROR_MESSAGE_POST_DAY = 'ERROR_MESSAGE_POST_DAY';
 export const VALIDATION_POST_DAY = 'VALIDATION_POST_DAY';
@@ -24,6 +25,12 @@ export const editDay = (value, key) => ({
 
 export const modifyFieldDay = (value, key) => ({
   type: MODIFY_FIELD_DAY,
+  value,
+  key,
+});
+
+export const editFieldDay = (value, key) => ({
+  type: EDIT_FIELD_DAY,
   value,
   key,
 });

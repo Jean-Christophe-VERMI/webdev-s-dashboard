@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import InlineEdit from '../../components/InlineEdit';
 
-import { modifyFieldDay } from '../../actions/day';
+import { editFieldDay } from '../../actions/day';
 
 const mapStateToProps = (state) => ({
   text: state.day.text,
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   
   onChange: (value, name) => {
-    dispatch(modifyFieldDay(value, name));
+    dispatch(editFieldDay(value, name));
   },
   
 });

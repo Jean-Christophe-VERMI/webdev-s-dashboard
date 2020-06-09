@@ -1,5 +1,6 @@
 import {
   MODIFY_FIELD_DAY,
+  EDIT_FIELD_DAY,
   EDIT_DAY,
   HAS_ERROR_POST_DAY,
   ERROR_MESSAGE_POST_DAY,
@@ -45,10 +46,16 @@ const day = (state = initialState, action = {}) => {
         ...state,
         [action.key]: action.value,
       };
+      case EDIT_FIELD_DAY:
+        return {
+          ...state,
+          [action.key]: action.value,
+        };
     case SAVE_DATA_TEXT:
       return {
         ...state,
         textFromData: action.value,
+        text: action.value,
       };
     case ERROR_MESSAGE_POST_DAY:
       return {

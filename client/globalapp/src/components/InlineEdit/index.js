@@ -26,6 +26,8 @@ const InlineEdit = ({
   useEffect(() => {
     if (isInputActive) {
       inputRef.current.focus();
+      setInputValue(textFromData);
+      console.log(inputValue);
     }
   }, [isInputActive]);
 
@@ -56,7 +58,6 @@ const InlineEdit = ({
           // set the width to the input length multiplied by the x height
           // it's not quite right but gets it close
           value={text}
-          defaultValue={textFromData}
           name="text"
           onChange={handleChangeText}
           className={`inline-text_input inline-text_input--${
