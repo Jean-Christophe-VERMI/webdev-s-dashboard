@@ -76,12 +76,14 @@ const EditorDay = ({
                 Enregistrer
             </button>
           </div>
-          <form id="form-day" onSubmit={handleSubmit}>
-            <h4 className="title-textField">Notes du jour</h4>
-              <div className="text-zone">
-                <InlineEdit />
-              </div>
-          </form>
+          <div className="main-editor">
+            <form id="form-day" onSubmit={handleSubmit}>
+              <h4 className="title-textField">Notes du jour</h4>
+                <div className="text-zone">
+                  <InlineEdit />
+                </div>
+            </form>
+          </div>
         </section>
       )}
     </EditorDayStyled>
