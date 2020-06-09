@@ -3,7 +3,7 @@ import navbg from './nav-bg.jpg';
 
 const UserDashboardStyled = styled.nav`
 
-  min-width: 25%;
+  width: 20%;
   min-height: 100vh;
   background-image: url(${navbg});
   background-size: cover;
@@ -58,7 +58,7 @@ const UserDashboardStyled = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin: 1rem 4rem;
+    margin: 1rem 0rem;
     
   }
 

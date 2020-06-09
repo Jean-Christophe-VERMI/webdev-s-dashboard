@@ -8,7 +8,7 @@ import React from 'react';
 import EditorProject from '../../containers/EditorProject';
 import EditorDay from '../../containers/EditorDay';
 
-import iconFolder from './folder.svg';
+import logo from './logo.png';
 import EditorStyled from './EditorStyled';
 
 const Editor = ({ editorProject, editorDay }) => {
@@ -16,7 +16,7 @@ const Editor = ({ editorProject, editorDay }) => {
   return (
     <EditorStyled>
       {!editorDay && !editorProject && (
-        <img src={iconFolder} className="folder-icon" alt="folder icon" />
+        <img src={logo} className="logo" alt="logo" />
       )}
       {editorDay && (
         <EditorDay />

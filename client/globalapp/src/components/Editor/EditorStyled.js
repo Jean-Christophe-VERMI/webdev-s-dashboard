@@ -7,7 +7,7 @@ const EditorStyled = styled.div`
   width: 100%;
   height: 70vh;
 
-  .folder-icon {
+  .logo {
     height: 200px;
     -webkit-animation: roll-in-blurred-left 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 	  animation: roll-in-blurred-left 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;

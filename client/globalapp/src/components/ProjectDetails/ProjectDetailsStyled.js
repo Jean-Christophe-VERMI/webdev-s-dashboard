@@ -13,8 +13,7 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .section-project {
-    width: 70%;
-    height: 25vh;
+    width: 75%;
     display: flex;
     flex-direction: column;
   }
@@ -49,24 +48,8 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .section-days {
-    width: 30%;
-    height: 100vh;
+    width: 25%;
     background-color: rgba(0, 0, 0, 0.30);
-    overflow-y: auto;
-    
-    &::-webkit-scrollbar {
-    width: .5em;
-    }
-    
-    &::-webkit-scrollbar-track {
-      background-color:  ${(props) => props.theme.colors.primary};
-    }
-    
-    &::-webkit-scrollbar-thumb {
-      background-color: ${(props) => props.theme.colors.secondary};
-      outline: 1px solid slategrey;
-    }
-
   }
 
   .project-infos {
@@ -143,9 +126,24 @@ const ProjectDetailsStyled = styled.div`
 
   .jours {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    height: 80vh;
     flex-direction: column-reverse;
     align-items: center;
+    overflow-y: auto;
+    
+    &::-webkit-scrollbar {
+    width: .5em;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background-color:  ${(props) => props.theme.colors.primary};
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: ${(props) => props.theme.colors.secondary};
+      outline: 1px solid slategrey;
+    }
   }
 
   .button {

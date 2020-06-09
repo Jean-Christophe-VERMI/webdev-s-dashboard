@@ -10,11 +10,6 @@ const EditorProjectStyled = styled.div`
   justify-content: space-around;
   background-color: rgba(239, 247, 246, 0.7);
   
-
-  .form-title {
-    color: ${(props) => props.theme.colors.primaryLight};
-    text-transform: uppercase;
-  }
   
   .formulaire {
     width: 70%;
@@ -22,6 +17,7 @@ const EditorProjectStyled = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    border-radius: 4px;
     background-color: ${(props) => props.theme.colors.primaryLight};
     
 
@@ -92,7 +88,7 @@ const EditorProjectStyled = styled.div`
 
     .MuiButtonBase-root.MuiButton-root.MuiButton-contained.submit-btn.MuiButton-containedPrimary {
 
-      margin: 3rem auto 0rem;
+      margin: 2rem auto 0rem;
       
       &:hover {
       background-color: ${(props) => props.theme.colors.secondary};

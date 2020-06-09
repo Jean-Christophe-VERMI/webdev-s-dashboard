@@ -131,9 +131,6 @@ const EditorProject = ({
   return (
     <EditorProjectStyled>
       <div className="formulaire">
-        <div className="headerForm">
-          <h1 className="form-title">Editer</h1>
-        </div>
         <form className="fieldForm" onSubmit={handleSubmit}>
           <div className="project-categorie">
             <div id="categorie">
