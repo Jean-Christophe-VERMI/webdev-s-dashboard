@@ -9,6 +9,7 @@ import {
   CLEAR_VALIDATION_DAY,
   DISPATCH_CURRENT_DAY,
   ADD_NEW_DAY,
+  SAVE_DATA_TEXT,
 } from '../actions/day';
 
 export const initialState = {
@@ -24,6 +25,7 @@ export const initialState = {
   validationMessagePostDay: 'Ajout en cours ...',
   validationMessageEditDay: 'Modifications enregistrés',
   hasNewDay: false,
+  textFromData: '',
 };
 
 const day = (state = initialState, action = {}) => {
@@ -42,6 +44,11 @@ const day = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.key]: action.value,
+      };
+    case SAVE_DATA_TEXT:
+      return {
+        ...state,
+        textFromData: action.value,
       };
     case ERROR_MESSAGE_POST_DAY:
       return {

@@ -13,7 +13,11 @@ const EditorDayStyled = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+  }
+
+  .text-zone {
+    width: 100%;
   }
 
   .title-textField {

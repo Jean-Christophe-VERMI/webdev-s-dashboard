@@ -2,19 +2,25 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Button from '@material-ui/core/Button';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+// import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 import Loading from '../Loading';
+// import InlineEdit from '../InlineEdit';
 import EditorDayStyled from './EditorDayStyled';
+
+import InlineEdit from '../../containers/InlineEdit';
 
 
 const EditorDay = ({
   onChange,
   editDay,
-  text,
+  // text,
   currentDay,
   currentProjectId,
   currentProjectTitle,
+  saveDataText,
+  textFromData,
+  text,
 }) => {
 
   const [oneDay, setDays] = useState(null);
@@ -26,9 +32,10 @@ const EditorDay = ({
         const projetTitle = currentProjectTitle;
         const dayId = currentDay;
         const response = await axios.get(`http://localhost:4000/projets/${projetId}/${projetTitle}/jours/${dayId}`);
-        const days = response.data;
-        setDays(days);
-    
+        const day = response.data;
+        setDays(day);
+        setStoredHeading(day.text);
+        saveDataText(day.text);
       } catch (error) {
         console.log(error);
       }
@@ -39,22 +46,24 @@ const EditorDay = ({
 
   console.log(oneDay);
 
+  const [textEdit, setStoredHeading] = useState("editer une note");
+  
+
+  console.log(textFromData);
+  
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     editDay();
   
   };
-
-  const handleChangeText = (event) => {
-    onChange(event.target.value, event.target.name);
-  };
-
+  
   const refreshPage = () => {
     setTimeout(() => {
       window.location.reload(false)
     }, 500);
   }
-
+  
   return (
     <EditorDayStyled>
       {!oneDay && (
@@ -63,19 +72,14 @@ const EditorDay = ({
       {oneDay && (
         <form className="form-day" onSubmit={handleSubmit}>
           <h4 className="title-textField">Notes du jour</h4>
-            <div>
-              {oneDay.text}
+            <div className="text-zone">
+            {!textEdit && (
+              <Loading />
+            )}
+            {textEdit && (
+              <InlineEdit />
+            )}
             </div>
-            <TextareaAutosize 
-            className="textField"
-            aria-label="minimum height" 
-            rowsMin={5} 
-            onChange={handleChangeText}
-            value={text}
-            defaultValue={oneDay.text}
-            defaultValue="Lorem ipsum"
-            name="text"
-          />
           <Button 
             className="submit-btn" 
             variant="contained" 

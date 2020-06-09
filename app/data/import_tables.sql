@@ -52,9 +52,9 @@ DROP TABLE IF EXISTS "days" ;
 CREATE TABLE IF NOT EXISTS "days" (
   "id" SERIAL NOT NULL,
   "date" DATE NOT NULL,
-  "text" TEXT NULL,
-  "code" VARCHAR(255) NULL,
-  "ref_source" VARCHAR(255) NULL,
+  "text" TEXT NULL DEFAULT 'Ajouter une note',
+  "code" TEXT NULL DEFAULT 'Ajouter du code',
+  "ref_source" TEXT NULL DEFAULT 'Ajouter des sources et références',
   "project_id" INT NOT NULL,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,

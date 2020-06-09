@@ -8,8 +8,8 @@ class Day extends sequelize.Model {
 Day.init({
   date: sequelize.DATE,
   text: sequelize.TEXT,
-  code: sequelize.STRING,
-  ref_source: sequelize.STRING,
+  code: sequelize.TEXT,
+  ref_source: sequelize.TEXT,
   project_id: sequelize.INTEGER,
   
 }, {

@@ -9,6 +9,7 @@ export const CLEAR_ERROR_DAY = 'CLEAR_ERROR_DAY';
 export const CLEAR_VALIDATION_DAY = 'CLEAR_VALIDATION_DAY';
 export const DISPATCH_CURRENT_DAY = 'DISPATCH_CURRENT_DAY';
 export const EDITOR_DAY = 'EDITOR_DAY';
+export const SAVE_DATA_TEXT = 'SAVE_DATA_TEXT';
 
 
 export const addNewDay = () => ({
@@ -61,4 +62,9 @@ export const editorDay = () => ({
 export const dispatchCurrentDay = (id) => ({
   type: DISPATCH_CURRENT_DAY,
   id,
+});
+
+export const saveDataText = (value) => ({
+  type: SAVE_DATA_TEXT,
+  value,
 });
