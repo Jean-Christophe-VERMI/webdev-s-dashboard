@@ -8,7 +8,7 @@ import React from 'react';
 import EditorProject from '../../containers/EditorProject';
 import EditorDay from '../../containers/EditorDay';
 
-import logo from './logo.png';
+import logo from './logo2.png';
 import EditorStyled from './EditorStyled';
 
 const Editor = ({ editorProject, editorDay }) => {

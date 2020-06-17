@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const EditorDayStyled = styled.div`
   width: 100%;
-  height: 70vh;
+  height: 75vh;
   background-color: rgba(239, 247, 246, 0.7);
   text-align: left;
   overflow-y: auto;

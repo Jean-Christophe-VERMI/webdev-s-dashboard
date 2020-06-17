@@ -4,10 +4,6 @@ const DaysNav = styled.div`
 
   width: 100%;
 
-  .header-section-days {
-    margin: 0 auto;
-  }
-
   .validationMsg {
     margin: 0;
     padding: .5rem;
@@ -19,8 +15,7 @@ const DaysNav = styled.div`
   .addNewDay {
     background-color: ${(props) => props.theme.colors.primary};
     color : ${(props) => props.theme.colors.primaryLight};
-    padding: .5rem;
-    border-radius: 4px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;

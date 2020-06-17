@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
@@ -8,6 +8,7 @@ import ControlPointIcon from '@material-ui/icons/ControlPoint';
 
 // Containers
 import Project from '../../containers/Project/';
+import NoProject from '../../containers/NoProject';
 
 import ProjectListStyled from './ProjectListStyled';
 
@@ -33,11 +34,9 @@ const ProjectList = (
         </Button>
         <h1>MES PROJETS</h1>
       </div>
-      {userHasNoProject && (
-        <div className="noProject">
-          <p>{errorMessageProject}</p>
-        </div>
-      )}
+      <div className="projectBar">
+        <NoProject className="noProject" />
+      </div>
       <div className='projets'>
         {projets.map((project) => (
           <Project className="oneProject" key={project.id} {...project} />

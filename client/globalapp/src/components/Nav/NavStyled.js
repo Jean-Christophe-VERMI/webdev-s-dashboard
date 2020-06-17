@@ -3,7 +3,7 @@ import navbg from './nav-bg.jpg';
 
 const NavStyled = styled.nav`
 
-  min-width: 25%;
+  min-width: 20%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ const NavStyled = styled.nav`
   .buttonNav {
     display: flex;
     flex-direction: column;
-    margin: 4rem;
+    margin: 1rem;
   }
 
   .button {

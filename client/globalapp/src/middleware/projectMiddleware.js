@@ -5,7 +5,6 @@ import {
   saveProjects,
   FETCH_FILTRED_PROJECTS,
   userHasNoProject,
-  errorMsgDashboard,
 } from '../actions/dashboard';
 
 import { 
@@ -46,11 +45,8 @@ const projectMiddleware = (store) => (next) => (action) => {
           if (error.response) {
 
             console.log(error.response.data.error);
-            const errorMessageProject = error.response.data.error;
-            
             store.dispatch(userHasNoProject());
-            store.dispatch(errorMsgDashboard(errorMessageProject));
-           
+            
           }
         });
       next(action);

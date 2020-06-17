@@ -7,7 +7,7 @@ import { sendToken, modifyField, clearError, clearValidation } from '../../actio
 const mapStateToProps = (state) => ({
   secretToken: state.verifEmail.secretToken,
   errorMessageVerifEmail: state.verifEmail.errorMessageVerifEmail,
-  hasError: state.verifEmail.hasError,
+  hasErrorVerifEmail: state.verifEmail.hasErrorVerifEmail,
   validationEmail: state.verifEmail.validationEmail,
   validationMessageVerifEmail: state.verifEmail.validationMessageVerifEmail,
 });

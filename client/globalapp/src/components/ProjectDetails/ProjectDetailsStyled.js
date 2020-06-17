@@ -49,12 +49,13 @@ const ProjectDetailsStyled = styled.div`
 
   .section-days {
     width: 25%;
-    background-color: rgba(0, 0, 0, 0.30);
+    
   }
 
   .project-infos {
     background-color: ${(props) => props.theme.colors.primary};
     padding: 1rem;
+    height: 25vh;
 
     .header-project-infos {
       display: flex;
@@ -117,17 +118,22 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .header-section-days {
+    margin: 0 auto;
+    height: 25vh;
+    padding: 1rem;
     display: flex;
     justify-content: center;
-    padding: 1rem;
+    align-items: center;
     color: ${(props) => props.theme.colors.primaryLight};
+    background-color: rgba(0, 0, 0, 0.2);
     font-style: italic;
   }
 
   .jours {
+    background-color:  ${(props) => props.theme.colors.blueNav};
     display: flex;
     flex-wrap: nowrap;
-    height: 80vh;
+    height: 75vh;
     flex-direction: column-reverse;
     align-items: center;
     overflow-y: auto;

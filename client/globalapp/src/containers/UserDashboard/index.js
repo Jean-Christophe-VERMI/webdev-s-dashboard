@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import UserDashboard from '../../components/UserDashboard';
 
 import { logout } from '../../actions/user';
-import { fetchAllProjects } from '../../actions/dashboard';
+import { fetchAllProjects, clearEditor } from '../../actions/dashboard';
 
 const mapStateToProps = (state) => ({
   username: state.main.username,
@@ -17,6 +17,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchAllProjects: () => {
     dispatch(fetchAllProjects());
+  },
+  clearEditor: () => {
+    dispatch(clearEditor());
   },
 });
 

@@ -7,7 +7,8 @@ const ProjectListStyled = styled.main`
   background: linear-gradient(0deg, rgba(65,199,209,1) 0%, rgba(66,82,130,1) 100%);
 
   .header-projectList {
-    padding: 2rem;
+    height: 50px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -42,13 +43,26 @@ const ProjectListStyled = styled.main`
     color: ${(props) => props.theme.colors.primaryLight};
   }
 
+  .projectBar {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${(props) => props.theme.colors.primary};
+    border-top: 1px solid ${(props) => props.theme.colors.primaryLight};
+    border-bottom: 1px solid ${(props) => props.theme.colors.primaryLight};
+  }
+
+  .noProject {
+    padding: .5rem;
+  }
+
   .projets {
     margin: 1rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
   }
-
 
   .errorMsg {
     font-size: .8rem;

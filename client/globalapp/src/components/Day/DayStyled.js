@@ -2,21 +2,21 @@ import styled from 'styled-components';
 
 const DayStyled = styled.div`
 
-  margin: .5rem;
+  padding: .5rem;
   width: 80%;
   text-align: center;
 
-  &:hover {
-    -webkit-animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
   
   .content-day{
     background-color: ${(props) => props.theme.colors.quaternary};
-    border: 1px solid ${(props) => props.theme.colors.primaryLight};
+    border: 1px solid ${(props) => props.theme.colors.primary};
     border-radius: 4px;
     display: flex;
     flex-direction: column;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.secondary};
+    }
 
     .date {
       padding: .3rem;
@@ -24,6 +24,7 @@ const DayStyled = styled.div`
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      font-size: .8rem;
 
       a {
         text-decoration: none;
@@ -64,24 +65,32 @@ const DayStyled = styled.div`
   }
 
 
-  @-webkit-keyframes shadow-drop-center {
+  @-webkit-keyframes shadow-pop-tr {
     0% {
-      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      -webkit-box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+              box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+      -webkit-transform: translateX(0) translateY(0);
+              transform: translateX(0) translateY(0);
     }
     100% {
-      -webkit-box-shadow: 0 0 25px 0px rgba(76, 150, 215, 0.9);
-              box-shadow: 0 0 25px 0px rgba(76, 150, 215, 0.9);
+      -webkit-box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+              box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+      -webkit-transform: translateX(-8px) translateY(8px);
+              transform: translateX(-8px) translateY(8px);
     }
   }
-  @keyframes shadow-drop-center {
+  @keyframes shadow-pop-tr {
     0% {
-      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      -webkit-box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+              box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+      -webkit-transform: translateX(0) translateY(0);
+              transform: translateX(0) translateY(0);
     }
     100% {
-      -webkit-box-shadow: 0 0 25px 0px rgba(76, 150, 215, 0.9);
-              box-shadow: 0 0 25px 0px rgba(76, 150, 215, 0.9);
+      -webkit-box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+              box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+      -webkit-transform: translateX(-8px) translateY(8px);
+              transform: translateX(-8px) translateY(8px);
     }
   }
 

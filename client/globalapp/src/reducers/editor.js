@@ -13,6 +13,10 @@ import {
    EMPTY_FIELD_TITLE,
  } from '../actions/editor';
 
+ import {
+   CLEAR_EDITOR,
+ } from '../actions/dashboard';
+
 const initialState = {
   editorDay: false,
   editorProject: false,
@@ -57,6 +61,12 @@ const editor = (state = initialState, action = {}) => {
           isModifyTitle: initialState.isModifyTitle,
           isEmptyFieldTitle:initialState.isEmptyFieldTitle,
         };
+    case CLEAR_EDITOR:
+      return {
+        ...state,
+        editorDay: initialState.editorDay,
+        editorProject: initialState.editorProject,
+      };
     default:
       return state;
   }

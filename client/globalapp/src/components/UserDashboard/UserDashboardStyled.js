@@ -3,12 +3,13 @@ import navbg from './nav-bg.jpg';
 
 const UserDashboardStyled = styled.nav`
 
-  width: 20%;
+  min-width: 20%;
   min-height: 100vh;
   background-image: url(${navbg});
   background-size: cover;
   
   .headerNav {
+    height: 50px;
     margin: auto;
     padding: 1.5rem;
     display: flex; 
@@ -30,12 +31,13 @@ const UserDashboardStyled = styled.nav`
   }
 
   .user-links {
+    height: 50px;
     display: flex;
     justify-content: center;
-    text-align: right;
-    padding: .5rem;
+    align-items: center;
     margin: 0 auto;
     border-top: 1px solid ${(props) => props.theme.colors.primaryLight};
+    border-bottom: 1px solid ${(props) => props.theme.colors.primaryLight};
     background-color: ${(props) => props.theme.colors.primary};
 
   }
@@ -58,7 +60,7 @@ const UserDashboardStyled = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin: 1rem 0rem;
+    margin: 1rem;
     
   }
 

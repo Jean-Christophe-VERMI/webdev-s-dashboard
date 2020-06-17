@@ -5,12 +5,13 @@ const EditorStyled = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 70vh;
+  height: 75vh;
+  background-color: rgba(0, 0, 0, 0.3);
 
   .logo {
     height: 200px;
-    -webkit-animation: roll-in-blurred-left 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-	  animation: roll-in-blurred-left 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    -webkit-animation: roll-in-blurred-left 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+	  animation: roll-in-blurred-left 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
   }
 
   @-webkit-keyframes roll-in-blurred-left {

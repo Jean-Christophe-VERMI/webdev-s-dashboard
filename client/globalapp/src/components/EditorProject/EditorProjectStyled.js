@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const EditorProjectStyled = styled.div`
   width: 100%;
-  height: 70vh;
+  height: 75vh;
   display: flex;
   justify-content: center;
   flex-direction: row;

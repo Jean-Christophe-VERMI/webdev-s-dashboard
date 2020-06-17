@@ -1,9 +1,9 @@
 import { 
   SAVE_PROJECTS,
   SAVE_DAYS_BY_TAGNAME,
-  ERROR_MESSAGE_DASHBOARD,
   DISPATCH_DAYS_OF_PROJECT,
   DISPATCH_ONE_PROJECT,
+  USER_HAS_NO_PROJECT,
  } from '../actions/dashboard.js';
 
  import {
@@ -21,7 +21,7 @@ const initialState = {
   daysOfProject: [],
   alldaysByTagName: [],
   errorMessageProject: '',
-  userHasNoProject : true,
+  userHasNoProject : false,
 };
 
 const dashboard = (state = initialState, action = {}) => {
@@ -30,6 +30,12 @@ const dashboard = (state = initialState, action = {}) => {
       return {
         ...state,
         allprojects: action.project,
+      };
+    case USER_HAS_NO_PROJECT:
+      return {
+        ...state,
+        userHasNoProject: true,
+        errorMessageProject: action.value,
       };
     case DISPATCH_DAYS_OF_PROJECT:
       return {
@@ -46,21 +52,17 @@ const dashboard = (state = initialState, action = {}) => {
         ...state,
         alldaysByTagName: action.day,
       };
-    case ERROR_MESSAGE_DASHBOARD:
-      return {
-        ...state,
-        errorMessageProject: action.value,
-      };
     case VALIDATION_POST_PROJECT:
       return {
         ...state,
         userHasNoProject: false,
-        errorMessageProject: '',
       };
     case LOGOUT:
       return {
         ...state,
         allprojects: initialState.allprojects,
+        userHasNoProject: initialState.userHasNoProject,
+        errorMessageProject: initialState.errorMessageProject,
       };
     default:
       return state;

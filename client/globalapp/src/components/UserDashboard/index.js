@@ -14,6 +14,7 @@ const UserDashboard = ({
   username,
   userId,
   logout,
+  clearEditor,
 }) => {
 
   useEffect(() => {
@@ -22,6 +23,10 @@ const UserDashboard = ({
 
   const handleLogout = () => {
     logout();
+  };
+
+  const handleEditor = () => {
+    clearEditor();
   };
 
   const id = userId;
@@ -41,15 +46,14 @@ const UserDashboard = ({
             </NavLink>
           </Tooltip>
         </div>
-        
         <div className="buttonNav">
-          <Button className="button" variant="contained" color="primary">
+          <Button onClic={handleEditor} className="button" variant="contained" color="primary">
             <DashboardIcon />
             <NavLink className="navlink" to={`/user/${id}/dashboard`}>
               Dashboard
             </NavLink>
           </Button>
-          <Button className="button" variant="contained" color="primary">
+          <Button onClic={handleEditor} className="button" variant="contained" color="primary">
             <SearchIcon />
             <NavLink className="navlink" to={`/user/${id}/projets`}>
               Projets
