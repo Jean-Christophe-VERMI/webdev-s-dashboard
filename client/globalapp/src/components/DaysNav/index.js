@@ -47,7 +47,7 @@ const DaysNav = ({
               onChange={handleChange}
               required
             />
-            <button className="add-day-btn" >Ajouter un jour</button>
+            <button className="add-day-btn" type="submit"> Ajouter un jour </button>
           </div>
         </form>
       </div>

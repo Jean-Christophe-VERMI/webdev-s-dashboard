@@ -68,6 +68,7 @@ const register = (state = initialState, action = {}) => {
       return {
         ...state,
         errorMessageRegister: '',
+        hasErrorRegister: false,
       };
     case CLEAR_VALIDATION:
       return {

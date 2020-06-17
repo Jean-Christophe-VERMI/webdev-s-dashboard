@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
-
 import Inscription from '../../components/Inscription';
-
 import { sendUser, modifyField, verifyCallback, clearError, clearValidation } from '../../actions/user';
 
 const mapStateToProps = (state) => ({
@@ -10,7 +8,7 @@ const mapStateToProps = (state) => ({
   password: state.registration.password,
   passwordConfirm: state.registration.passwordConfirm,
   errorMessageRegister: state.registration.errorMessageRegister,
-  hasError: state.registration.hasError,
+  hasErrorRegister: state.registration.hasErrorRegister,
   validationSignup: state.registration.validationSignup,
   validationMessageRegister: state.registration.validationMessageRegister,
   isVerified: state.registration.isVerified,

@@ -79,7 +79,7 @@ const ProjectDetailsStyled = styled.div`
   }
 
   .description {
-    min-height: 15vh;
+    min-height: 10vh;
     max-width: 60%;
   }
 
@@ -137,11 +137,11 @@ const ProjectDetailsStyled = styled.div`
     }
     
     &::-webkit-scrollbar-track {
-      background-color:  ${(props) => props.theme.colors.primary};
+      background-color:  ${(props) => props.theme.colors.primaryLight};
     }
     
     &::-webkit-scrollbar-thumb {
-      background-color: ${(props) => props.theme.colors.secondary};
+      background-color: ${(props) => props.theme.colors.primary};
       outline: 1px solid slategrey;
     }
   }

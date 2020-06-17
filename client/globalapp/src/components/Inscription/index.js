@@ -102,10 +102,11 @@ const Inscription = ({
                 inputProps={{ 'aria-label': 'primary checkbox' }}
                 required
                 color="primary"
-              />J'accepte les <Link className="footer-link" to='/mentions-legales'>termes et conditions</Link> du site webdev's dashbord.
+              />J'accepte les <Link className="footer-link" to='/mentions-legales'>termes et conditions</Link> 
+              du site webdev's dashbord.
             </p>
             <div className="msgState">
-              {hasErrorRegister && !validationSignup && (
+              {hasErrorRegister && (
                 <div className="errorMsg">{errorMessageRegister}</div>
               )}
               {validationSignup && (
