@@ -5,6 +5,8 @@ import { getUrlByProjectTitleEditer } from '../../selectors/index';
 
 import InfosProjectStyled from './InfosProject';
 
+import Techno from '../../containers/Techno';
+
 const InfosProject = ({ 
   data,
   editorProject, 
@@ -13,6 +15,8 @@ const InfosProject = ({
   validationMessageEditProject,
   clearValidationProject,
 }) => {
+
+  console.log(data);
 
   /*
   if(validationEditProject === true ) {
@@ -34,9 +38,9 @@ const InfosProject = ({
           </div>
         </div>
         <div className="technos">
-          <div className="techno">Techno 1</div>
-          <div className="techno">Techno 2</div>
-          <div className="techno">Techno 3</div>
+        {data.technos.map((techno) => (
+              <Techno key={techno.id} {...techno} />
+            ))}
         </div>
       </section>
       <section className="bottom-infos-project">
