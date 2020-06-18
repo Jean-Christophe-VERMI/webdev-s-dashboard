@@ -40,7 +40,7 @@ const InfosProject = ({
         <div className="technos">
         {data.technos.map((techno) => (
               <Techno key={techno.id} {...techno} />
-            ))}
+        ))}
         </div>
       </section>
       <section className="bottom-infos-project">

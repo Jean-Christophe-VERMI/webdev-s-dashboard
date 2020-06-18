@@ -6,35 +6,44 @@ const ProjectStyled = styled.div`
   margin: 1rem auto;
 
   .content{
-  background-color: ${(props) => props.theme.colors.primary};
-  display: flex;
-  flex-direction: column;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  border: 1px solid ${(props) => props.theme.colors.primaryDark};
-    
-    &:hover {
-      -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-	    animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-    }
+    background-color: ${(props) => props.theme.colors.primary};
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px 0px 8px 0px;
+    margin-bottom: 1rem;
+    border: 1px solid ${(props) => props.theme.colors.primary};
+      
+      &:hover {
+        -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+        animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+      }
   }
 
   .header-content {
-  padding: .5rem;
-  border-radius: 4px 4px 0px 0px;
-  text-align: center;
-  background-color: ${(props) => props.theme.colors.quaternary};
-  text-transform: uppercase;
+    padding: .5rem;
+    border-radius: 8px 0px 0px 0px;
+    text-align: center;
+    background-color: ${(props) => props.theme.colors.quaternary};
+    text-transform: uppercase;
 
-    a {
-      text-decoration: none;
-      font-weight: bold;
-      color :  ${(props) => props.theme.colors.primaryLight};
-    }
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        color :  ${(props) => props.theme.colors.primaryLight};
+        font-size: 1.2rem;
+      }
 
   }
 
+  .technos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .2rem;
+  }
+
   .description {
+    background-color: ${(props) => props.theme.colors.primaryLight};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,6 +52,7 @@ const ProjectStyled = styled.div`
 
     p {
       text-align: center;
+      margin: 0;
     }
   }
 
@@ -55,7 +65,7 @@ const ProjectStyled = styled.div`
     margin: 0px;
     font-size: .8rem;
     text-align: right;
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 8px 0px;
 
     .categorie {
       text-transform: uppercase;

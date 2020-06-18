@@ -10,7 +10,7 @@ const DayStyled = styled.div`
   .content-day{
     background-color: ${(props) => props.theme.colors.quaternary};
     border: 1px solid ${(props) => props.theme.colors.primary};
-    border-radius: 4px;
+    border-radius: 8px 0px 8px 0px;
     display: flex;
     flex-direction: column;
 
@@ -50,7 +50,7 @@ const DayStyled = styled.div`
       height: 3rem;
       text-align: center;
       background-color: rgba(239, 247, 246, 0.7);
-      border-radius: 0px 0px 4px 4px;
+      border-radius: 0px 0px 8px 0px;
       display: flex;
       flex-direction: row;
       align-items: center;

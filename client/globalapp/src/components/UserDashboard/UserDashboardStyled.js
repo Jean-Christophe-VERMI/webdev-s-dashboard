@@ -91,7 +91,6 @@ const UserDashboardStyled = styled.nav`
     padding: 1rem;
     width: 75%;
     background-color: ${(props) => props.theme.colors.primary};
-    border-radius: 4px;
   }
 
 

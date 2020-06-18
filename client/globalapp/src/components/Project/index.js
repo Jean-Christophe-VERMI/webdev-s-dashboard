@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import { getUrlByProjectTitle } from '../../selectors/index';
 
+import Techno from '../../containers/Techno';
+
 import ProjectStyled from './ProjectStyled';
 
 const Project = ({ 
@@ -15,6 +17,7 @@ const Project = ({
   date, 
   dispatchCurrentProjectId,
   dispatchCurrentProjectTitle,
+  technos
 }) => {
   
   const dateFormat = Moment(date).locale('fr').format("dddd, Do MMMM YYYY");
@@ -33,6 +36,11 @@ const Project = ({
           >
             {title}
           </Link>
+          <div className="technos" >
+            {technos.map((techno) => (
+              <Techno key={techno.id} {...techno} />
+            ))}
+          </div>
         </div>
         <div className="description">
           <p>{description}</p>
