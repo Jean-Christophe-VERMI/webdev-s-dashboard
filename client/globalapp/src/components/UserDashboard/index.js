@@ -47,13 +47,13 @@ const UserDashboard = ({
           </Tooltip>
         </div>
         <div className="buttonNav">
-          <Button onClic={handleEditor} className="button" variant="contained" color="primary">
+          <Button onClick={handleEditor} className="button" variant="contained" color="primary">
             <DashboardIcon />
             <NavLink className="navlink" to={`/user/${id}/dashboard`}>
               Dashboard
             </NavLink>
           </Button>
-          <Button onClic={handleEditor} className="button" variant="contained" color="primary">
+          <Button onClick={handleEditor} className="button" variant="contained" color="primary">
             <SearchIcon />
             <NavLink className="navlink" to={`/user/${id}/projets`}>
               Projets

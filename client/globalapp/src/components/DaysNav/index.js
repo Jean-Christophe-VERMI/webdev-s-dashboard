@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 
@@ -14,6 +14,13 @@ const DaysNav = ({
   validationMessagePostDay,
   clearValidationDay,
 }) => {
+
+  
+  const daysElements = useRef(null);
+  useEffect(() => {
+    daysElements.current.scrollTo(0, 0);
+  }, []);
+  
 
   if(validationPostDay) {
     setTimeout(() => {
@@ -34,7 +41,7 @@ const DaysNav = ({
   };
 
   return (
-    <DaysNavStyled>
+    <DaysNavStyled >
       <div className="header-section-days">
         <form className="fieldForm" onSubmit={handleSubmit}>
           <div className="addNewDay">
@@ -56,7 +63,7 @@ const DaysNav = ({
           {validationMessagePostDay}
         </div>
       )}
-      <div className="jours">
+      <div className="jours" ref={daysElements}>
         {data.sort(
           (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
         ).map((day) => (
