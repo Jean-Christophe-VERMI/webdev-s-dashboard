@@ -17,8 +17,8 @@ const LoginStyled = styled.section`
     height: 90vh;
   }
 
-  @media screen and (orientation:landscape) {
-    margin: 1rem;
+  @media screen and (max-width:640px) and (orientation:landscape) {
+    padding: 1rem;
     width: 80%;
     height: auto;
   }
@@ -41,9 +41,11 @@ const LoginStyled = styled.section`
       width: 95%;
     }
 
-    @media screen and (orientation:landscape) {
+    @media screen and (max-width:640px) and (orientation:landscape) {
       width: 95%;
     }
+
+    
 
 
     .headerForm {

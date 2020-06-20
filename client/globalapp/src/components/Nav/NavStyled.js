@@ -24,7 +24,7 @@ const NavStyled = styled.nav`
     
   }
 
-  @media screen and (orientation:landscape) {
+  @media screen and (max-width:640px) and (orientation:landscape) {
     position : sticky;
     top: 0;
     height: 100vh;
@@ -55,7 +55,7 @@ const NavStyled = styled.nav`
       margin: .2rem;
     }
 
-    @media screen and (orientation:landscape) {
+    @media screen and (max-width:640px) and (orientation:landscape) {
       height: 105px;
     }
 
@@ -95,7 +95,7 @@ const NavStyled = styled.nav`
       margin: .2rem;
     }
 
-    @media screen and (orientation:landscape) {
+    @media screen and (max-width:640px) and (orientation:landscape) {
       margin: .2rem;
     }
 
