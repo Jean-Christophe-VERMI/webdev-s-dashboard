@@ -11,9 +11,9 @@ const HomePageStyled = styled.div`
   justify-content: center;
 
   @media screen and (max-width:360px) {
-  padding-top: 5rem;
-  width: 100%;
-  height: 90vh;
+    padding-top: 4rem;
+    width: 100%;
+    height: 90vh;
   }
 
   @media screen and (orientation:landscape) {

@@ -17,6 +17,12 @@ const LoginStyled = styled.section`
     height: 90vh;
   }
 
+  @media screen and (orientation:landscape) {
+    margin: 1rem;
+    width: 80%;
+    height: auto;
+  }
+
   .site-name {
     color: ${(props) => props.theme.colors.primaryLight};
   }
@@ -32,6 +38,10 @@ const LoginStyled = styled.section`
     border: 1px solid ${(props) => props.theme.colors.primaryLight};
 
     @media screen and (max-width:360px) {
+      width: 95%;
+    }
+
+    @media screen and (orientation:landscape) {
       width: 95%;
     }
 

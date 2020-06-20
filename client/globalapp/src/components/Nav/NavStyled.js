@@ -13,15 +13,15 @@ const NavStyled = styled.nav`
 
 
   @media screen and (max-width:360px) {
-    position : absolute;
-    top: 0;
+    position: fixed;
+    z-index: 10;
     width: 100%;
-    height: 10vh;
+    height: 12vh;
     display: flex;
     flex-direction: row;
     flex-warp: nowrap;
     justify-content: space-around;
-    background: none;
+    
   }
 
   @media screen and (orientation:landscape) {
@@ -51,7 +51,7 @@ const NavStyled = styled.nav`
       position: absolute;
       top: -5px;
       left: 5px;
-      height: 105px;
+      height: 88px;
       margin: .2rem;
     }
 
