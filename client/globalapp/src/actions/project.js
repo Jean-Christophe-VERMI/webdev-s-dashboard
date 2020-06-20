@@ -7,6 +7,7 @@ export const VALIDATION_POST_PROJECT = 'VALIDATION_POST_PROJECT';
 export const VALIDATION_EDIT_PROJECT = 'VALIDATION_EDIT_PROJECT';
 export const CLEAR_ERROR_PROJECT = 'CLEAR_ERROR_PROJECT';
 export const CLEAR_VALIDATION_PROJECT = 'CLEAR_VALIDATION_PROJECT';
+export const CLEAR_VALIDATION_EDIT_PROJECT = 'CLEAR_VALIDATION_EDIT_PROJECT';
 export const DISPATCH_CURRENT_PROJECT_ID = 'DISPATCH_CURRENT_PROJECT_ID';
 export const DISPATCH_CURRENT_PROJECT_TITLE = 'DISPATCH_CURRENT_PROJECT_TITLE';
 export const EDITOR_PROJECT = 'EDITOR_PROJECT';
@@ -44,9 +45,8 @@ export const clearErrorProject = (value) => ({
   value,
 });
 
-export const clearValidationProject = (project) => ({
+export const clearValidationProject = () => ({
   type: CLEAR_VALIDATION_PROJECT,
-  project,
 });
 
 export const validationPostProject = () => ({
@@ -55,6 +55,10 @@ export const validationPostProject = () => ({
 
 export const validationEditProject = () => ({
   type: VALIDATION_EDIT_PROJECT,
+});
+
+export const clearValidationEditProject = () => ({
+  type: CLEAR_VALIDATION_EDIT_PROJECT,
 });
 
 export const editorProject = () => ({

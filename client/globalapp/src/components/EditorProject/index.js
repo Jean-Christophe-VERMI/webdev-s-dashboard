@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect } from "react-router-dom";
 import { getUrlByProjectTitle } from '../../selectors/index';
 
@@ -23,10 +23,8 @@ const EditorProject = ({
   validationEditProject,
   hasErrorPostProject,
   errorMessagePostProject,
-  validationMessageEditProject,
   clearErrorProject,
-  clearValidationProject,
-  newTitleURL,
+  clearValidationEditProject,
   dispatchNewTitleURL,
   redirectAction,
   isRedirect,
@@ -34,6 +32,13 @@ const EditorProject = ({
   emptyFieldTitle,
   isEmptyFieldTitle,
  }) => {
+
+  useEffect(() => {
+    if(validationEditProject === true){
+      clearValidationEditProject();
+      window.location.reload();
+    }
+  }, [validationEditProject]);
  
   const useStyles = makeStyles((theme) => ({
     button: {
@@ -55,8 +60,6 @@ const EditorProject = ({
 
   catégorie_état = etat;
   console.log(catégorie_état);
-
-  //title = currentProjectTitle;
   
   const [openCategorie, setOpenCategorie] = React.useState(false);
   const [openEtat, setOpenEtat] = React.useState(false);
@@ -110,12 +113,6 @@ const EditorProject = ({
       notEmptyFieldTitle();
     }
   };
-
-  const refreshPage = () => {
-    setTimeout(() => {
-      window.location.reload(false)
-    }, 50);
-  }
   
   const handleChange = (event) => {
     onChange(event.target.value, event.target.name);
@@ -126,7 +123,6 @@ const EditorProject = ({
       clearErrorProject();
     }, 8000);
   };
-  
 
   return (
     <EditorProjectStyled>
@@ -209,7 +205,6 @@ const EditorProject = ({
             variant="contained" 
             color="primary"
             type="submit"
-            onClick={refreshPage}
             >
               Enregistrer
           </Button>

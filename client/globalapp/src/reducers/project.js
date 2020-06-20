@@ -9,6 +9,7 @@ import {
   VALIDATION_EDIT_PROJECT,
   CLEAR_ERROR_PROJECT,
   CLEAR_VALIDATION_PROJECT,
+  CLEAR_VALIDATION_EDIT_PROJECT,
   DISPATCH_CURRENT_PROJECT_ID,
   DISPATCH_CURRENT_PROJECT_TITLE,
   DISPATCH_NEW_TITLE_URL,
@@ -68,6 +69,7 @@ const project = (state = initialState, action = {}) => {
         title: '',
         description: '',
         catégorie_type: '',
+        catégorie_état: '',
         validationEditProject: true,
       };
     case DISPATCH_CURRENT_PROJECT_ID:
@@ -100,7 +102,13 @@ const project = (state = initialState, action = {}) => {
       return {
         ...state,
         validationMessagePostProject: '',
+        validationPostProject: false,
+      };
+    case CLEAR_VALIDATION_EDIT_PROJECT:
+      return {
+        ...state,
         validationMessageEditProject: '',
+        validationEditProject: false,
       };
     default:
     return state;
