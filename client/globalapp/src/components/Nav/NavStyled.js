@@ -11,6 +11,7 @@ const NavStyled = styled.nav`
   background-image: url(${navbg});
   background-size: cover;
 
+
   @media screen and (max-width:360px) {
     position : absolute;
     top: 0;
@@ -22,6 +23,13 @@ const NavStyled = styled.nav`
     justify-content: space-around;
     background: none;
   }
+
+  @media screen and (orientation:landscape) {
+    position : sticky;
+    top: 0;
+    height: 100vh;
+  }
+
   
   .logoNav {
     margin: 0 auto;
@@ -32,10 +40,11 @@ const NavStyled = styled.nav`
       justify-content: center;
       
     }
+
   }
 
   .logo{
-    height: 120px;
+    height: 160px;
     margin: 1.5rem;
 
     @media screen and (max-width:360px) {
@@ -44,6 +53,10 @@ const NavStyled = styled.nav`
       left: 5px;
       height: 105px;
       margin: .2rem;
+    }
+
+    @media screen and (orientation:landscape) {
+      height: 105px;
     }
 
   }
@@ -57,6 +70,7 @@ const NavStyled = styled.nav`
       display: flex;
       flex-direction: row;
       justify-content: center;
+      
     }
   }
 
@@ -68,11 +82,20 @@ const NavStyled = styled.nav`
     &:hover {
       background-color: ${(props) => props.theme.colors.secondary};
     }
+
+    a:active {
+      background-color: ${(props) => props.theme.colors.secondary};
+    }
+    
     
   }
 
   .MuiButtonBase-root.MuiButton-root.MuiButton-contained {
     @media screen and (max-width:360px) {
+      margin: .2rem;
+    }
+
+    @media screen and (orientation:landscape) {
       margin: .2rem;
     }
 
@@ -82,7 +105,10 @@ const NavStyled = styled.nav`
     text-decoration: none;
     color: ${(props) => props.theme.colors.primaryLight};
     font-family: ${(props) => props.theme.fonts.default};
+
   }
+
+  
 
 `;
 

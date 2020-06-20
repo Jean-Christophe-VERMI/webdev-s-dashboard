@@ -15,6 +15,12 @@ const HomePageStyled = styled.div`
   width: 100%;
   height: 90vh;
   }
+
+  @media screen and (orientation:landscape) {
+    margin: 1rem;
+    width: 80%;
+    height: auto;
+  }
   
 
 .header {
@@ -27,6 +33,7 @@ const HomePageStyled = styled.div`
     text-align: center;
     
   }
+
 
 }
 
@@ -49,6 +56,10 @@ const HomePageStyled = styled.div`
   @media screen and (max-width:360px) {
     padding: 0rem 1rem;
     
+  }
+
+  @media screen and (orientation:landscape) {
+    height: auto;
   }
 }
 
