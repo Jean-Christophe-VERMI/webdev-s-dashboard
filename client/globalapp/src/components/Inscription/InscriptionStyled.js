@@ -11,6 +11,12 @@ const InscriptionStyled = styled.section`
   background: rgb(65,199,209);
   background: linear-gradient(0deg, rgba(65,199,209,1) 0%, rgba(66,82,130,1) 100%);
 
+  @media screen and (max-width:360px) {
+    padding-top: 5rem;
+    width: 100%;
+    height: 90vh;
+  }
+
   .site-name {
     color: ${(props) => props.theme.colors.primaryLight};
   }
@@ -24,6 +30,10 @@ const InscriptionStyled = styled.section`
     border-radius: 5px;
     background-color: ${(props) => props.theme.colors.primaryLight};
     border: 1px solid ${(props) => props.theme.colors.primaryLight};
+
+    @media screen and (max-width:360px) {
+      width: 95%;
+    }
 
 
     .headerForm {
