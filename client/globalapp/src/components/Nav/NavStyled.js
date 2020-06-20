@@ -10,17 +10,40 @@ const NavStyled = styled.nav`
   justify-content: center;
   background-image: url(${navbg});
   background-size: cover;
+
+  @media screen and (max-width:360px) {
+    position : absolute;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    flex-warp: nowrap;
+    justify-content: space-around;
+    background: none;
+  }
   
   .logoNav {
     margin: 0 auto;
+
+    @media screen and (max-width:360px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
   }
 
   .logo{
     height: 120px;
     margin: 1.5rem;
 
-    &:hover {
-      
+    @media screen and (max-width:360px) {
+      position: absolute;
+      top: -5px;
+      left: 5px;
+      height: 105px;
+      margin: .2rem;
     }
 
   }
@@ -29,6 +52,12 @@ const NavStyled = styled.nav`
     display: flex;
     flex-direction: column;
     margin: 1rem;
+
+    @media screen and (max-width:360px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
   }
 
   .button {
@@ -40,6 +69,13 @@ const NavStyled = styled.nav`
       background-color: ${(props) => props.theme.colors.secondary};
     }
     
+  }
+
+  .MuiButtonBase-root.MuiButton-root.MuiButton-contained {
+    @media screen and (max-width:360px) {
+      margin: .2rem;
+    }
+
   }
 
   .navlink {

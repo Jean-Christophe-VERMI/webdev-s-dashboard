@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 
 
 import NavStyled from './NavStyled';
-import logo from './logo.png';
+import logo from './logo2.png';
 
 const Nav = () => (
 

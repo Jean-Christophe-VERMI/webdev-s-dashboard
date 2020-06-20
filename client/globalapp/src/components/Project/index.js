@@ -42,13 +42,11 @@ const Project = ({
             ))}
           </div>
         </div>
-        <div className="description">
-          <p>{description}</p>
+        <div className="cat-date">
+            <p className="categorie">{catégorie_type}</p>
+            <p>Crée le : {dateFormat}</p> 
         </div>
-        <div className="footer-content">
-          <p className="categorie">{catégorie_type}</p>
-          <p>Crée le : {dateFormat}</p> 
-        </div>
+        <div className="description">{description}</div>
       </div>
     </ProjectStyled>
   );

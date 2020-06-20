@@ -53,7 +53,7 @@ const ProjectDashboardStyled = styled.section`
     .stats-title {
       border-radius: 4px 4px 0px 0px;
       padding: 1rem;
-      background-color: ${(props) => props.theme.colors.quaternary};
+      background-color: ${(props) => props.theme.colors.primary};
       color: ${(props) => props.theme.colors.primaryLight};
       margin: 0;
       text-transform: uppercase;
@@ -73,7 +73,7 @@ const ProjectDashboardStyled = styled.section`
     .tag-title {
       border-radius: 4px 4px 0px 0px;
       padding: 1rem;
-      background-color: ${(props) => props.theme.colors.quaternary};
+      background-color: ${(props) => props.theme.colors.primary};
       color: ${(props) => props.theme.colors.primaryLight};
       margin: 0;
       text-transform: uppercase;
@@ -97,7 +97,7 @@ const ProjectDashboardStyled = styled.section`
     .finish-project-tittle {
       border-radius: 4px 4px 0px 0px;
       padding: 1rem;
-      background-color: ${(props) => props.theme.colors.quaternary};
+      background-color: ${(props) => props.theme.colors.primary};
       color: ${(props) => props.theme.colors.primaryLight};
       margin: 0;
       text-transform: uppercase;

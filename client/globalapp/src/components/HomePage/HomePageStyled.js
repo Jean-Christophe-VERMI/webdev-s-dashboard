@@ -9,12 +9,25 @@ const HomePageStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media screen and (max-width:360px) {
+  padding-top: 5rem;
+  width: 100%;
+  height: 90vh;
+  }
   
 
 .header {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+
+  @media screen and (max-width:360px) {
+    margin: 0 auto;
+    text-align: center;
+    
+  }
+
 }
 
 .title-home {
@@ -24,6 +37,7 @@ const HomePageStyled = styled.div`
   border-bottom: 3px solid ${(props) => props.theme.colors.primaryLight};
   margin: 0;
   padding-bottom: .5rem;
+
 }
 
 .content {
@@ -31,6 +45,11 @@ const HomePageStyled = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+
+  @media screen and (max-width:360px) {
+    padding: 0rem 1rem;
+    
+  }
 }
 
 .left-content {
@@ -42,6 +61,10 @@ const HomePageStyled = styled.div`
   align-items: flex-end;
   padding-right: .8rem;
   padding-top: 4rem;
+
+  @media screen and (max-width:360px) {
+    font-size: .7rem;
+  }
 }
 
 .right-content {
@@ -53,6 +76,10 @@ const HomePageStyled = styled.div`
   align-items: flex-start;
   padding-left: .8rem;
   padding-top: 8rem;
+
+  @media screen and (max-width:360px) {
+    font-size: .7rem;
+  }
 }
 
 .arrow_box1 {
@@ -264,6 +291,9 @@ const HomePageStyled = styled.div`
     opacity: 1;
   }
 }
+
+
+
 
 
 `;
