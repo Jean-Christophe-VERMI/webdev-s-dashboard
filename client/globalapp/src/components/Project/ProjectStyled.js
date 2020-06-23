@@ -52,6 +52,7 @@ const ProjectStyled = styled.div`
     align-items: center;
     min-height: 10vh;
     padding: .5rem;
+    font-size: 0.8rem;
 
     p {
       margin: 0;

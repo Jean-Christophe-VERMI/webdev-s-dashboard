@@ -19,7 +19,7 @@ const UserDashboard = ({
 
   useEffect(() => {
     fetchAllProjects();
-  }, []);
+  });
 
   const handleLogout = () => {
     logout();

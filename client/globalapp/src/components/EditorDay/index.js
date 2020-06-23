@@ -27,7 +27,6 @@ const EditorDay = ({
   validationEditDay,
   clearValidationEditDay,
   code,
-  validationMessageEditDay
 }) => {
 
   const [oneDay, setDays] = useState(null);

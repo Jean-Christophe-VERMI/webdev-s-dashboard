@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 // import useKeypress from "../../hooks/useKeypress";
 // import useOnClickOutside from "../../hooks/useOnClickOutside";
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import DOMPurify from "dompurify";
+// import DOMPurify from "dompurify";
 
 import InlineEditStyled from "./InlineEditStyled";
 

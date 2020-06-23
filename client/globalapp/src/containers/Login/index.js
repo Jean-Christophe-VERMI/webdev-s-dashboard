@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
   userId: state.auth.userId,
   email: state.auth.email,
   password: state.auth.password,
-  hasError: state.auth.hasError,
+  hasErrorAuth: state.auth.hasErrorAuth,
   errorMessageLogin: state.auth.errorMessageLogin,
   validationAuth: state.auth.validationAuth,
   validationMessageLogin: state.auth.validationMessageLogin,

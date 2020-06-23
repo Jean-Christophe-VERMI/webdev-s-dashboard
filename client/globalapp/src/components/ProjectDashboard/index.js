@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 // Components 
 // import SearchProjectBar from '../SearchProjectBar';
 
@@ -13,7 +13,7 @@ import ProjectDashboardStyled from './ProjectDashbardStyled';
 
 const ProjectDashboard = (isLogged, userHasNoProject, userId) => {
   
-  const id = userId;
+  // const id = userId;
 
   return (
   

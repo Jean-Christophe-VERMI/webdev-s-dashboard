@@ -38,7 +38,7 @@ const App = ({ fetchAllProjects, isLogged, allprojects, currentProject }) => {
               <Route exact path='/verification-email' component={VerifEmail} />
               <Route exact path='/user/:userId/dashboard' component={ProjectDashboard} />
               <Route exact path='/user/:userId/projets' component={ProjectList} />
-              <Route exact path='/user/:userId/projets/nouveau-projet' component={NewProject} />
+              <Route exact path='/user/projets/nouveau-projet' component={NewProject} />
               <Route exact path='/projets/:projetTitle' component={ProjectDetails} />
               <Route exact path='/projets/:projetTitle/editer-projet' component={ProjectDetails} />
               <Route exact path='/projets/:projetTitle/editer-jour/:dayId' component={ProjectDetails} />

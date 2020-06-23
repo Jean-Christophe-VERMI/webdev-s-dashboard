@@ -1,6 +1,7 @@
 import React from 'react';
+import { Redirect } from "react-router-dom";
 // import { Link } from 'react-router-dom';
-
+// import { getUrlByProjectTitle } from '../../selectors/index';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,7 +27,7 @@ const NewProject = ({
   clearValidationProject,
 }) => {
 
-  
+  console.log(userId);
   const useStyles = makeStyles((theme) => ({
     button: {
       display: 'block',
@@ -62,6 +63,7 @@ const NewProject = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     sendProject();
+    window.location.reload();
   };
 
   const handleChange = (event) => {
@@ -74,13 +76,12 @@ const NewProject = ({
     }, 8000);
   }
   
-  
   if(validationPostProject) {
     setTimeout(() => {
       clearValidationProject();
     }, 8000);
+    return <Redirect to={`/user/${userId}/projets`} />;
   }
-  
 
   return (
   <NewProjectStyled>

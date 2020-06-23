@@ -60,7 +60,7 @@ const ProjectListStyled = styled.main`
     margin: 1rem;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row-reverse;
+    
   }
 
   .errorMsg {
