@@ -45,6 +45,7 @@ const HomePage = () => (
       </div>
 
       <CookieConsent 
+        expires={0}
         buttonText="J'accepte"
         style={{ background: "rgba(43, 55, 59, 0.8)" }}
         buttonStyle={{ background: "#4c96d7", color: "#ffffff", fontSize: "14px" }} 

@@ -8,10 +8,16 @@ import {
   VALIDATION_EDIT_DAY,
   CLEAR_ERROR_DAY,
   CLEAR_VALIDATION_DAY,
+  CLEAR_VALIDATION_EDIT_DAY,
   DISPATCH_CURRENT_DAY,
   ADD_NEW_DAY,
   SAVE_DATA_TEXT,
+  SAVE_DATA_CODE
 } from '../actions/day';
+
+import {
+  LOGOUT,
+} from '../actions/user.js';
 
 export const initialState = {
   project_id: '',
@@ -27,6 +33,7 @@ export const initialState = {
   validationMessageEditDay: 'Modifications enregistrés',
   hasNewDay: false,
   textFromData: '',
+  codeFromData: '',
 };
 
 const day = (state = initialState, action = {}) => {
@@ -57,6 +64,12 @@ const day = (state = initialState, action = {}) => {
         textFromData: action.value,
         text: action.value,
       };
+    case SAVE_DATA_CODE:
+      return {
+        ...state,
+        codeFromData: action.value,
+        code: action.value,
+      };
     case ERROR_MESSAGE_POST_DAY:
       return {
         ...state,
@@ -71,6 +84,7 @@ const day = (state = initialState, action = {}) => {
         return {
           ...state,
           validationEditDay: true,
+          validationMessageEditDay: initialState.validationMessageEditDay,
         };
     case DISPATCH_CURRENT_DAY:
       return {
@@ -91,6 +105,30 @@ const day = (state = initialState, action = {}) => {
       return {
         ...state,
         validationMessagePostDay: '',
+      };
+    case CLEAR_VALIDATION_EDIT_DAY:
+        return {
+          ...state,
+          validationMessageEditDay: '',
+          validationEditDay: false,
+        };
+    case LOGOUT:
+      return {
+        ...state,
+        project_id: initialState.project_id,
+        text: initialState.text,
+        code: initialState.code,
+        ref_source: initialState.ref_source,
+        currentDay: initialState.currentDay,
+        hasErrorPostDay: initialState.hasErrorPostDay,
+        errorMessagePostDay: initialState.errorMessagePostDay,
+        validationPostDay: initialState.validationPostDay,
+        validationEditDay: initialState.validationEditDay,
+        validationMessagePostDay: initialState.validationMessagePostDay,
+        validationMessageEditDay: initialState.validationMessageEditDay,
+        hasNewDay: initialState.hasNewDay,
+        textFromData: initialState.textFromData,
+        codeFromData: initialState.codeFromData,
       };
     default:
     return state;

@@ -28,6 +28,10 @@ const ProjectStyled = styled.div`
         font-weight: bold;
         color :  ${(props) => props.theme.colors.primaryLight};
 
+        &:hover {
+          color :  ${(props) => props.theme.colors.quaternary};
+        }
+
       }
 
   }

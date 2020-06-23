@@ -51,9 +51,14 @@ const EditorDayStyled = styled.div`
     width: 100%;
   }
 
+  .code-zone {
+    width: 60%;
+    background-color: ${(props) => props.theme.colors.primaryLight};
+  }
+
   .title-textField {
     text-transform: uppercase;
-    margin: 0rem 0rem 1rem;
+    margin: 2rem 0rem 1rem;
     text-align: left;
   }
 

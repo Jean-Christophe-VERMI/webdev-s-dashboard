@@ -34,7 +34,7 @@ const Day = ({
                 dispatchCurrentDay(id);
                 editorDay();
               }}
-              to={getUrlByProjectTitleEditerJour(currentProjectTitle)}
+              to={getUrlByProjectTitleEditerJour(currentProjectTitle, id)}
             >
               <div className='day-link'>{dateFormat}</div>
             </Link>

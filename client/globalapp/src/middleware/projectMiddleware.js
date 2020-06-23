@@ -168,6 +168,7 @@ const projectMiddleware = (store) => (next) => (action) => {
         url: `http://localhost:4000/projets/${projetId}/${projetTitle}/jours/${dayId}/editer`,
         data: {
           text: store.getState().day.text,
+          code: store.getState().day.code,
         },
       })
         .then((response) => {

@@ -8,10 +8,11 @@ export const VALIDATION_POST_DAY = 'VALIDATION_POST_DAY';
 export const VALIDATION_EDIT_DAY = 'VALIDATION_EDIT_DAY';
 export const CLEAR_ERROR_DAY = 'CLEAR_ERROR_DAY';
 export const CLEAR_VALIDATION_DAY = 'CLEAR_VALIDATION_DAY';
+export const CLEAR_VALIDATION_EDIT_DAY = 'CLEAR_VALIDATION_EDIT_DAY';
 export const DISPATCH_CURRENT_DAY = 'DISPATCH_CURRENT_DAY';
 export const EDITOR_DAY = 'EDITOR_DAY';
 export const SAVE_DATA_TEXT = 'SAVE_DATA_TEXT';
-
+export const SAVE_DATA_CODE = 'SAVE_DATA_CODE';
 
 export const addNewDay = () => ({
   type: ADD_NEW_DAY,
@@ -54,6 +55,10 @@ export const clearValidationDay = (day) => ({
   day,
 });
 
+export const clearValidationEditDay = () => ({
+  type: CLEAR_VALIDATION_EDIT_DAY,
+});
+
 export const validationPostDay = () => ({
   type: VALIDATION_POST_DAY,
 });
@@ -73,5 +78,10 @@ export const dispatchCurrentDay = (id) => ({
 
 export const saveDataText = (value) => ({
   type: SAVE_DATA_TEXT,
+  value,
+});
+
+export const saveDataCode = (value) => ({
+  type: SAVE_DATA_CODE,
   value,
 });

@@ -8,7 +8,7 @@ const session = require ('express-session');
 const router = require('./app/router');
 const path = require('path');
 
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const cors = require('cors');
@@ -21,9 +21,9 @@ app.use(cors('*'));
 
 app.use(session({
   proxy: true,
-  saveUninitialized: false,
+  saveUninitialized: true,
   resave: false,
-  secret: 'new secret connexion',
+  secret: 'neW_SecreTconneXion_webSite_WebDevSDashBo@rd',
   cookie: {
     secure: true
   } 
@@ -41,7 +41,7 @@ app.use(bodyParser.none());
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.static(path.join(__dirname, 'client/globalapp/build')));

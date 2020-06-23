@@ -20,8 +20,8 @@ export const getUrlByProjectTitleEditer = (title) => {
   return url;
 };
 
-export const getUrlByProjectTitleEditerJour = (title) => {
-  const url = `/projets/${getSlugByProjectTitle(title)}/editer-jour`;
+export const getUrlByProjectTitleEditerJour = (title, dayId) => {
+  const url = `/projets/${getSlugByProjectTitle(title)}/editer-jour/${dayId}`;
   return url;
 };
 

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from "react-router-dom";
 import axios from 'axios';
+import Editor from 'react-simple-code-editor';
+import { highlight, languages } from 'prismjs/components/prism-core';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
 import Moment from 'moment';
 import 'moment/locale/fr';
+import { getUrlByProjectTitleEditerJour } from '../../selectors/index';
 
 // Components
 import Loading from '../Loading';
@@ -10,19 +16,24 @@ import EditorDayStyled from './EditorDayStyled';
 // Containers
 import InlineEdit from '../../containers/InlineEdit';
 
-
 const EditorDay = ({
   editDay,
   currentDay,
   currentProjectId,
   currentProjectTitle,
   saveDataText,
-  textFromData,
-  text,
+  saveDataCode,
+  onChange,
+  validationEditDay,
+  clearValidationEditDay,
+  code,
+  validationMessageEditDay
 }) => {
 
   const [oneDay, setDays] = useState(null);
-  
+  const [codeValue, setCodeValue] = useState(null);
+
+
   useEffect(() => {
     const getOneDay = async () => {
       try {
@@ -33,6 +44,7 @@ const EditorDay = ({
         const day = response.data;
         setDays(day);
         saveDataText(day.text);
+        saveDataCode(day.code);
       } catch (error) {
         console.log(error);
       }
@@ -42,16 +54,23 @@ const EditorDay = ({
   }, [currentDay]);
 
   console.log(oneDay);
-  
+
+  useEffect(() => {
+    if(validationEditDay === true){
+      window.location.reload();
+      clearValidationEditDay();
+      return <Redirect to={getUrlByProjectTitleEditerJour(currentProjectTitle, currentDay)} />;
+    }
+  }, [validationEditDay]);
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     editDay();
   };
-  
-  const refreshPage = () => {
-    setTimeout(() => {
-      window.location.reload(false)
-    }, 500);
+
+  const handleChangeCode = (event) => {
+    onChange(event.target.value, event.target.name);
   }
   
   return (
@@ -71,7 +90,6 @@ const EditorDay = ({
               color="primary"
               type="submit"
               form="form-day"
-              onClick={refreshPage}
               >
                 Enregistrer
             </button>
@@ -81,6 +99,23 @@ const EditorDay = ({
               <h4 className="title-textField">Notes du jour</h4>
                 <div className="text-zone">
                   <InlineEdit />
+                </div>
+            </form>
+            <form id="form-day" onSubmit={handleSubmit}>
+              <h4 className="title-textField">Code du jour</h4>
+                <div className="code-zone">
+                <Editor
+                  value={code}
+                  name="code"
+                  onValueChange={code => setCodeValue({ code })}
+                  onChange={handleChangeCode}
+                  highlight={code => highlight(code, languages.js)}
+                  padding={10}
+                  style={{
+                    fontFamily: '"Fira code", "Fira Mono", monospace',
+                    fontSize: 12,
+                  }}
+                />
                 </div>
             </form>
           </div>
