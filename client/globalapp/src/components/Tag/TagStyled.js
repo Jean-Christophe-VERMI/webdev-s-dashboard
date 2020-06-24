@@ -2,16 +2,19 @@ import styled from 'styled-components';
 
 const TagStyled = styled.div`
   
+  width: 100%;
+  
   .tagname{
+    display: flex;
+    justify-content: center;
     
-    .tag {
+    .tag-link {
       text-decoration: none;
       font-style: italic;
-      display: block;
-      color: ${(props) => props.theme.colors.primaryLight};
+      color: ${(props) => props.theme.colors.secondary};
 
       &:hover {
-          font-weight: bold;
+          color:  ${(props) => props.theme.colors.quaternary};
         }
 
     }

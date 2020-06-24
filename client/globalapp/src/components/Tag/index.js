@@ -11,7 +11,7 @@ const Tag = ({ name, id, dispatchCurrentTagName, allprojects  }) => {
     <TagStyled>
       <div className='tagname'>
       <Link
-            className='tag'
+            className='tag-link'
             onClick={() => {
               dispatchCurrentTagName(name);
             }}

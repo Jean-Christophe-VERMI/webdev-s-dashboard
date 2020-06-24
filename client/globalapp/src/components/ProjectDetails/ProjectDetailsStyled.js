@@ -134,9 +134,10 @@ const ProjectDetailsStyled = styled.div`
     display: flex;
     flex-wrap: nowrap;
     height: 75vh;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    
     
     &::-webkit-scrollbar {
     width: .5em;

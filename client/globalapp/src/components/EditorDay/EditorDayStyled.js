@@ -53,7 +53,7 @@ const EditorDayStyled = styled.div`
 
   .code-zone {
     width: 60%;
-    background-color: ${(props) => props.theme.colors.primaryLight};
+    background-color: white;
   }
 
   .title-textField {

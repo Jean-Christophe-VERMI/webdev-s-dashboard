@@ -48,13 +48,12 @@ const DayStyled = styled.div`
     .tag {
       width: 100%;
       height: 3rem;
-      text-align: center;
       background-color: rgba(239, 247, 246, 0.7);
       border-radius: 0px 0px 8px 0px;
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-around;
+      justify-content: flex-end;
 
 
       p {

@@ -2,6 +2,7 @@ import React from 'react';
 import Moment from 'moment';
 import 'moment/locale/fr';
 import { Link } from 'react-router-dom';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { getUrlByProjectTitleEditerJour } from '../../selectors/index';
 // import CreateIcon from '@material-ui/icons/Create';
 // import Tooltip from '@material-ui/core/Tooltip';
@@ -40,11 +41,10 @@ const Day = ({
             </Link>
           </div>
           <div className="tag">
-            <p>x</p>
             {tags.map((tag) => (
               <Tag className="tag-link" key={tag.id} {...tag} />
             ))}
-            <p>ajouter</p>
+            <MoreVertIcon />
           </div>
       </div>
     </DayStyled>

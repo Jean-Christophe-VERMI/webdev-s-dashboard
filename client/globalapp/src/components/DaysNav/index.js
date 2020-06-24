@@ -63,7 +63,7 @@ const DaysNav = ({
       </div>
       <div className="jours" ref={daysElements}>
         {data.sort(
-          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
         ).map((day) => (
           <Day className="oneProject" key={day.id} {...day} />
         ))}
