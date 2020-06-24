@@ -79,6 +79,7 @@ const day = (state = initialState, action = {}) => {
       return {
         ...state,
         validationPostDay: true,
+        validationMessagePostDay: initialState.validationMessagePostDay,
       };
     case VALIDATION_EDIT_DAY:
         return {
@@ -105,6 +106,7 @@ const day = (state = initialState, action = {}) => {
       return {
         ...state,
         validationMessagePostDay: '',
+        validationPostDay: false,
       };
     case CLEAR_VALIDATION_EDIT_DAY:
         return {

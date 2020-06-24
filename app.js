@@ -8,7 +8,7 @@ const session = require ('express-session');
 const router = require('./app/router');
 const path = require('path');
 
-// const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const cors = require('cors');
@@ -41,7 +41,7 @@ app.use(bodyParser.none());
 
 app.use(logger('dev'));
 app.use(express.json());
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.static(path.join(__dirname, 'client/globalapp/build')));

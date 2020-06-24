@@ -24,16 +24,14 @@ const DaysNav = ({
 
   if(validationPostDay) {
     setTimeout(() => {
+      window.location.reload(false)
       clearValidationDay();
-    }, 3000);
+    }, 2000);
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     addNewDay();
-    setTimeout(() => {
-      window.location.reload(false)
-    }, 2000);
   };
 
   const handleChange = (event) => {
@@ -56,13 +54,13 @@ const DaysNav = ({
             />
             <button className="add-day-btn" type="submit"> Ajouter un jour </button>
           </div>
+          {validationPostDay && (
+            <div className="validationMsg">
+              {validationMessagePostDay}
+            </div>
+          )}
         </form>
       </div>
-      {validationPostDay && (
-        <div className="validationMsg">
-          {validationMessagePostDay}
-        </div>
-      )}
       <div className="jours" ref={daysElements}>
         {data.sort(
           (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
