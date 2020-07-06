@@ -29,13 +29,21 @@ import {
 
 const projectMiddleware = (store) => (next) => (action) => {
 
+  const token = store.getState().dashboard.userToken;
+
+  const instance = axios.create({
+    baseURL: 'http://localhost:4000/',
+    timeout: 1000,
+    headers: {'Authorization': 'Bearer '+token}
+  });
+
   switch (action.type) {
     case FETCH_ALL_PROJECTS: {
       let userId = store.getState().main.userId;
 
-      axios({
+      instance({
         method: 'get',
-        url: `http://localhost:4000/user/${userId}/projets`,
+        url: `user/${userId}/projets`,
       })
         .then((response) => {
           console.log(response.data);
