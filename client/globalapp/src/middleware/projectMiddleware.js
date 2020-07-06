@@ -63,9 +63,9 @@ const projectMiddleware = (store) => (next) => (action) => {
     case FETCH_FILTRED_PROJECTS: {
       let userId = store.getState().main.userId;
 
-      axios({
+      instance({
         method: 'get',
-        url: `http://localhost:4000/user/${userId}/projets/search`,
+        url: `user/${userId}/projets/search`,
       })
         .then((response) => {
           console.log(response.data);
@@ -80,9 +80,9 @@ const projectMiddleware = (store) => (next) => (action) => {
     case SEND_PROJECT: {
       let userId = store.getState().main.userId;
 
-      axios({
+      instance({
         method: 'post',
-        url: `http://localhost:4000/user/${userId}/projets/nouveau-projet`,
+        url: `user/${userId}/projets/nouveau-projet`,
         data: {
           title: store.getState().project.title,
           description: store.getState().project.description,
@@ -112,7 +112,7 @@ const projectMiddleware = (store) => (next) => (action) => {
     case EDIT_PROJECT: {
       let projetId = store.getState().project.currentProjectId;
 
-      axios({
+      instance({
         method: 'put',
         url: `http://localhost:4000/projets/${projetId}/editer`,
         data: {
@@ -145,7 +145,7 @@ const projectMiddleware = (store) => (next) => (action) => {
       let projetId = store.getState().project.currentProjectId;
       let projetTitle = store.getState().project.currentProjectTitle;
 
-      axios({
+      instance({
         method: 'post',
         url: `http://localhost:4000/projets/${projetId}/${projetTitle}/nouveau-jour`,
         data: {
@@ -171,7 +171,7 @@ const projectMiddleware = (store) => (next) => (action) => {
       let projetTitle = store.getState().project.currentProjectTitle;
       let dayId = store.getState().day.currentDay;
 
-      axios({
+      instance({
         method: 'put',
         url: `http://localhost:4000/projets/${projetId}/${projetTitle}/jours/${dayId}/editer`,
         data: {

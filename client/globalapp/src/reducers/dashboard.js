@@ -71,6 +71,7 @@ const dashboard = (state = initialState, action = {}) => {
         allprojects: initialState.allprojects,
         userHasNoProject: initialState.userHasNoProject,
         errorMessageProject: initialState.errorMessageProject,
+        userToken: initialState.userToken,
       };
     default:
       return state;

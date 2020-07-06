@@ -13,6 +13,7 @@ const ProjectDetails = ({
   currentProjectTitle,
   currentProjectId,
   hasNewDay,
+  userToken
 }) => {
 
   const [projet, setProjet] = useState(null);
@@ -23,7 +24,10 @@ const ProjectDetails = ({
       try {
         const projetId = currentProjectId;
         const projetTitle = currentProjectTitle;
-        const response = await axios.get(`http://localhost:4000/projets/${projetId}/${projetTitle}`);
+        const config = {
+          headers: { Authorization: `Bearer ${userToken}` }
+        };
+        const response = await axios.get(`http://localhost:4000/projets/${projetId}/${projetTitle}`, config);
         const project = await response.data;
         setProjet(project);
         setDays(project.days);

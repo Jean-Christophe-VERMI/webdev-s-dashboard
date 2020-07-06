@@ -27,6 +27,7 @@ const EditorDay = ({
   validationEditDay,
   clearValidationEditDay,
   code,
+  userToken,
 }) => {
 
   const [oneDay, setDays] = useState(null);
@@ -39,7 +40,10 @@ const EditorDay = ({
         const projetId = currentProjectId;
         const projetTitle = currentProjectTitle;
         const dayId = currentDay;
-        const response = await axios.get(`http://localhost:4000/projets/${projetId}/${projetTitle}/jours/${dayId}`);
+        const config = {
+          headers: { Authorization: `Bearer ${userToken}` }
+        };
+        const response = await axios.get(`http://localhost:4000/projets/${projetId}/${projetTitle}/jours/${dayId}`, config);
         const day = response.data;
         setDays(day);
         saveDataText(day.text);

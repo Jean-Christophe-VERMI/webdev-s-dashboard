@@ -44,8 +44,8 @@ const NavStyled = styled.nav`
   }
 
   .logo{
-    height: 160px;
-    margin: 1.5rem;
+    height: 200px;
+    
 
     @media screen and (max-width:360px) {
       position: absolute;
@@ -64,7 +64,7 @@ const NavStyled = styled.nav`
   .buttonNav {
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    margin: 3rem;
 
     @media screen and (max-width:360px) {
       display: flex;

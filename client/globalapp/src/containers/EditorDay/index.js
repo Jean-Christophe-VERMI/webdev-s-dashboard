@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
   currentProjectTitle: state.project.currentProjectTitle,
   validationEditDay: state.day.validationEditDay,
   validationMessageEditDay: state.day.validationMessageEditDay,
+  userToken: state.dashboard.userToken,
 });
 
 const mapDispatchToProps = (dispatch) => ({

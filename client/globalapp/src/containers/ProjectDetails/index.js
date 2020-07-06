@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
   currentProjectId: state.project.currentProjectId,
   currentProjectTitle: state.project.currentProjectTitle,
   hasNewDay: state.day.hasNewDay,
+  userToken: state.dashboard.userToken,
 });
 
 const mapDispatchToProps = (dispatch) => ({

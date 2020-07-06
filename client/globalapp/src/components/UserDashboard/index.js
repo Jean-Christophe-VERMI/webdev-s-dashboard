@@ -8,6 +8,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import SearchIcon from '@material-ui/icons/Search';
 
 import UserDashboardStyled from './UserDashboardStyled';
+import Logo from './logo2.png';
 
 const UserDashboard = ({
   fetchAllProjects,
@@ -34,6 +35,7 @@ const UserDashboard = ({
     <UserDashboardStyled>
       
         <div className="headerNav">
+          <img src={Logo} className="logo" alt="logo" />
           <h2>WEBDEV's DASHBOARD</h2>
         </div>
         <div className="user-links">
