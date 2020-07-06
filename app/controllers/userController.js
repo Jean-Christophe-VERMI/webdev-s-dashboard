@@ -3,6 +3,9 @@ const emailValidator = require('email-validator');
 const bcrypt = require('bcrypt');
 const randomstring = require('randomstring');
 const nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
+const config = require('../config.json');
+
 
 const userController = {
 
@@ -211,10 +214,18 @@ const userController = {
         });
       }
 
-      req.session.user = user;
-      delete req.session.user.password;
+      // req.session.user = user;
+      // delete req.session.user.password;
 
-      return res.status(200).json(user);
+      // create a jwt token that is valid for 1 days
+      const token = jwt.sign({ sub: user.id }, config.secret, { expiresIn: '1d' });
+      // console.log(token);
+      const userInfos = [{id: user.id, username: user.username, email: user.email}];
+
+      return res.status(200).json({
+        userInfos,
+        token
+      });
 
     } catch (err) {
       res.status(500).send(err);

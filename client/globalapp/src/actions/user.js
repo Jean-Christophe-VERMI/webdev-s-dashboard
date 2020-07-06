@@ -9,6 +9,7 @@ export const SEND_USER = 'SEND_USER';
 export const SEND_TOKEN = 'SEND_TOKEN';
 export const SEND_AUTH_INFOS = 'SEND_AUTH_INFOS';
 export const ADD_USER_INFOS = 'ADD_USER_INFOS';
+export const SAVE_JWT = 'SAVE_JWT';
 export const EMPTY_USER = 'EMPTY_USER';
 export const HAS_ERROR_AUTH = 'HAS_ERROR_AUTH';
 export const HAS_ERROR_REGISTER = 'HAS_ERROR_REGISTER';
@@ -89,6 +90,11 @@ export const checkIsLogged = () => ({
 export const addUserInfos = (user) => ({
   type: ADD_USER_INFOS,
   payload: user,
+});
+
+export const saveJwt = (token) => ({
+  type: SAVE_JWT,
+  token,
 });
 
 export const emptyUser = () => ({

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
@@ -24,8 +24,8 @@ import ProjectDetails from '../../containers/ProjectDetails';
 // Styles
 import AppStyled from './AppStyled';
 
-const App = ({ fetchAllProjects, isLogged, allprojects, currentProject }) => {
-  
+const App = ({ isLogged }) => {
+
   return (
     <Theme>
       <AppStyled>

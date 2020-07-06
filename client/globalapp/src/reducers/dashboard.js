@@ -12,11 +12,13 @@ import {
 
  import {
    LOGOUT,
+   SAVE_JWT,
  } from '../actions/user.js';
 
 
 const initialState = {
   allprojects: [],
+  userToken: '',
   oneProject: [],
   daysOfProject: [],
   alldaysByTagName: [],
@@ -30,6 +32,12 @@ const dashboard = (state = initialState, action = {}) => {
       return {
         ...state,
         allprojects: action.project,
+        userHasNoProject: initialState.userHasNoProject,
+      };
+    case SAVE_JWT:
+      return {
+        ...state,
+        userToken: action.token,
       };
     case USER_HAS_NO_PROJECT:
       return {

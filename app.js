@@ -2,23 +2,30 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const express = require('express');
+const app = express();
+
 
 const createError = require('http-errors');
-const session = require ('express-session');
+// const session = require ('express-session');
 const router = require('./app/router');
 const path = require('path');
 
+const jwt = require('./app/_helpers/jwt');
+const errorHandler = require('./app/_helpers/error-handler');
+
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
 const cors = require('cors');
 const multer = require('multer');
 const bodyParser = multer();
 
-const app = express();
+
 
 app.use(cors('*'));
 
+
+
+/*
 app.use(session({
   proxy: true,
   saveUninitialized: true,
@@ -28,12 +35,14 @@ app.use(session({
     secure: true
   } 
 }));
+*/
 
-const userMiddleware = require('./app/middlewares/user');
-app.use(userMiddleware);
+
+// const userMiddleware = require('./app/middlewares/user');
+// app.use(userMiddleware);
 
 app.use(express.urlencoded({
-  extended: true
+  extended: false
 }));
 
 app.use(bodyParser.none());
@@ -45,6 +54,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.static(path.join(__dirname, 'client/globalapp/build')));
+
+// use JWT auth to secure the api
+app.use(jwt());
+
+// global error handler
+app.use(errorHandler);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/globalapp/build', 'index.html'));

@@ -6,7 +6,12 @@ import {
   validationAuth,
   hasErrorAuth,
   addUserInfos,
+  saveJwt,
 } from '../actions/user';
+
+import { 
+  fetchAllProjects,
+} from '../actions/dashboard';
 
 const authMiddleware = store => next => action => {
   switch (action.type) {
@@ -21,11 +26,12 @@ const authMiddleware = store => next => action => {
       })
         .then(response => {
           console.log(response);
-
-          const user = (response.data);
+          const user = (response.data.userInfos[0]);
+          const token = (response.data.token);
           store.dispatch(addUserInfos(user));
-
+          store.dispatch(saveJwt(token));
           store.dispatch(validationAuth());
+          store.dispatch(fetchAllProjects());
         })
         .catch(error => {
           if (error.response) {
