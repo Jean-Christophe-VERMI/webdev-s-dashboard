@@ -6,7 +6,7 @@ export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const CLEAR_VALIDATION = 'CLEAR_VALIDATION';
 export const CHECK_IS_LOGGED = 'CHECK_IS_LOGGED';
 export const SEND_USER = 'SEND_USER';
-export const SEND_TOKEN = 'SEND_TOKEN';
+export const SUCCES_VERIF_EMAIL = 'SUCCES_VERIF_EMAIL';
 export const SEND_AUTH_INFOS = 'SEND_AUTH_INFOS';
 export const ADD_USER_INFOS = 'ADD_USER_INFOS';
 export const SAVE_JWT = 'SAVE_JWT';
@@ -67,10 +67,8 @@ export const sendUser = (value, key) => ({
   key,
 });
 
-export const sendToken = (value, key) => ({
-  type: SEND_TOKEN,
-  value,
-  key,
+export const succesVerifEmail = () => ({
+  type: SUCCES_VERIF_EMAIL,
 });
 
 export const sendAuthInfos = (value, key) => ({

@@ -5,6 +5,7 @@ const randomstring = require('randomstring');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const config = require('../config.json');
+const url = require('url');
 
 
 const userController = {
@@ -89,17 +90,14 @@ const userController = {
           <br/> 
           <h4>Merci pour votre inscription sur WEBDEV's DASHBOARD !<h4/>
           <br/>
-          Vous pouvez maintenant vérifier votre e-mail pour valider votre inscription. 
+          Vous pouvez maintenant cliquer sur le lien suivant pour vérifier votre e-mail et valider votre inscription. 
           <br/>
-          Veuillez copier votre code de validation : <b>${secretToken}</b> et renseigez le à l'adresse suivante :
           <a href="http://localhost:3000/verification-email?secretToken=${secretToken}">http://localhost:3000/verification-email</a>
           <br/>
-          Rappel de vos identifiants de connexion :
+          Rappel de votre identifiant de connexion :
           <br/>
           Identifiant : ${email}
-          <br/>
           
-          <br/>
           A bientôt !
           `;
   
@@ -153,7 +151,10 @@ const userController = {
 
     try {
 
-      const secretToken = req.body.secretToken;
+      const clientURL = req.body.clientURL;
+      const current_url = new URL(clientURL);
+      const search_params = current_url.searchParams;
+      const secretToken = search_params.get('secretToken');
 
       const user = await User.findOne({
         where: {
@@ -162,7 +163,7 @@ const userController = {
       });
 
       if (!user) {
-        return res.status(404).json({error: 'Code de vérification invalid. Veuillez réessayer svp.'});
+        return res.status(404).json({error: 'Erreur de confirmation e-mail. Veuillez réessayer svp.'});
       }
 
       if (user) {

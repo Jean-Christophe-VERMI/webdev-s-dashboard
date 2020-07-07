@@ -4,7 +4,6 @@ import { persistStore } from 'redux-persist';
 import rootReducer from '../reducers';
 import logMiddleware from '../middleware/logMiddleware';
 import registrationMiddleware from '../middleware/registrationMiddleware';
-import verifEmailMiddleware from '../middleware/verifEmailMiddleware';
 import authMiddleware from '../middleware/authMiddleware';
 import projectMiddleware from '../middleware/projectMiddleware';
 
@@ -16,7 +15,6 @@ const enhancers = composeEnhancers(
   applyMiddleware(
     logMiddleware,
     registrationMiddleware,
-    verifEmailMiddleware,
     authMiddleware,
     projectMiddleware,
     // secondMiddleware,

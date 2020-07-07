@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Theme from '../Theme';
 import HomePage from '../HomePage';
 import Page404 from '../Page404';
+import VerifEmail from '../VerifEmail';
 
 // Containers
 import ProtectedRoute from '../../containers/ProtectedRoute';
 import Inscription from '../../containers/Inscription';
-import VerifEmail from '../../containers/VerifEmail';
 import Login from '../../containers/Login';
 import Main from '../../containers/Main';
 import ProjectDashboard from '../../containers/ProjectDashboard';

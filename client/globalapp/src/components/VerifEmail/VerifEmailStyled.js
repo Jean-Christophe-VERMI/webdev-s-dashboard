@@ -55,13 +55,13 @@ const VerifEmailStyled = styled.section`
 
       .errorMsg {
         margin: .5rem;
-        font-size: .8rem;
+        font-size: .9rem;
         color: ${(props) => props.theme.colors.dangerDark};
       }
 
       .validationMsg {
         margin: .5rem;
-        font-size: .8rem;
+        font-size: .9rem;
         color: ${(props) => props.theme.colors.success};
       }
 

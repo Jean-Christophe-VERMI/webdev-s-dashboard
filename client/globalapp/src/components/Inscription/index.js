@@ -39,7 +39,6 @@ const Inscription = ({
       clearError();
     }, 8000);
   }
-
   
   if(validationSignup) {
     setTimeout(() => {
