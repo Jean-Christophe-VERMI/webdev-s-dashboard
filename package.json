@@ -9,6 +9,8 @@
     "@material-ui/core": "^4.9.14",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
+    "clean-css": "^4.2.3",
+    "constantinople": "^4.0.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
@@ -31,6 +33,7 @@
     "randomstring": "^1.1.5",
     "react-cookie-consent": "^4.1.0",
     "react-simple-code-editor": "^0.11.0",
-    "sequelize": "^5.21.7"
+    "sequelize": "^5.21.7",
+    "uglify-js": "^3.10.0"
   }
 }
