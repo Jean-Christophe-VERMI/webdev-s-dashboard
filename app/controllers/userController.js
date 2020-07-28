@@ -107,7 +107,7 @@ const userController = {
             secure: true, // true for 465, false for other ports 587
             auth: {
                 user: 'contact@webdevsdashbord.com', // generated ethereal user
-                pass: 'VerifYM@il888'  // generated ethereal password
+                pass: '**********'  // generated ethereal password
             },
             tls:{
             rejectUnauthorized:false
