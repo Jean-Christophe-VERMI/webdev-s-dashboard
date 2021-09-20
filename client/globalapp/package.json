@@ -14,7 +14,7 @@
     "codemirror": "^5.54.0",
     "dompurify": "^2.0.17",
     "moment": "^2.26.0",
-    "prismjs": "^1.21.0",
+    "prismjs": "^1.25.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-codemirror2": "^7.2.1",
